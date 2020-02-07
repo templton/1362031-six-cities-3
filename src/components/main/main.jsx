@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import AppartmentCard from "../appartment-card/appartment-card.jsx";
 
-const Main = ({offers}) => {
+const Main = ({offers, onAppartmentCardClick}) => {
   return (
     <main className="page__main page__main--index">
       <h1 className="visually-hidden">Cities</h1>
@@ -62,7 +62,7 @@ const Main = ({offers}) => {
                 <li className="places__option" tabIndex="0">Top rated first</li>
               </ul>
             </form>
-            <div className="cities__places-list places__list tabs__content">
+            <div className="cities__places-list places__list tabs__content" onClick={onAppartmentCardClick}>
               {offers.map((it) => <AppartmentCard key={it.id} info={it}/>)}
             </div>
           </section>
@@ -81,7 +81,8 @@ Main.propTypes = {
         id: PropTypes.number.isRequired,
         name: PropTypes.string.isRequired
       })
-  )
+  ),
+  onAppartmentCardClick: PropTypes.func.isRequired
 };
 
 export default Main;

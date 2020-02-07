@@ -10,7 +10,7 @@ const offers = [
 
 it(`Render Main`, () => {
   const tree = renderer
-    .create(<Main offers={offers}/>).toJSON();
+    .create(<Main offers={offers} onAppartmentCardClick={()=>{}}/>).toJSON();
 
   expect(tree).toMatchSnapshot();
 });
