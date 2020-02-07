@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 const Article = ({info}) => {
   return (
@@ -37,3 +38,10 @@ const Article = ({info}) => {
 };
 
 export default Article;
+
+Article.propTypes = {
+  info: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    name: PropTypes.string.isRequired
+  })
+};

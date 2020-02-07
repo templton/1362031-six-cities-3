@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import Article from "../article/article.jsx";
 
 const Main = ({offers}) => {
@@ -63,7 +64,7 @@ const Main = ({offers}) => {
             </form>
             <div className="cities__places-list places__list tabs__content">
               {
-                offers.map( (it, i) => <Article key={i+it.id} info={it}/> )
+                offers.map((it, i) => <Article key={i + it.id} info={it}/>)
               }
             </div>
           </section>
@@ -77,3 +78,12 @@ const Main = ({offers}) => {
 };
 
 export default Main;
+
+Main.propTypes = {
+  offers: PropTypes.arrayOf(
+      PropTypes.shape({
+        id: PropTypes.number.isRequired,
+        name: PropTypes.string.isRequired
+      })
+  )
+};
