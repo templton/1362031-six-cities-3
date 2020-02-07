@@ -1,6 +1,6 @@
 import React from "react";
 import renderer from "react-test-renderer";
-import Article from "./article.jsx";
+import Article from "./appartment-card.jsx";
 
 const info = {
   id: 1,

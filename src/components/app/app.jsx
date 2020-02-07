@@ -13,8 +13,6 @@ const App = ({offers}) => {
   );
 };
 
-export default App;
-
 App.propTypes = {
   offers: PropTypes.arrayOf(
       PropTypes.shape({
@@ -23,3 +21,5 @@ App.propTypes = {
       })
   )
 };
+
+export default App;

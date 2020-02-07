@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import Article from "../article/article.jsx";
+import AppartmentCard from "../appartment-card/appartment-card.jsx";
 
 const Main = ({offers}) => {
   return (
@@ -63,9 +63,7 @@ const Main = ({offers}) => {
               </ul>
             </form>
             <div className="cities__places-list places__list tabs__content">
-              {
-                offers.map((it, i) => <Article key={i + it.id} info={it}/>)
-              }
+              {offers.map((it) => <AppartmentCard key={it.id} info={it}/>)}
             </div>
           </section>
           <div className="cities__right-section">
@@ -77,8 +75,6 @@ const Main = ({offers}) => {
   );
 };
 
-export default Main;
-
 Main.propTypes = {
   offers: PropTypes.arrayOf(
       PropTypes.shape({
@@ -87,3 +83,5 @@ Main.propTypes = {
       })
   )
 };
+
+export default Main;
