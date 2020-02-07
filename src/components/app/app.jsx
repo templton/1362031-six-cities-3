@@ -1,12 +1,14 @@
 import React from "react";
+import Header from "../header/header.jsx";
 import Main from "../main/main.jsx";
 
-const App = (props) => {
-  // eslint-disable-next-line react/prop-types
-  const {surname} = props;
+const App = () => {
 
   return (
-    <Main surname={surname}/>
+    <div className="page page--gray page--main">
+      <Header/>
+      <Main/>
+    </div>
   );
 };
 
