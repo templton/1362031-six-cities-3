@@ -1,13 +1,25 @@
 import React from "react";
+import PropTypes from "prop-types";
+import Header from "../header/header.jsx";
 import Main from "../main/main.jsx";
 
-const App = (props) => {
-  // eslint-disable-next-line react/prop-types
-  const {surname} = props;
+const App = ({offers}) => {
 
   return (
-    <Main surname={surname}/>
+    <div className="page page--gray page--main">
+      <Header/>
+      <Main offers={offers}/>
+    </div>
   );
 };
 
 export default App;
+
+App.propTypes = {
+  offers: PropTypes.arrayOf(
+      PropTypes.shape({
+        id: PropTypes.number.isRequired,
+        name: PropTypes.string.isRequired
+      })
+  )
+};
