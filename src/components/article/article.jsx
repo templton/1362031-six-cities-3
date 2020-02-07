@@ -1,6 +1,6 @@
 import React from "react";
 
-const Article = () => {
+const Article = ({info}) => {
   return (
     <article className="cities__place-card place-card">
       <div className="cities__image-wrapper place-card__image-wrapper">
@@ -28,7 +28,7 @@ const Article = () => {
           </div>
         </div>
         <h2 className="place-card__name">
-          <a href="#">Wood and stone place</a>
+          <a href="#">{info.name}</a>
         </h2>
         <p className="place-card__type">Private room</p>
       </div>
