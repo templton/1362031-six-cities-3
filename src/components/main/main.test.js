@@ -8,9 +8,18 @@ const offers = [
   {id: 3, name: `three`}
 ];
 
-it(`Render Main`, () => {
-  const tree = renderer
-    .create(<Main offers={offers} onAppartmentCardClick={()=>{}}/>).toJSON();
+describe(`Render Main`, () => {
+  it(`<Main /> should render some items`, () => {
+    const tree = renderer
+      .create(<Main offers={offers} onAppartmentCardClick={()=>{}}/>).toJSON();
 
-  expect(tree).toMatchSnapshot();
+    expect(tree).toMatchSnapshot();
+  });
+
+  it(`<Main /> should render empty items`, () => {
+    const tree = renderer
+      .create(<Main offers={[]} onAppartmentCardClick={()=>{}}/>).toJSON();
+
+    expect(tree).toMatchSnapshot();
+  });
 });
