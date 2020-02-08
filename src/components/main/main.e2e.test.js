@@ -2,10 +2,6 @@ import React from "react";
 import {mount} from "enzyme";
 import Main from "./main.jsx";
 
-// Enzyme.configure({
-//   adapter: new Adapter()
-// });
-
 it(`Should card be clicked`, () => {
   const cityPlaceCardHandler = jest.fn();
   const offers = [
