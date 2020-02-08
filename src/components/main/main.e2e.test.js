@@ -1,11 +1,10 @@
 import React from "react";
-import Enzyme, {mount} from "enzyme";
-import Adapter from "enzyme-adapter-react-16";
+import {mount} from "enzyme";
 import Main from "./main.jsx";
 
-Enzyme.configure({
-  adapter: new Adapter()
-});
+// Enzyme.configure({
+//   adapter: new Adapter()
+// });
 
 it(`Should card be clicked`, () => {
   const cityPlaceCardHandler = jest.fn();
@@ -19,8 +18,8 @@ it(`Should card be clicked`, () => {
   );
 
   const cityPlaceCard = main.find(`.cities__place-card`).first();
-  cityPlaceCard.props().onClick();
+  cityPlaceCard.simulate(`click`);
 
-  expect(cityPlaceCardHandler.mock.calls.length).toBe(1);
+  expect(cityPlaceCardHandler).toBeCalledTimes(1);
 
 });
