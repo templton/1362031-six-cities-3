@@ -3,13 +3,13 @@ import PropTypes from "prop-types";
 import Header from "../header/header.jsx";
 import Main from "../main/main.jsx";
 
-const appartmentCardHandler = () => {};
+const cityPlaceCardHandler = () => {};
 
 const App = ({offers}) => {
   return (
     <div className="page page--gray page--main">
       <Header/>
-      <Main offers={offers} onAppartmentCardClick={appartmentCardHandler}/>
+      <Main offers={offers} cityPlaceCardHandler={cityPlaceCardHandler}/>
     </div>
   );
 };

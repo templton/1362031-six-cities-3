@@ -223,10 +223,10 @@ exports[`App render 1`] = `
           </form>
           <div
             className="cities__places-list places__list tabs__content"
-            onClick={[Function]}
           >
             <article
               className="cities__place-card place-card"
+              onClick={[Function]}
             >
               <div
                 className="cities__image-wrapper place-card__image-wrapper"
@@ -315,6 +315,7 @@ exports[`App render 1`] = `
             </article>
             <article
               className="cities__place-card place-card"
+              onClick={[Function]}
             >
               <div
                 className="cities__image-wrapper place-card__image-wrapper"
@@ -403,6 +404,7 @@ exports[`App render 1`] = `
             </article>
             <article
               className="cities__place-card place-card"
+              onClick={[Function]}
             >
               <div
                 className="cities__image-wrapper place-card__image-wrapper"

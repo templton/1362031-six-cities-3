@@ -8,19 +8,19 @@ Enzyme.configure({
 });
 
 it(`Should card be clicked`, () => {
-  const appartmentCardHandler = jest.fn();
+  const cityPlaceCardHandler = jest.fn();
   const offers = [
     {id: 1, name: `test-1`},
     {id: 2, name: `test-2`},
   ];
 
   const main = mount(
-      <Main offers={offers} onAppartmentCardClick={appartmentCardHandler} />
+      <Main offers={offers} cityPlaceCardHandler={cityPlaceCardHandler} />
   );
 
-  const appartmentCard = main.find(`div.cities__places-list`).first();
-  appartmentCard.props().onClick();
+  const cityPlaceCard = main.find(`.cities__place-card`).first();
+  cityPlaceCard.props().onClick();
 
-  expect(appartmentCardHandler.mock.calls.length).toBe(1);
+  expect(cityPlaceCardHandler.mock.calls.length).toBe(1);
 
 });

@@ -1,9 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-const AppartmentCard = ({info}) => {
+const CityPlaceCard = ({info, onCityPlaceCardClick}) => {
   return (
-    <article className="cities__place-card place-card">
+    <article className="cities__place-card place-card" onClick={onCityPlaceCardClick}>
       <div className="cities__image-wrapper place-card__image-wrapper">
         <a href="#">
           <img className="place-card__image" src="img/room.jpg" width="260" height="200" alt="Place image"/>
@@ -37,11 +37,12 @@ const AppartmentCard = ({info}) => {
   );
 };
 
-AppartmentCard.propTypes = {
+CityPlaceCard.propTypes = {
   info: PropTypes.shape({
     id: PropTypes.number.isRequired,
     name: PropTypes.string.isRequired
-  })
+  }),
+  onCityPlaceCardClick: PropTypes.func.isRequired
 };
 
-export default AppartmentCard;
+export default CityPlaceCard;
