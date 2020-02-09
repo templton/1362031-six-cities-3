@@ -11,14 +11,14 @@ const offers = [
 describe(`Render Main`, () => {
   it(`<Main /> should render some items`, () => {
     const tree = renderer
-      .create(<Main offers={offers} cityPlaceCardHandler={()=>{}}/>).toJSON();
+      .create(<Main offers={offers} onCityPlaceCardClick={()=>{}}/>).toJSON();
 
     expect(tree).toMatchSnapshot();
   });
 
   it(`<Main /> should render empty items`, () => {
     const tree = renderer
-      .create(<Main offers={[]} cityPlaceCardHandler={()=>{}}/>).toJSON();
+      .create(<Main offers={[]} onCityPlaceCardClick={()=>{}}/>).toJSON();
 
     expect(tree).toMatchSnapshot();
   });

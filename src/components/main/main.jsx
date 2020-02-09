@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import CityPlaceCard from "../city-place-card/city-place-card.jsx";
 
-const Main = ({offers, cityPlaceCardHandler}) => {
+const Main = ({offers, onCityPlaceCardClick}) => {
   return (
     <main className="page__main page__main--index">
       <h1 className="visually-hidden">Cities</h1>
@@ -63,7 +63,7 @@ const Main = ({offers, cityPlaceCardHandler}) => {
               </ul>
             </form>
             <div className="cities__places-list places__list tabs__content">
-              {offers.map((it) => <CityPlaceCard key={it.id} info={it} onCityPlaceCardClick={cityPlaceCardHandler}/>)}
+              {offers.map((it) => <CityPlaceCard key={it.id} info={it} onCityPlaceCardClick={onCityPlaceCardClick}/>)}
             </div>
           </section>
           <div className="cities__right-section">
@@ -82,7 +82,7 @@ Main.propTypes = {
         name: PropTypes.string.isRequired
       })
   ),
-  cityPlaceCardHandler: PropTypes.func.isRequired
+  onCityPlaceCardClick: PropTypes.func.isRequired
 };
 
 export default Main;
