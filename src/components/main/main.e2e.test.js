@@ -1,5 +1,5 @@
 import React from "react";
-import {mount} from "enzyme";
+import {shallow} from "enzyme";
 import Main from "./main.jsx";
 import CityPlaceCard from "../city-place-card/city-place-card.jsx";
 
@@ -10,12 +10,12 @@ it(`Should card be clicked`, () => {
     {id: 2, name: `test-2`},
   ];
 
-  const main = mount(
+  const main = shallow(
       <Main offers={offers} onCityPlaceCardClick={handlerCityPlaceCardClick} />
   );
 
   const cityPlaceCard = main.find(CityPlaceCard).first();
-  cityPlaceCard.simulate(`click`);
+  cityPlaceCard.simulate(`cityPlaceCardClick`);
 
   expect(handlerCityPlaceCardClick).toBeCalledTimes(1);
 
