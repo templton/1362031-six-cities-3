@@ -3,17 +3,16 @@ import PropTypes from "prop-types";
 import Header from "../header/header.jsx";
 import Main from "../main/main.jsx";
 
-const App = ({offers}) => {
+const handlerCityPlaceCardClick = () => {};
 
+const App = ({offers}) => {
   return (
     <div className="page page--gray page--main">
       <Header/>
-      <Main offers={offers}/>
+      <Main offers={offers} onCityPlaceCardClick={handlerCityPlaceCardClick}/>
     </div>
   );
 };
-
-export default App;
 
 App.propTypes = {
   offers: PropTypes.arrayOf(
@@ -23,3 +22,5 @@ App.propTypes = {
       })
   )
 };
+
+export default App;

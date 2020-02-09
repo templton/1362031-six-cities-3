@@ -1,8 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
-import Article from "../article/article.jsx";
+import CityPlaceCard from "../city-place-card/city-place-card.jsx";
 
-const Main = ({offers}) => {
+const Main = ({offers, onCityPlaceCardClick}) => {
   return (
     <main className="page__main page__main--index">
       <h1 className="visually-hidden">Cities</h1>
@@ -63,9 +63,7 @@ const Main = ({offers}) => {
               </ul>
             </form>
             <div className="cities__places-list places__list tabs__content">
-              {
-                offers.map((it, i) => <Article key={i + it.id} info={it}/>)
-              }
+              {offers.map((it) => <CityPlaceCard key={it.id} info={it} onCityPlaceCardClick={onCityPlaceCardClick}/>)}
             </div>
           </section>
           <div className="cities__right-section">
@@ -77,13 +75,14 @@ const Main = ({offers}) => {
   );
 };
 
-export default Main;
-
 Main.propTypes = {
   offers: PropTypes.arrayOf(
       PropTypes.shape({
         id: PropTypes.number.isRequired,
         name: PropTypes.string.isRequired
       })
-  )
+  ),
+  onCityPlaceCardClick: PropTypes.func.isRequired
 };
+
+export default Main;
