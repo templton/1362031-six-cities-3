@@ -4,6 +4,7 @@ import {BrowserRouter, Route, Switch} from "react-router-dom";
 import Header from "../header/header.jsx";
 import Main from "../main/main.jsx";
 import CardDetail from "../card-detail/card-detail.jsx";
+import Login from "../login/login.jsx";
 
 const App = ({offers}) => {
   return (
@@ -19,6 +20,12 @@ const App = ({offers}) => {
           <div className="page page--gray page--main">
             <Header/>
             <CardDetail/>
+          </div>
+        </Route>
+        <Route exact path="/login">
+          <div className="page page--gray page--login">
+            <Header/>
+            <Login/>
           </div>
         </Route>
       </Switch>
