@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 const CityPlaceCard = ({info, onCityPlaceCardMouseEnter}) => {
   return (
-    <article className="cities__place-card place-card" onMouseEnter={(evt)=>{
+    <article className="cities__place-card place-card" onMouseEnter={()=>{
       onCityPlaceCardMouseEnter(info);
     }}>
       <div className="cities__image-wrapper place-card__image-wrapper">

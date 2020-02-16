@@ -226,7 +226,7 @@ exports[`App render 1`] = `
           >
             <article
               className="cities__place-card place-card"
-              onClick={[Function]}
+              onMouseEnter={[Function]}
             >
               <div
                 className="cities__image-wrapper place-card__image-wrapper"
@@ -238,7 +238,6 @@ exports[`App render 1`] = `
                     alt="Place image"
                     className="place-card__image"
                     height="200"
-                    src="img/room.jpg"
                     width="260"
                   />
                 </a>
@@ -255,7 +254,7 @@ exports[`App render 1`] = `
                     <b
                       className="place-card__price-value"
                     >
-                      €80
+                      €
                     </b>
                     <span
                       className="place-card__price-text"
@@ -315,7 +314,7 @@ exports[`App render 1`] = `
             </article>
             <article
               className="cities__place-card place-card"
-              onClick={[Function]}
+              onMouseEnter={[Function]}
             >
               <div
                 className="cities__image-wrapper place-card__image-wrapper"
@@ -327,7 +326,6 @@ exports[`App render 1`] = `
                     alt="Place image"
                     className="place-card__image"
                     height="200"
-                    src="img/room.jpg"
                     width="260"
                   />
                 </a>
@@ -344,7 +342,7 @@ exports[`App render 1`] = `
                     <b
                       className="place-card__price-value"
                     >
-                      €80
+                      €
                     </b>
                     <span
                       className="place-card__price-text"
@@ -404,7 +402,7 @@ exports[`App render 1`] = `
             </article>
             <article
               className="cities__place-card place-card"
-              onClick={[Function]}
+              onMouseEnter={[Function]}
             >
               <div
                 className="cities__image-wrapper place-card__image-wrapper"
@@ -416,7 +414,6 @@ exports[`App render 1`] = `
                     alt="Place image"
                     className="place-card__image"
                     height="200"
-                    src="img/room.jpg"
                     width="260"
                   />
                 </a>
@@ -433,7 +430,7 @@ exports[`App render 1`] = `
                     <b
                       className="place-card__price-value"
                     >
-                      €80
+                      €
                     </b>
                     <span
                       className="place-card__price-text"
