@@ -5,6 +5,7 @@ import Header from "../header/header.jsx";
 import Main from "../main/main.jsx";
 import CardDetail from "../card-detail/card-detail.jsx";
 import Login from "../login/login.jsx";
+import FavoritesCards from "../favorites-cards/favorites-cards.jsx";
 
 const App = ({offers}) => {
   return (
@@ -26,6 +27,12 @@ const App = ({offers}) => {
           <div className="page page--gray page--login">
             <Header/>
             <Login/>
+          </div>
+        </Route>
+        <Route exact path="/favorites">
+          <div className="page">
+            <Header/>
+            <FavoritesCards/>
           </div>
         </Route>
       </Switch>
