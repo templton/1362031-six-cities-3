@@ -1,18 +1,20 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-const CityPlaceCard = ({info, onCityPlaceCardClick}) => {
+const CityPlaceCard = ({info, onCityPlaceCardMouseEnter}) => {
   return (
-    <article className="cities__place-card place-card" onClick={onCityPlaceCardClick}>
+    <article className="cities__place-card place-card" onMouseEnter={(evt)=>{
+      onCityPlaceCardMouseEnter(info);
+    }}>
       <div className="cities__image-wrapper place-card__image-wrapper">
         <a href="#">
-          <img className="place-card__image" src="img/room.jpg" width="260" height="200" alt="Place image"/>
+          <img className="place-card__image" src={info.image} width="260" height="200" alt="Place image"/>
         </a>
       </div>
       <div className="place-card__info">
         <div className="place-card__price-wrapper">
           <div className="place-card__price">
-            <b className="place-card__price-value">€80</b>
+            <b className="place-card__price-value">€{info.price}</b>
             <span className="place-card__price-text">/&nbsp;night</span>
           </div>
           <button className="place-card__bookmark-button place-card__bookmark-button--active button" type="button">
@@ -40,9 +42,11 @@ const CityPlaceCard = ({info, onCityPlaceCardClick}) => {
 CityPlaceCard.propTypes = {
   info: PropTypes.shape({
     id: PropTypes.number.isRequired,
-    name: PropTypes.string.isRequired
+    name: PropTypes.string.isRequired,
+    price: PropTypes.number.isRequired,
+    image: PropTypes.string.isRequired
   }),
-  onCityPlaceCardClick: PropTypes.func.isRequired
+  onCityPlaceCardMouseEnter: PropTypes.func.isRequired
 };
 
 export default CityPlaceCard;

@@ -3,13 +3,15 @@ import PropTypes from "prop-types";
 import Header from "../header/header.jsx";
 import Main from "../main/main.jsx";
 
-const handlerCityPlaceCardClick = () => {};
+const handlerCityPlaceCardMouseEnter = (info) => {
+  console.log('info', info);
+};
 
 const App = ({offers}) => {
   return (
     <div className="page page--gray page--main">
       <Header/>
-      <Main offers={offers} onCityPlaceCardClick={handlerCityPlaceCardClick}/>
+      <Main offers={offers} onCityPlaceCardMouseEnter={handlerCityPlaceCardMouseEnter}/>
     </div>
   );
 };
