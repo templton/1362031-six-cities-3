@@ -2,7 +2,7 @@ export default [
   {
     id: 1,
     name: `Комната №1`,
-    image: `https://upload.wikimedia.org/wikipedia/commons/1/14/Sdfgsdfgsdfgsdfg.jpg`,
+    image: `https://upload.wikimedia.org/wikipedia/commons/3/34/Nanteos_%28geograph_3153536%29.jpg`,
     price: 80
   },
   {

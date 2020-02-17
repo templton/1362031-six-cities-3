@@ -6,6 +6,7 @@ import Main from "../main/main.jsx";
 import CardDetail from "../card-detail/card-detail.jsx";
 import Login from "../login/login.jsx";
 import FavoritesCards from "../favorites-cards/favorites-cards.jsx";
+import carddetail from "../../mocks/carddetail";
 
 const App = ({offers}) => {
   return (
@@ -20,7 +21,7 @@ const App = ({offers}) => {
         <Route exact path="/offer">
           <div className="page page--gray page--main">
             <Header/>
-            <CardDetail/>
+            <CardDetail images={carddetail.images} info={carddetail.info} owner={carddetail.owner}/>
           </div>
         </Route>
         <Route exact path="/login">
