@@ -363,7 +363,7 @@ exports[`Render Main <Main /> should render some items 1`] = `
                   alt="Place image"
                   className="place-card__image"
                   height="200"
-                  src="img"
+                  src="https://upload.wikimedia.org/wikipedia/commons/3/34/Nanteos_%28geograph_3153536%29.jpg"
                   width="260"
                 />
               </a>
@@ -381,7 +381,7 @@ exports[`Render Main <Main /> should render some items 1`] = `
                     className="place-card__price-value"
                   >
                     €
-                    115
+                    80
                   </b>
                   <span
                     className="place-card__price-text"
@@ -415,7 +415,13 @@ exports[`Render Main <Main /> should render some items 1`] = `
                 <div
                   className="place-card__stars rating__stars"
                 >
-                  <span />
+                  <span
+                    style={
+                      Object {
+                        "width": "80%",
+                      }
+                    }
+                  />
                   <span
                     className="visually-hidden"
                   >
@@ -425,17 +431,18 @@ exports[`Render Main <Main /> should render some items 1`] = `
               </div>
               <h2
                 className="place-card__name"
+                onClick={[Function]}
               >
                 <a
                   href="#"
                 >
-                  one
+                  Комната №1
                 </a>
               </h2>
               <p
                 className="place-card__type"
               >
-                Private room
+                room
               </p>
             </div>
           </article>
@@ -453,7 +460,7 @@ exports[`Render Main <Main /> should render some items 1`] = `
                   alt="Place image"
                   className="place-card__image"
                   height="200"
-                  src="img"
+                  src="https://upload.wikimedia.org/wikipedia/commons/3/34/Nanteos_%28geograph_3153536%29.jpg"
                   width="260"
                 />
               </a>
@@ -471,7 +478,7 @@ exports[`Render Main <Main /> should render some items 1`] = `
                     className="place-card__price-value"
                   >
                     €
-                    120
+                    60
                   </b>
                   <span
                     className="place-card__price-text"
@@ -505,7 +512,13 @@ exports[`Render Main <Main /> should render some items 1`] = `
                 <div
                   className="place-card__stars rating__stars"
                 >
-                  <span />
+                  <span
+                    style={
+                      Object {
+                        "width": "40%",
+                      }
+                    }
+                  />
                   <span
                     className="visually-hidden"
                   >
@@ -515,17 +528,18 @@ exports[`Render Main <Main /> should render some items 1`] = `
               </div>
               <h2
                 className="place-card__name"
+                onClick={[Function]}
               >
                 <a
                   href="#"
                 >
-                  two
+                  Комната №115
                 </a>
               </h2>
               <p
                 className="place-card__type"
               >
-                Private room
+                apartment
               </p>
             </div>
           </article>

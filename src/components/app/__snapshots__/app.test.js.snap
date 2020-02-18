@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`App render 1`] = `
+exports[`App render App render 1`] = `
 <div
   className="page page--gray page--main"
 >
@@ -238,7 +238,7 @@ exports[`App render 1`] = `
                     alt="Place image"
                     className="place-card__image"
                     height="200"
-                    src="sad"
+                    src="https://upload.wikimedia.org/wikipedia/commons/3/34/Nanteos_%28geograph_3153536%29.jpg"
                     width="260"
                   />
                 </a>
@@ -256,7 +256,7 @@ exports[`App render 1`] = `
                       className="place-card__price-value"
                     >
                       €
-                      115
+                      80
                     </b>
                     <span
                       className="place-card__price-text"
@@ -290,7 +290,13 @@ exports[`App render 1`] = `
                   <div
                     className="place-card__stars rating__stars"
                   >
-                    <span />
+                    <span
+                      style={
+                        Object {
+                          "width": "80%",
+                        }
+                      }
+                    />
                     <span
                       className="visually-hidden"
                     >
@@ -300,17 +306,18 @@ exports[`App render 1`] = `
                 </div>
                 <h2
                   className="place-card__name"
+                  onClick={[Function]}
                 >
                   <a
                     href="#"
                   >
-                    first
+                    Комната №1
                   </a>
                 </h2>
                 <p
                   className="place-card__type"
                 >
-                  Private room
+                  room
                 </p>
               </div>
             </article>
@@ -328,7 +335,7 @@ exports[`App render 1`] = `
                     alt="Place image"
                     className="place-card__image"
                     height="200"
-                    src="sad"
+                    src="https://upload.wikimedia.org/wikipedia/commons/3/34/Nanteos_%28geograph_3153536%29.jpg"
                     width="260"
                   />
                 </a>
@@ -346,7 +353,7 @@ exports[`App render 1`] = `
                       className="place-card__price-value"
                     >
                       €
-                      896
+                      60
                     </b>
                     <span
                       className="place-card__price-text"
@@ -380,7 +387,13 @@ exports[`App render 1`] = `
                   <div
                     className="place-card__stars rating__stars"
                   >
-                    <span />
+                    <span
+                      style={
+                        Object {
+                          "width": "40%",
+                        }
+                      }
+                    />
                     <span
                       className="visually-hidden"
                     >
@@ -390,17 +403,18 @@ exports[`App render 1`] = `
                 </div>
                 <h2
                   className="place-card__name"
+                  onClick={[Function]}
                 >
                   <a
                     href="#"
                   >
-                    first
+                    Комната №115
                   </a>
                 </h2>
                 <p
                   className="place-card__type"
                 >
-                  Private room
+                  apartment
                 </p>
               </div>
             </article>

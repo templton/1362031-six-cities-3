@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Render CityPlaceCard 1`] = `
+exports[`CityPlaceCard render Render CityPlaceCard 1`] = `
 <article
   className="cities__place-card place-card"
   onMouseEnter={[Function]}
@@ -15,7 +15,7 @@ exports[`Render CityPlaceCard 1`] = `
         alt="Place image"
         className="place-card__image"
         height="200"
-        src="str"
+        src="https://upload.wikimedia.org/wikipedia/commons/3/34/Nanteos_%28geograph_3153536%29.jpg"
         width="260"
       />
     </a>
@@ -33,7 +33,7 @@ exports[`Render CityPlaceCard 1`] = `
           className="place-card__price-value"
         >
           €
-          555
+          80
         </b>
         <span
           className="place-card__price-text"
@@ -67,7 +67,13 @@ exports[`Render CityPlaceCard 1`] = `
       <div
         className="place-card__stars rating__stars"
       >
-        <span />
+        <span
+          style={
+            Object {
+              "width": "80%",
+            }
+          }
+        />
         <span
           className="visually-hidden"
         >
@@ -77,17 +83,18 @@ exports[`Render CityPlaceCard 1`] = `
     </div>
     <h2
       className="place-card__name"
+      onClick={[Function]}
     >
       <a
         href="#"
       >
-        first
+        Комната №1
       </a>
     </h2>
     <p
       className="place-card__type"
     >
-      Private room
+      room
     </p>
   </div>
 </article>

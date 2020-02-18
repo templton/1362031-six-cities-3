@@ -10,17 +10,17 @@ class CityPlaces extends PureComponent {
       activeCityPlaceCard: null
     };
 
-    this.handlerCityPlaceCardMouseEnter = this.handlerCityPlaceCardMouseEnter.bind(this);
+    this.handleCityPlaceCardMouseEnter = this.handleCityPlaceCardMouseEnter.bind(this);
   }
 
-  handlerCityPlaceCardMouseEnter(cityPlaceCard) {
+  handleCityPlaceCardMouseEnter(cityPlaceCard) {
     this.setState({
       activeCityPlaceCard: cityPlaceCard
     });
   }
 
   render() {
-    const {offers} = this.props;
+    const {offers, onClickCardTitle} = this.props;
 
     return (
       <section className="cities__places places">
@@ -42,7 +42,7 @@ class CityPlaces extends PureComponent {
           </ul>
         </form>
         <div className="cities__places-list places__list tabs__content">
-          {offers.map((it) => <CityPlaceCard key={it.id} info={it} onCityPlaceCardMouseEnter={this.handlerCityPlaceCardMouseEnter}/>)}
+          {offers.map((it) => <CityPlaceCard key={it.id} info={it} onCityPlaceCardMouseEnter={this.handleCityPlaceCardMouseEnter} onClickCardTitle={onClickCardTitle}/>)}
         </div>
       </section>
     );
@@ -50,7 +50,8 @@ class CityPlaces extends PureComponent {
 }
 
 CityPlaces.propTypes = {
-  offers: PropTypes.array.isRequired
+  offers: PropTypes.array.isRequired,
+  onClickCardTitle: PropTypes.func.isRequired
 };
 
 export default CityPlaces;
