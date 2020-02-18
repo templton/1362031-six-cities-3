@@ -23,12 +23,13 @@ const offers = [
   },
 ];
 
-it(`App render`, () => {
+describe(`App render`, () => {
 
-  const onClickCardTitle = jest.fn();
+  it(`App render`, () => {
+    const onClickCardTitle = jest.fn();
+    const tree = renderer
+      .create(<App offers={offers} onClickCardTitle={onClickCardTitle}/>).toJSON();
 
-  const tree = renderer
-    .create(<App offers={offers} onClickCardTitle={onClickCardTitle}/>).toJSON();
-
-  expect(tree).toMatchSnapshot();
+    expect(tree).toMatchSnapshot();
+  });
 });

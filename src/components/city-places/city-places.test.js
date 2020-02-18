@@ -23,12 +23,13 @@ const offers = [
   },
 ];
 
-it(`<CityList /> should render`, () => {
+describe(`CityPlaces render`, () => {
 
-  const onClickCardTitle = jest.fn();
+  it(`<CityList /> should render`, () => {
+    const onClickCardTitle = jest.fn();
+    const tree = renderer
+      .create(<CityPlaces offers={offers} onClickCardTitle={onClickCardTitle}/>).toJSON();
 
-  const tree = renderer
-    .create(<CityPlaces offers={offers} onClickCardTitle={onClickCardTitle}/>).toJSON();
-
-  expect(tree).toMatchSnapshot();
+    expect(tree).toMatchSnapshot();
+  });
 });

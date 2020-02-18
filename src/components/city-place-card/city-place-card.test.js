@@ -12,12 +12,13 @@ const info = {
   raiting: 4.7
 };
 
-it(`Render CityPlaceCard`, () => {
+describe(`CityPlaceCard render`, () => {
 
-  const onClickCardTitle = jest.fn();
+  it(`Render CityPlaceCard`, () => {
+    const onClickCardTitle = jest.fn();
+    const tree = renderer
+      .create(<CityPlaceCard info={info} onCityPlaceCardMouseEnter={()=>{}} onClickCardTitle={onClickCardTitle}/>).toJSON();
 
-  const tree = renderer
-    .create(<CityPlaceCard info={info} onCityPlaceCardMouseEnter={()=>{}} onClickCardTitle={onClickCardTitle}/>).toJSON();
-
-  expect(tree).toMatchSnapshot();
+    expect(tree).toMatchSnapshot();
+  });
 });
