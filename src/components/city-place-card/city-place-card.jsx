@@ -1,7 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
+import {PlaceCardTypes} from "../../const";
 
-const CityPlaceCard = ({info, onCityPlaceCardMouseEnter}) => {
+const CityPlaceCard = ({info, onCityPlaceCardMouseEnter, onClickCardTitle}) => {
   return (
     <article className="cities__place-card place-card" onMouseEnter={()=>{
       onCityPlaceCardMouseEnter(info);
@@ -14,7 +15,7 @@ const CityPlaceCard = ({info, onCityPlaceCardMouseEnter}) => {
       <div className="place-card__info">
         <div className="place-card__price-wrapper">
           <div className="place-card__price">
-            <b className="place-card__price-value">€{info.price}</b>
+            <b className="place-card__price-value">€{info.costPerNignt}</b>
             <span className="place-card__price-text">/&nbsp;night</span>
           </div>
           <button className="place-card__bookmark-button place-card__bookmark-button--active button" type="button">
@@ -26,14 +27,16 @@ const CityPlaceCard = ({info, onCityPlaceCardMouseEnter}) => {
         </div>
         <div className="place-card__rating rating">
           <div className="place-card__stars rating__stars">
-            <span></span>
+            <span style={{width: 20 * Math.floor(info.raiting) + `%`}}></span>
             <span className="visually-hidden">Rating</span>
           </div>
         </div>
-        <h2 className="place-card__name">
-          <a href="#">{info.name}</a>
+        <h2 className="place-card__name" onClick={() => {
+          onClickCardTitle(info.id);
+        }}>
+          <a href="#">{info.title}</a>
         </h2>
-        <p className="place-card__type">Private room</p>
+        <p className="place-card__type">{info.type}</p>
       </div>
     </article>
   );
@@ -42,11 +45,15 @@ const CityPlaceCard = ({info, onCityPlaceCardMouseEnter}) => {
 CityPlaceCard.propTypes = {
   info: PropTypes.shape({
     id: PropTypes.number.isRequired,
-    name: PropTypes.string.isRequired,
-    price: PropTypes.number.isRequired,
-    image: PropTypes.string.isRequired
+    title: PropTypes.string.isRequired,
+    costPerNignt: PropTypes.number.isRequired,
+    image: PropTypes.string.isRequired,
+    isPremium: PropTypes.bool.isRequired,
+    type: PropTypes.oneOf(Object.values(PlaceCardTypes)),
+    raiting: PropTypes.number.isRequired
   }),
-  onCityPlaceCardMouseEnter: PropTypes.func.isRequired
+  onCityPlaceCardMouseEnter: PropTypes.func.isRequired,
+  onClickCardTitle: PropTypes.func.isRequired,
 };
 
 export default CityPlaceCard;

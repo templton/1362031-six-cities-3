@@ -1,4 +1,4 @@
-export default {
+const CardDeatail = {
   images: [
     {
       id: 1,
@@ -44,3 +44,5 @@ export default {
     avatar: `img/avatar-max.jpg`
   }
 };
+
+export {CardDeatail};

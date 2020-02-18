@@ -2,7 +2,9 @@ import React from "react";
 import PropTypes from "prop-types";
 import CityPlaces from "../city-places/city-places.jsx";
 
-const Main = ({offers}) => {
+const Main = (props) => {
+  const {onClickCardTitle, offers} = props;
+
   return (
     <main className="page__main page__main--index">
       <h1 className="visually-hidden">Cities</h1>
@@ -44,7 +46,7 @@ const Main = ({offers}) => {
       </div>
       <div className="cities">
         <div className="cities__places-container container">
-          <CityPlaces offers={offers}/>
+          <CityPlaces offers={offers} onClickCardTitle={onClickCardTitle}/>
           <div className="cities__right-section">
             <section className="cities__map map"></section>
           </div>
@@ -55,7 +57,8 @@ const Main = ({offers}) => {
 };
 
 Main.propTypes = {
-  offers: PropTypes.array.isRequired
+  offers: PropTypes.array.isRequired,
+  onClickCardTitle: PropTypes.func.isRequired
 };
 
 export default Main;

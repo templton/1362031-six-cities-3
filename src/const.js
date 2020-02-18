@@ -3,4 +3,4 @@ export const PlaceCardTypes = {
   ROOM: `room`,
   HOUSE: `house`,
   HOTEL: `hotel`,
-}
+};
