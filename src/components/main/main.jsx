@@ -1,6 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
-import CityPlaces from "../city-places/city-places.jsx";
+import CityPlaces from "../city-places/city-places";
+import Map from "../map/map";
+import cityCord from "../../mocks/defaultCity";
 
 const Main = (props) => {
   const {onClickCardTitle, offers} = props;
@@ -48,7 +50,7 @@ const Main = (props) => {
         <div className="cities__places-container container">
           <CityPlaces offers={offers} onClickCardTitle={onClickCardTitle}/>
           <div className="cities__right-section">
-            <section className="cities__map map"></section>
+            <Map placeCords={offers.map((item)=>item.cord)} cityCord={cityCord}/>
           </div>
         </div>
       </div>

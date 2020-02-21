@@ -1,6 +1,6 @@
 import React from "react";
 import renderer from "react-test-renderer";
-import FavoritesCards from "./favorites-cards.jsx";
+import FavoritesCards from "./favorites-cards";
 
 describe(`FavoritesCards render`, () => {
 

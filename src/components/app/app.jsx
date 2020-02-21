@@ -1,12 +1,13 @@
 import React, {PureComponent} from "react";
 import PropTypes from "prop-types";
 import {BrowserRouter, Route, Switch} from "react-router-dom";
-import Header from "../header/header.jsx";
-import Main from "../main/main.jsx";
-import CardDetail from "../card-detail/card-detail.jsx";
-import Login from "../login/login.jsx";
-import FavoritesCards from "../favorites-cards/favorites-cards.jsx";
+import Header from "../header/header";
+import Main from "../main/main";
+import CardDetail from "../card-detail/card-detail";
+import Login from "../login/login";
+import FavoritesCards from "../favorites-cards/favorites-cards";
 import {CardDeatail} from "../../mocks/carddetail";
+import PageContainer from "../page-container/page-container";
 
 class App extends PureComponent {
   constructor(props) {
@@ -42,28 +43,24 @@ class App extends PureComponent {
       <BrowserRouter>
         <Switch>
           <Route exact path="/">
-            <div className="page page--gray page--main">
-              <Header/>
+            <PageContainer pageClass="page--gray page--main">
               <Main offers={offers} onClickCardTitle={this.handleClickCardTitle}/>
-            </div>
+            </PageContainer>
           </Route>
           <Route exact path="/offer">
-            <div className="page page--gray page--main">
-              <Header/>
+            <PageContainer pageClass="page--gray page--main">
               <CardDetail images={CardDeatail.images} info={CardDeatail.info} owner={CardDeatail.owner}/>
-            </div>
+            </PageContainer>
           </Route>
           <Route exact path="/login">
-            <div className="page page--gray page--login">
-              <Header/>
+            <PageContainer pageClass="page--gray page--login">
               <Login/>
-            </div>
+            </PageContainer>
           </Route>
           <Route exact path="/favorites">
-            <div className="page">
-              <Header/>
+            <PageContainer>
               <FavoritesCards/>
-            </div>
+            </PageContainer>
           </Route>
         </Switch>
       </BrowserRouter>

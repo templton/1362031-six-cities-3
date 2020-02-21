@@ -1,6 +1,6 @@
 import React from "react";
 import renderer from "react-test-renderer";
-import CityPlaces from "./city-places.jsx";
+import CityPlaces from "./city-places";
 
 const offers = [
   {
