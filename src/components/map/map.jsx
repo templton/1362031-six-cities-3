@@ -9,6 +9,10 @@ class Map extends PureComponent {
   }
 
   componentDidMount() {
+    this.renderCityAndMarkers();
+  }
+
+  renderCityAndMarkers() {
     const {cityCord, placeCords} = this.props;
 
     const icon = leaflet.icon({
@@ -39,12 +43,13 @@ class Map extends PureComponent {
           .addTo(map);
       });
     }
-
   }
 
   render() {
     return (
-      <div id="map" ref={this._ref} style={{width: `100%`, height: `100%`}}></div>
+      <section className="cities__map map">
+        <div id="map" ref={this._ref} style={{width: `100%`, height: `100%`}}></div>
+      </section>
     );
   }
 }
