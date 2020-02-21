@@ -5,7 +5,7 @@ import leaflet from "leaflet";
 class Map extends PureComponent {
   constructor(props) {
     super(props);
-    this.ref = React.createRef();
+    this._ref = React.createRef();
   }
 
   componentDidMount() {
@@ -16,7 +16,7 @@ class Map extends PureComponent {
       iconSize: [30, 30]
     });
     const zoom = 12;
-    const map = leaflet.map(`map`, {
+    const map = leaflet.map(this._ref.current, {
       center: cityCord,
       zoom,
       zoomControl: false,
@@ -32,17 +32,19 @@ class Map extends PureComponent {
       .addTo(map);
 
     // Добавить маркеты с координатами мест
-    placeCords.map((cord)=>{
-      leaflet
-        .marker(cord, {icon})
-        .addTo(map);
-    });
+    if (placeCords.length) {
+      placeCords.map((cord)=>{
+        leaflet
+          .marker(cord, {icon})
+          .addTo(map);
+      });
+    }
 
   }
 
   render() {
     return (
-      <div id="map" ref={this.ref} style={{width: `100%`, height: `100%`}}></div>
+      <div id="map" ref={this._ref} style={{width: `100%`, height: `100%`}}></div>
     );
   }
 }
@@ -56,6 +58,6 @@ Map.propTypes = {
   placeCords: PropTypes.array,
   // Координаты текущего выбранного города
   cityCord: PropTypes.array.isRequired
-}
+};
 
 export default Map;
