@@ -7,6 +7,7 @@ import CardDetail from "../card-detail/card-detail.jsx";
 import Login from "../login/login.jsx";
 import FavoritesCards from "../favorites-cards/favorites-cards.jsx";
 import {CardDeatail} from "../../mocks/carddetail";
+import ContentScreen from "../content-screen/content-screen.jsx";
 
 class App extends PureComponent {
   constructor(props) {
@@ -42,28 +43,24 @@ class App extends PureComponent {
       <BrowserRouter>
         <Switch>
           <Route exact path="/">
-            <div className="page page--gray page--main">
-              <Header/>
+            <ContentScreen pageClass="page--gray page--main">
               <Main offers={offers} onClickCardTitle={this.handleClickCardTitle}/>
-            </div>
+            </ContentScreen>
           </Route>
           <Route exact path="/offer">
-            <div className="page page--gray page--main">
-              <Header/>
+            <ContentScreen pageClass="page--gray page--main">
               <CardDetail images={CardDeatail.images} info={CardDeatail.info} owner={CardDeatail.owner}/>
-            </div>
+            </ContentScreen>
           </Route>
           <Route exact path="/login">
-            <div className="page page--gray page--login">
-              <Header/>
+            <ContentScreen pageClass="page--gray page--login">
               <Login/>
-            </div>
+            </ContentScreen>
           </Route>
           <Route exact path="/favorites">
-            <div className="page">
-              <Header/>
+            <ContentScreen>
               <FavoritesCards/>
-            </div>
+            </ContentScreen>
           </Route>
         </Switch>
       </BrowserRouter>
