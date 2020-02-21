@@ -1,6 +1,6 @@
 import React from "react";
 import renderer from "react-test-renderer";
-import CityPlaceCard from "./city-place-card.jsx";
+import CityPlaceCard from "./city-place-card";
 
 const info = {
   id: 1,

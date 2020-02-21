@@ -1,6 +1,6 @@
 import React from "react";
 import renderer from "react-test-renderer";
-import Map from "./map.jsx";
+import Map from "./map";
 
 const cityCord = [52.38333, 4.9];
 const placeCords = [[52.3909553943508, 4.91309666406198]];

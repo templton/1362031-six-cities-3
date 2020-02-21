@@ -1,6 +1,6 @@
 import React from "react";
 import {shallow} from "enzyme";
-import CityPlaceCard from "./city-place-card.jsx";
+import CityPlaceCard from "./city-place-card";
 
 const placeCardInfo = {
   id: 1,

@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
-import CityPlaces from "../city-places/city-places.jsx";
-import Map from "../map/map.jsx";
+import CityPlaces from "../city-places/city-places";
+import Map from "../map/map";
 
 const Main = (props) => {
   const {onClickCardTitle, offers} = props;

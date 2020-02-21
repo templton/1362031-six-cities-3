@@ -1,13 +1,13 @@
 import React, {PureComponent} from "react";
 import PropTypes from "prop-types";
 import {BrowserRouter, Route, Switch} from "react-router-dom";
-import Header from "../header/header.jsx";
-import Main from "../main/main.jsx";
-import CardDetail from "../card-detail/card-detail.jsx";
-import Login from "../login/login.jsx";
-import FavoritesCards from "../favorites-cards/favorites-cards.jsx";
+import Header from "../header/header";
+import Main from "../main/main";
+import CardDetail from "../card-detail/card-detail";
+import Login from "../login/login";
+import FavoritesCards from "../favorites-cards/favorites-cards";
 import {CardDeatail} from "../../mocks/carddetail";
-import ContentScreen from "../content-screen/content-screen.jsx";
+import PageContainer from "../page-container/page-container";
 
 class App extends PureComponent {
   constructor(props) {
@@ -43,24 +43,24 @@ class App extends PureComponent {
       <BrowserRouter>
         <Switch>
           <Route exact path="/">
-            <ContentScreen pageClass="page--gray page--main">
+            <PageContainer pageClass="page--gray page--main">
               <Main offers={offers} onClickCardTitle={this.handleClickCardTitle}/>
-            </ContentScreen>
+            </PageContainer>
           </Route>
           <Route exact path="/offer">
-            <ContentScreen pageClass="page--gray page--main">
+            <PageContainer pageClass="page--gray page--main">
               <CardDetail images={CardDeatail.images} info={CardDeatail.info} owner={CardDeatail.owner}/>
-            </ContentScreen>
+            </PageContainer>
           </Route>
           <Route exact path="/login">
-            <ContentScreen pageClass="page--gray page--login">
+            <PageContainer pageClass="page--gray page--login">
               <Login/>
-            </ContentScreen>
+            </PageContainer>
           </Route>
           <Route exact path="/favorites">
-            <ContentScreen>
+            <PageContainer>
               <FavoritesCards/>
-            </ContentScreen>
+            </PageContainer>
           </Route>
         </Switch>
       </BrowserRouter>
