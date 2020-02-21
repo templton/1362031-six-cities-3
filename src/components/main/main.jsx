@@ -1,9 +1,11 @@
 import React from "react";
 import PropTypes from "prop-types";
 import CityPlaces from "../city-places/city-places.jsx";
+import Map from "../map/map.jsx";
 
 const Main = (props) => {
   const {onClickCardTitle, offers} = props;
+  const cityCord = [52.38333, 4.9];
 
   return (
     <main className="page__main page__main--index">
@@ -48,7 +50,9 @@ const Main = (props) => {
         <div className="cities__places-container container">
           <CityPlaces offers={offers} onClickCardTitle={onClickCardTitle}/>
           <div className="cities__right-section">
-            <section className="cities__map map"></section>
+            <section className="cities__map map">
+              <Map placeCords={offers.map((item)=>item.cord)} cityCord={cityCord}/>
+            </section>
           </div>
         </div>
       </div>
