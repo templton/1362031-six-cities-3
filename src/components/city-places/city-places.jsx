@@ -23,7 +23,9 @@ const CityPlaces = (props) => {
           <li className="places__option" tabIndex="0">Top rated first</li>
         </ul>
       </form>
-      <PlacesList places={offers} onClickCardTitle={onClickCardTitle} blockName="cities"/>
+      <div className="cities__places-list places__list tabs__content">
+        <PlacesList places={offers} onClickCardTitle={onClickCardTitle} cardClass="cities__place-"/>
+      </div>
     </section>
   );
 }

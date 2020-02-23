@@ -2,12 +2,12 @@ import React from "react";
 import PropTypes from "prop-types";
 import {PlaceCardTypes} from "../../const";
 
-const CityPlaceCard = ({info, onCityPlaceCardMouseEnter, onClickCardTitle, blockName}) => {
+const CityPlaceCard = ({info, onCityPlaceCardMouseEnter, onClickCardTitle, cardClass}) => {
   return (
-    <article className={`${blockName}__place-card place-card`} onMouseEnter={()=>{
+    <article className={`${cardClass}card place-card`} onMouseEnter={()=>{
       onCityPlaceCardMouseEnter(info);
     }}>
-      <div className={`${blockName}__image-wrapper place-card__image-wrapper`}>
+      <div className="place-card__image-wrapper">
         <a href="#">
           <img className="place-card__image" src={info.image} width="260" height="200" alt="Place image"/>
         </a>
@@ -18,9 +18,9 @@ const CityPlaceCard = ({info, onCityPlaceCardMouseEnter, onClickCardTitle, block
             <b className="place-card__price-value">€{info.costPerNignt}</b>
             <span className="place-card__price-text">/&nbsp;night</span>
           </div>
-          <button className="place-card__bookmark-button place-card__bookmark-button--active button" type="button">
+          <button className="place-card__bookmark-button place-card__bookmark-button button" type="button">
             <svg className="place-card__bookmark-icon" width="18" height="19">
-              <use xlinkHref="#icon-bookmark-active"></use>
+              <use xlinkHref="#icon-bookmark"></use>
             </svg>
             <span className="visually-hidden">In bookmarks</span>
           </button>
@@ -54,7 +54,7 @@ CityPlaceCard.propTypes = {
   }),
   onCityPlaceCardMouseEnter: PropTypes.func.isRequired,
   onClickCardTitle: PropTypes.func.isRequired,
-  blockName: PropTypes.string.isRequired,
+  cardClass: PropTypes.string.isRequired,
 };
 
 export default CityPlaceCard;

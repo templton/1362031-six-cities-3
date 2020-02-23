@@ -36,7 +36,13 @@ class App extends PureComponent {
       return (
         <div className="page page--gray page--main">
           <Header/>
-          <CardDetail images={CardDeatail.images} info={CardDeatail.info} owner={CardDeatail.owner} reviews={reviews} neighbourhoodPlaces={neighbourhoodPlaces}/>
+          <CardDetail
+            images={CardDeatail.images}
+            info={CardDeatail.info}
+            owner={CardDeatail.owner}
+            reviews={reviews}
+            neighbourhoodPlaces={neighbourhoodPlaces}
+            onClickCardTitle={this.handleClickCardTitle}/>
         </div>
       );
     }
@@ -47,11 +53,6 @@ class App extends PureComponent {
           <Route exact path="/">
             <PageContainer pageClass="page--gray page--main">
               <Main offers={offers} onClickCardTitle={this.handleClickCardTitle}/>
-            </PageContainer>
-          </Route>
-          <Route exact path="/offer">
-            <PageContainer pageClass="page--gray page--main">
-              <CardDetail images={CardDeatail.images} info={CardDeatail.info} owner={CardDeatail.owner} reviews={reviews} neighbourhoodPlaces={neighbourhoodPlaces} onClickCardTitle={this.handleClickCardTitle}/>
             </PageContainer>
           </Route>
           <Route exact path="/login">

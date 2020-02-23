@@ -1,4 +1,4 @@
-import React, {PureComponent} from "react";
+import React, {PureComponent, Fragment} from "react";
 import PropTypes from "prop-types";
 import CityPlaceCard from "../city-place-card/city-place-card";
 
@@ -20,25 +20,25 @@ class PlacesList extends PureComponent {
   }
 
   render() {
-    const {places, onClickCardTitle, blockName} = this.props;
+    const {places, onClickCardTitle, cardClass} = this.props;
     return (
-      <div className={`${blockName}__places-list places__list tabs__content`}>
+      <Fragment>
         {
           places.map((it) => <CityPlaceCard
             key={it.id} info={it}
-            blockName={blockName}
+            cardClass={cardClass}
             onCityPlaceCardMouseEnter={this.handleCityPlaceCardMouseEnter}
             onClickCardTitle={onClickCardTitle}/>)
         }
-      </div>
+      </Fragment>
     );
-  };
-};
+  }
+}
 
 PlacesList.propTypes = {
   places: PropTypes.array.isRequired,
   onClickCardTitle: PropTypes.func.isRequired,
-  blockName: PropTypes.string.isRequired,
+  cardClass: PropTypes.string.isRequired,
 };
 
 export default PlacesList;
