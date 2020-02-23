@@ -4,9 +4,10 @@ import {PlaceCardTypes} from "../../const";
 import ReviewList from "../reviews-list/reviews-list";
 import RaitingStars from "../raiting-stars/raiting-stars";
 import PlacesList from "../places-list/places-list";
+import Map from "../map/map";
 
 const CardDetail = (props) => {
-  const {images, info, owner, reviews, neighbourhoodPlaces, onClickCardTitle} = props;
+  const {images, info, owner, reviews, neighbourhoodPlaces, onClickCardTitle, cityCord} = props;
   return (
     <main className="page__main page__main--property">
       <section className="property">
@@ -84,7 +85,7 @@ const CardDetail = (props) => {
 
           </div>
         </div>
-        <section className="property__map map"></section>
+        <Map cityCord={cityCord} containerType="property" placeCords={neighbourhoodPlaces.map((item)=>item.cord)}/>
       </section>
       <div className="container">
         <section className="near-places places">
@@ -122,6 +123,7 @@ CardDetail.propTypes = {
   reviews: PropTypes.array.isRequired,
   neighbourhoodPlaces: PropTypes.array.isRequired,
   onClickCardTitle: PropTypes.func.isRequired,
+  cityCord: PropTypes.array.isRequired,
 };
 
 export default CardDetail;

@@ -10,6 +10,7 @@ import {CardDeatail} from "../../mocks/carddetail";
 import PageContainer from "../page-container/page-container";
 import {reviews} from "../../mocks/review-list";
 import {neighbourhoodPlaces} from "../../mocks/offers";
+import cityCord from "../../mocks/defaultCity";
 
 class App extends PureComponent {
   constructor(props) {
@@ -37,6 +38,7 @@ class App extends PureComponent {
         <div className="page page--gray page--main">
           <Header/>
           <CardDetail
+            cityCord={cityCord}
             images={CardDeatail.images}
             info={CardDeatail.info}
             owner={CardDeatail.owner}
