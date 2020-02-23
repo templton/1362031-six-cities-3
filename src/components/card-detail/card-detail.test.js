@@ -1,7 +1,6 @@
 import React from "react";
 import renderer from "react-test-renderer";
 import CardDetail from "./card-detail";
-import Main from "../main/main";
 
 const CardDeatail = {
   images: [

@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import PlacesList from "../places-list/places-list";
+import {CardClasses} from "../../const";
 
 const CityPlaces = (props) => {
   const {offers, onClickCardTitle} = props;
@@ -24,7 +25,7 @@ const CityPlaces = (props) => {
         </ul>
       </form>
       <div className="cities__places-list places__list tabs__content">
-        <PlacesList places={offers} onClickCardTitle={onClickCardTitle} cardClass="cities__place-"/>
+        <PlacesList places={offers} onClickCardTitle={onClickCardTitle} cardClass={CardClasses.CITIES} />
       </div>
     </section>
   );

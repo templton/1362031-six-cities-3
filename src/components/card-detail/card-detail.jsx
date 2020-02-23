@@ -5,6 +5,7 @@ import ReviewList from "../reviews-list/reviews-list";
 import RaitingStars from "../raiting-stars/raiting-stars";
 import PlacesList from "../places-list/places-list";
 import Map from "../map/map";
+import {CardClasses} from "../../const";
 
 const CardDetail = (props) => {
   const {images, info, owner, reviews, neighbourhoodPlaces, onClickCardTitle, cityCord} = props;
@@ -91,7 +92,7 @@ const CardDetail = (props) => {
         <section className="near-places places">
           <h2 className="near-places__title">Other places in the neighbourhood</h2>
           <div className="near-places__list places__list">
-            <PlacesList places={neighbourhoodPlaces} onClickCardTitle={onClickCardTitle} cardClass="near-places__"/>
+            <PlacesList places={neighbourhoodPlaces} onClickCardTitle={onClickCardTitle} cardClass={CardClasses.CARD_DETAIL_NEAR}/>
           </div>
         </section>
       </div>

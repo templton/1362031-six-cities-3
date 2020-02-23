@@ -1,6 +1,7 @@
 import React from "react";
 import {shallow} from "enzyme";
 import CityPlaceCard from "./city-place-card";
+import {CardClasses} from "../../const";
 
 const placeCardInfo = {
   id: 1,
@@ -18,7 +19,7 @@ describe(`CityPlaceCard e2e`, () => {
   const handleClickCardTitle = jest.fn();
   const cityPlaceCard = shallow(<CityPlaceCard
     info={placeCardInfo}
-    cardClass="cities__place"
+    cardClass={CardClasses.CITIES}
     onCityPlaceCardMouseEnter={onMouseEnter}
     onClickCardTitle={handleClickCardTitle} />);
 

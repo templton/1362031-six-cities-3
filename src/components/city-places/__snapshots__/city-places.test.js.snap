@@ -72,7 +72,7 @@ exports[`CityPlaces render <CityList /> should render 1`] = `
     className="cities__places-list places__list tabs__content"
   >
     <article
-      className="cities__place-card place-card"
+      className="cities__placecard place-card"
       onMouseEnter={[Function]}
     >
       <div
@@ -169,7 +169,7 @@ exports[`CityPlaces render <CityList /> should render 1`] = `
       </div>
     </article>
     <article
-      className="cities__place-card place-card"
+      className="cities__placecard place-card"
       onMouseEnter={[Function]}
     >
       <div
