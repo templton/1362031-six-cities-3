@@ -297,71 +297,13 @@ exports[`CardDetail render CardDetail render default 1`] = `
             <span
               className="reviews__amount"
             >
-              1
+              0
             </span>
           </h2>
           <ul
             className="reviews__list"
           >
-            <li
-              className="reviews__item"
-            >
-              <div
-                className="reviews__user user"
-              >
-                <div
-                  className="reviews__avatar-wrapper user__avatar-wrapper"
-                >
-                  <img
-                    alt="Reviews avatar"
-                    className="reviews__avatar user__avatar"
-                    height="54"
-                    src="img/avatar-max.jpg"
-                    width="54"
-                  />
-                </div>
-                <span
-                  className="reviews__user-name"
-                >
-                  Max
-                </span>
-              </div>
-              <div
-                className="reviews__info"
-              >
-                <div
-                  className="reviews__rating rating"
-                >
-                  <div
-                    className="reviews__stars rating__stars"
-                  >
-                    <span
-                      style={
-                        Object {
-                          "width": "80%",
-                        }
-                      }
-                    />
-                    <span
-                      className="visually-hidden"
-                    >
-                      Rating
-                    </span>
-                  </div>
-                </div>
-                <p
-                  className="reviews__text"
-                >
-                  A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam. The building is green and from 18th century.
-                </p>
-                <time
-                  className="reviews__time"
-                  dateTime="2019-04-24"
-                >
-                  April 2019
-                </time>
-              </div>
-            </li>
+            ;
           </ul>
           <form
             action="#"
@@ -528,7 +470,17 @@ exports[`CardDetail render CardDetail render default 1`] = `
     </div>
     <section
       className="property__map map"
-    />
+    >
+      <div
+        id="map"
+        style={
+          Object {
+            "height": "100%",
+            "width": "100%",
+          }
+        }
+      />
+    </section>
   </section>
   <div
     className="container"
@@ -546,9 +498,10 @@ exports[`CardDetail render CardDetail render default 1`] = `
       >
         <article
           className="near-places__card place-card"
+          onMouseEnter={[Function]}
         >
           <div
-            className="near-places__image-wrapper place-card__image-wrapper"
+            className="place-card__image-wrapper"
           >
             <a
               href="#"
@@ -557,7 +510,7 @@ exports[`CardDetail render CardDetail render default 1`] = `
                 alt="Place image"
                 className="place-card__image"
                 height="200"
-                src="img/room.jpg"
+                src="https://upload.wikimedia.org/wikipedia/commons/3/34/Nanteos_%28geograph_3153536%29.jpg"
                 width="260"
               />
             </a>
@@ -574,7 +527,8 @@ exports[`CardDetail render CardDetail render default 1`] = `
                 <b
                   className="place-card__price-value"
                 >
-                  €80
+                  €
+                  150
                 </b>
                 <span
                   className="place-card__price-text"
@@ -583,7 +537,7 @@ exports[`CardDetail render CardDetail render default 1`] = `
                 </span>
               </div>
               <button
-                className="place-card__bookmark-button place-card__bookmark-button--active button"
+                className="place-card__bookmark-button place-card__bookmark-button button"
                 type="button"
               >
                 <svg
@@ -611,7 +565,7 @@ exports[`CardDetail render CardDetail render default 1`] = `
                 <span
                   style={
                     Object {
-                      "width": "80%",
+                      "width": "60%",
                     }
                   }
                 />
@@ -624,25 +578,27 @@ exports[`CardDetail render CardDetail render default 1`] = `
             </div>
             <h2
               className="place-card__name"
+              onClick={[Function]}
             >
               <a
                 href="#"
               >
-                Wood and stone place
+                Комната №12
               </a>
             </h2>
             <p
               className="place-card__type"
             >
-              Private room
+              room
             </p>
           </div>
         </article>
         <article
           className="near-places__card place-card"
+          onMouseEnter={[Function]}
         >
           <div
-            className="near-places__image-wrapper place-card__image-wrapper"
+            className="place-card__image-wrapper"
           >
             <a
               href="#"
@@ -651,7 +607,7 @@ exports[`CardDetail render CardDetail render default 1`] = `
                 alt="Place image"
                 className="place-card__image"
                 height="200"
-                src="img/apartment-02.jpg"
+                src="img/room.jpg"
                 width="260"
               />
             </a>
@@ -668,7 +624,8 @@ exports[`CardDetail render CardDetail render default 1`] = `
                 <b
                   className="place-card__price-value"
                 >
-                  €132
+                  €
+                  240
                 </b>
                 <span
                   className="place-card__price-text"
@@ -677,7 +634,7 @@ exports[`CardDetail render CardDetail render default 1`] = `
                 </span>
               </div>
               <button
-                className="place-card__bookmark-button button"
+                className="place-card__bookmark-button place-card__bookmark-button button"
                 type="button"
               >
                 <svg
@@ -692,7 +649,7 @@ exports[`CardDetail render CardDetail render default 1`] = `
                 <span
                   className="visually-hidden"
                 >
-                  To bookmarks
+                  In bookmarks
                 </span>
               </button>
             </div>
@@ -705,7 +662,7 @@ exports[`CardDetail render CardDetail render default 1`] = `
                 <span
                   style={
                     Object {
-                      "width": "80%",
+                      "width": "60%",
                     }
                   }
                 />
@@ -718,25 +675,27 @@ exports[`CardDetail render CardDetail render default 1`] = `
             </div>
             <h2
               className="place-card__name"
+              onClick={[Function]}
             >
               <a
                 href="#"
               >
-                Canal View Prinsengracht
+                Комната №13
               </a>
             </h2>
             <p
               className="place-card__type"
             >
-              Apartment
+              apartment
             </p>
           </div>
         </article>
         <article
           className="near-places__card place-card"
+          onMouseEnter={[Function]}
         >
           <div
-            className="near-places__image-wrapper place-card__image-wrapper"
+            className="place-card__image-wrapper"
           >
             <a
               href="#"
@@ -745,7 +704,7 @@ exports[`CardDetail render CardDetail render default 1`] = `
                 alt="Place image"
                 className="place-card__image"
                 height="200"
-                src="img/apartment-03.jpg"
+                src="img/room.jpg"
                 width="260"
               />
             </a>
@@ -762,7 +721,8 @@ exports[`CardDetail render CardDetail render default 1`] = `
                 <b
                   className="place-card__price-value"
                 >
-                  €180
+                  €
+                  370
                 </b>
                 <span
                   className="place-card__price-text"
@@ -771,7 +731,7 @@ exports[`CardDetail render CardDetail render default 1`] = `
                 </span>
               </div>
               <button
-                className="place-card__bookmark-button button"
+                className="place-card__bookmark-button place-card__bookmark-button button"
                 type="button"
               >
                 <svg
@@ -786,7 +746,7 @@ exports[`CardDetail render CardDetail render default 1`] = `
                 <span
                   className="visually-hidden"
                 >
-                  To bookmarks
+                  In bookmarks
                 </span>
               </button>
             </div>
@@ -799,7 +759,7 @@ exports[`CardDetail render CardDetail render default 1`] = `
                 <span
                   style={
                     Object {
-                      "width": "80%",
+                      "width": "40%",
                     }
                   }
                 />
@@ -812,17 +772,18 @@ exports[`CardDetail render CardDetail render default 1`] = `
             </div>
             <h2
               className="place-card__name"
+              onClick={[Function]}
             >
               <a
                 href="#"
               >
-                Nice, cozy, warm big bed apartment
+                Комната №14
               </a>
             </h2>
             <p
               className="place-card__type"
             >
-              Apartment
+              house
             </p>
           </div>
         </article>

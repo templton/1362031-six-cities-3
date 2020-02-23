@@ -76,7 +76,7 @@ exports[`CityPlaces render <CityList /> should render 1`] = `
       onMouseEnter={[Function]}
     >
       <div
-        className="cities__image-wrapper place-card__image-wrapper"
+        className="place-card__image-wrapper"
       >
         <a
           href="#"
@@ -112,7 +112,7 @@ exports[`CityPlaces render <CityList /> should render 1`] = `
             </span>
           </div>
           <button
-            className="place-card__bookmark-button place-card__bookmark-button--active button"
+            className="place-card__bookmark-button place-card__bookmark-button button"
             type="button"
           >
             <svg
@@ -121,7 +121,7 @@ exports[`CityPlaces render <CityList /> should render 1`] = `
               width="18"
             >
               <use
-                xlinkHref="#icon-bookmark-active"
+                xlinkHref="#icon-bookmark"
               />
             </svg>
             <span
@@ -173,7 +173,7 @@ exports[`CityPlaces render <CityList /> should render 1`] = `
       onMouseEnter={[Function]}
     >
       <div
-        className="cities__image-wrapper place-card__image-wrapper"
+        className="place-card__image-wrapper"
       >
         <a
           href="#"
@@ -209,7 +209,7 @@ exports[`CityPlaces render <CityList /> should render 1`] = `
             </span>
           </div>
           <button
-            className="place-card__bookmark-button place-card__bookmark-button--active button"
+            className="place-card__bookmark-button place-card__bookmark-button button"
             type="button"
           >
             <svg
@@ -218,7 +218,7 @@ exports[`CityPlaces render <CityList /> should render 1`] = `
               width="18"
             >
               <use
-                xlinkHref="#icon-bookmark-active"
+                xlinkHref="#icon-bookmark"
               />
             </svg>
             <span

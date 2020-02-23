@@ -28,7 +28,7 @@ const CityPlaces = (props) => {
       </div>
     </section>
   );
-}
+};
 
 CityPlaces.propTypes = {
   offers: PropTypes.array.isRequired,
