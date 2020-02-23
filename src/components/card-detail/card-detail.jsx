@@ -212,7 +212,7 @@ CardDetail.propTypes = {
     name: PropTypes.string.isRequired,
     avatar: PropTypes.string.isRequired
   }),
-  reviews: PropTypes.array.isRequired
+  reviews: PropTypes.array.isRequired,
 };
 
 export default CardDetail;

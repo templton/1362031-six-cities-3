@@ -9,6 +9,7 @@ import FavoritesCards from "../favorites-cards/favorites-cards";
 import {CardDeatail} from "../../mocks/carddetail";
 import PageContainer from "../page-container/page-container";
 import {reviews} from "../../mocks/review-list";
+import {neighbourhoodPlaces} from "../../mocks/offers";
 
 class App extends PureComponent {
   constructor(props) {
@@ -35,7 +36,7 @@ class App extends PureComponent {
       return (
         <div className="page page--gray page--main">
           <Header/>
-          <CardDetail images={CardDeatail.images} info={CardDeatail.info} owner={CardDeatail.owner} reviews={reviews}/>
+          <CardDetail images={CardDeatail.images} info={CardDeatail.info} owner={CardDeatail.owner} reviews={reviews} neighbourhoodPlaces={neighbourhoodPlaces}/>
         </div>
       );
     }
@@ -50,7 +51,7 @@ class App extends PureComponent {
           </Route>
           <Route exact path="/offer">
             <PageContainer pageClass="page--gray page--main">
-              <CardDetail images={CardDeatail.images} info={CardDeatail.info} owner={CardDeatail.owner} reviews={reviews}/>
+              <CardDetail images={CardDeatail.images} info={CardDeatail.info} owner={CardDeatail.owner} reviews={reviews} neighbourhoodPlaces={neighbourhoodPlaces} onClickCardTitle={this.handleClickCardTitle}/>
             </PageContainer>
           </Route>
           <Route exact path="/login">
