@@ -46,8 +46,9 @@ class Map extends PureComponent {
   }
 
   render() {
+    const {containerType} = this.props;
     return (
-      <section className="cities__map map">
+      <section className={`${containerType}__map map`}>
         <div id="map" ref={this._ref} style={{width: `100%`, height: `100%`}}></div>
       </section>
     );
@@ -62,7 +63,8 @@ Map.propTypes = {
   // Координаты найденных мест в текущем городе
   placeCords: PropTypes.array,
   // Координаты текущего выбранного города
-  cityCord: PropTypes.array.isRequired
+  cityCord: PropTypes.array.isRequired,
+  containerType: PropTypes.string.isRequired,
 };
 
 export default Map;

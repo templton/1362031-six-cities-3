@@ -1,6 +1,7 @@
 import React from "react";
 import {shallow} from "enzyme";
 import CityPlaceCard from "./city-place-card";
+import {CardClasses} from "../../const";
 
 const placeCardInfo = {
   id: 1,
@@ -16,7 +17,11 @@ describe(`CityPlaceCard e2e`, () => {
 
   const onMouseEnter = jest.fn();
   const handleClickCardTitle = jest.fn();
-  const cityPlaceCard = shallow(<CityPlaceCard info={placeCardInfo} onCityPlaceCardMouseEnter={onMouseEnter} onClickCardTitle={handleClickCardTitle} />);
+  const cityPlaceCard = shallow(<CityPlaceCard
+    info={placeCardInfo}
+    cardClass={CardClasses.CITIES}
+    onCityPlaceCardMouseEnter={onMouseEnter}
+    onClickCardTitle={handleClickCardTitle} />);
 
   it(`Should mouse over on card and card data should come into callback`, () => {
     cityPlaceCard.simulate(`mouseEnter`);

@@ -1,6 +1,7 @@
 import React from "react";
 import renderer from "react-test-renderer";
 import CityPlaceCard from "./city-place-card";
+import {CardClasses} from "../../const";
 
 const info = {
   id: 1,
@@ -17,7 +18,11 @@ describe(`CityPlaceCard render`, () => {
   it(`Render CityPlaceCard`, () => {
     const onClickCardTitle = jest.fn();
     const tree = renderer
-      .create(<CityPlaceCard info={info} onCityPlaceCardMouseEnter={()=>{}} onClickCardTitle={onClickCardTitle}/>).toJSON();
+      .create(<CityPlaceCard
+        info={info}
+        cardClass={CardClasses.CITIES}
+        onCityPlaceCardMouseEnter={()=>{}}
+        onClickCardTitle={onClickCardTitle}/>).toJSON();
 
     expect(tree).toMatchSnapshot();
   });

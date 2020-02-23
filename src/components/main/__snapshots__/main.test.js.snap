@@ -360,11 +360,11 @@ exports[`Render Main <Main /> should render some items 1`] = `
           className="cities__places-list places__list tabs__content"
         >
           <article
-            className="cities__place-card place-card"
+            className="cities__placecard place-card"
             onMouseEnter={[Function]}
           >
             <div
-              className="cities__image-wrapper place-card__image-wrapper"
+              className="place-card__image-wrapper"
             >
               <a
                 href="#"
@@ -400,7 +400,7 @@ exports[`Render Main <Main /> should render some items 1`] = `
                   </span>
                 </div>
                 <button
-                  className="place-card__bookmark-button place-card__bookmark-button--active button"
+                  className="place-card__bookmark-button place-card__bookmark-button button"
                   type="button"
                 >
                   <svg
@@ -409,7 +409,7 @@ exports[`Render Main <Main /> should render some items 1`] = `
                     width="18"
                   >
                     <use
-                      xlinkHref="#icon-bookmark-active"
+                      xlinkHref="#icon-bookmark"
                     />
                   </svg>
                   <span
@@ -457,11 +457,11 @@ exports[`Render Main <Main /> should render some items 1`] = `
             </div>
           </article>
           <article
-            className="cities__place-card place-card"
+            className="cities__placecard place-card"
             onMouseEnter={[Function]}
           >
             <div
-              className="cities__image-wrapper place-card__image-wrapper"
+              className="place-card__image-wrapper"
             >
               <a
                 href="#"
@@ -497,7 +497,7 @@ exports[`Render Main <Main /> should render some items 1`] = `
                   </span>
                 </div>
                 <button
-                  className="place-card__bookmark-button place-card__bookmark-button--active button"
+                  className="place-card__bookmark-button place-card__bookmark-button button"
                   type="button"
                 >
                   <svg
@@ -506,7 +506,7 @@ exports[`Render Main <Main /> should render some items 1`] = `
                     width="18"
                   >
                     <use
-                      xlinkHref="#icon-bookmark-active"
+                      xlinkHref="#icon-bookmark"
                     />
                   </svg>
                   <span
