@@ -3,9 +3,7 @@ import PropTypes from "prop-types";
 import {PlaceCardTypes} from "../../const";
 import ReviewList from "../reviews-list/reviews-list";
 import RaitingStars from "../raiting-stars/raiting-stars";
-import PlacesList from "../places-list/places-list";
-import Map from "../map/map";
-import {CardClasses} from "../../const";
+import NearPlaces from "../near-places/near-places";
 
 const CardDetail = (props) => {
   const {images, info, owner, reviews, neighbourhoodPlaces, onClickCardTitle, cityCord} = props;
@@ -81,21 +79,12 @@ const CardDetail = (props) => {
                 })}
               </div>
             </div>
-
             <ReviewList reviews={reviews}/>
-
           </div>
+          <NearPlaces neighbourhoodPlaces={neighbourhoodPlaces} onClickCardTitle={onClickCardTitle} cityCord={cityCord}/>
         </div>
-        <Map cityCord={cityCord} containerType="property" placeCords={neighbourhoodPlaces.map((item)=>item.cord)}/>
       </section>
-      <div className="container">
-        <section className="near-places places">
-          <h2 className="near-places__title">Other places in the neighbourhood</h2>
-          <div className="near-places__list places__list">
-            <PlacesList places={neighbourhoodPlaces} onClickCardTitle={onClickCardTitle} cardClass={CardClasses.CARD_DETAIL_NEAR}/>
-          </div>
-        </section>
-      </div>
+
     </main>
   );
 };
