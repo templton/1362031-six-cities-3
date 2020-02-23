@@ -2,12 +2,12 @@ import React from "react";
 import PropTypes from "prop-types";
 import {PlaceCardTypes} from "../../const";
 
-const CityPlaceCard = ({info, onCityPlaceCardMouseEnter, onClickCardTitle}) => {
+const CityPlaceCard = ({info, onCityPlaceCardMouseEnter, onClickCardTitle, blockName}) => {
   return (
-    <article className="cities__place-card place-card" onMouseEnter={()=>{
+    <article className={`${blockName}__place-card place-card`} onMouseEnter={()=>{
       onCityPlaceCardMouseEnter(info);
     }}>
-      <div className="cities__image-wrapper place-card__image-wrapper">
+      <div className={`${blockName}__image-wrapper place-card__image-wrapper`}>
         <a href="#">
           <img className="place-card__image" src={info.image} width="260" height="200" alt="Place image"/>
         </a>
@@ -54,6 +54,7 @@ CityPlaceCard.propTypes = {
   }),
   onCityPlaceCardMouseEnter: PropTypes.func.isRequired,
   onClickCardTitle: PropTypes.func.isRequired,
+  blockName: PropTypes.string.isRequired,
 };
 
 export default CityPlaceCard;
