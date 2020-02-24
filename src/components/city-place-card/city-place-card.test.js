@@ -1,7 +1,6 @@
 import React from "react";
 import renderer from "react-test-renderer";
 import CityPlaceCard from "./city-place-card";
-import {CardClasses} from "../../const";
 
 const info = {
   id: 1,
@@ -20,7 +19,7 @@ describe(`CityPlaceCard render`, () => {
     const tree = renderer
       .create(<CityPlaceCard
         info={info}
-        cardClass={CardClasses.CITIES}
+        cardClass="cities__place-"
         onCityPlaceCardMouseEnter={()=>{}}
         onClickCardTitle={onClickCardTitle}/>).toJSON();
 
