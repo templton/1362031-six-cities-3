@@ -1,6 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
 import PlacesList from "../places-list/places-list";
+import withPlacesList from "../../hocs/with-places-list/with-places-list";
+
+const PlacesListWrapped = withPlacesList(PlacesList);
 
 const CityPlaces = (props) => {
   const {offers, onClickCardTitle} = props;
@@ -24,7 +27,7 @@ const CityPlaces = (props) => {
         </ul>
       </form>
       <div className="cities__places-list places__list tabs__content">
-        <PlacesList places={offers} onClickCardTitle={onClickCardTitle} cardClass="cities__place-" />
+        <PlacesListWrapped places={offers} onClickCardTitle={onClickCardTitle} cardClass="cities__place-" />
       </div>
     </section>
   );
