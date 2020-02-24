@@ -15,7 +15,7 @@ const PlacesList = (props) => {
       }
     </Fragment>
   );
-}
+};
 
 PlacesList.propTypes = {
   places: PropTypes.array.isRequired,

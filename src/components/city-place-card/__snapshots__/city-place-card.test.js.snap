@@ -2,7 +2,7 @@
 
 exports[`CityPlaceCard render Render CityPlaceCard 1`] = `
 <article
-  className="cities__placecard place-card"
+  className="cities__place-card place-card"
   onMouseEnter={[Function]}
 >
   <div

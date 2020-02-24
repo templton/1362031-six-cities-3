@@ -29,6 +29,6 @@ const withPlacesList = (Component) => {
   }
 
   return WithPlacesList;
-}
+};
 
 export default withPlacesList;

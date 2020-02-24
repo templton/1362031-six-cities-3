@@ -225,7 +225,7 @@ exports[`App render App render 1`] = `
             className="cities__places-list places__list tabs__content"
           >
             <article
-              className="cities__placecard place-card"
+              className="cities__place-card place-card"
               onMouseEnter={[Function]}
             >
               <div
@@ -322,7 +322,7 @@ exports[`App render App render 1`] = `
               </div>
             </article>
             <article
-              className="cities__placecard place-card"
+              className="cities__place-card place-card"
               onMouseEnter={[Function]}
             >
               <div

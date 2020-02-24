@@ -302,9 +302,7 @@ exports[`CardDetail render CardDetail render default 1`] = `
           </h2>
           <ul
             className="reviews__list"
-          >
-            ;
-          </ul>
+          />
           <form
             action="#"
             className="reviews__form form"

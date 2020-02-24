@@ -1,7 +1,6 @@
 import React from "react";
 import renderer from "react-test-renderer";
 import NearPlaces from "./near-places";
-import Map from "../map/map";
 
 const defaultCity = [52.38333, 4.9];
 
