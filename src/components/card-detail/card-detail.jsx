@@ -6,7 +6,7 @@ import RaitingStars from "../raiting-stars/raiting-stars";
 import NearPlaces from "../near-places/near-places";
 
 const CardDetail = (props) => {
-  const {images, info, owner, reviews, neighbourhoodPlaces, onClickCardTitle, cityCord} = props;
+  const {images, info, owner, reviews, neighbourhoodPlaces, onClickCardTitle} = props;
   return (
     <main className="page__main page__main--property">
       <section className="property">
@@ -81,7 +81,7 @@ const CardDetail = (props) => {
             </div>
             <ReviewList reviews={reviews}/>
           </div>
-          <NearPlaces neighbourhoodPlaces={neighbourhoodPlaces} onClickCardTitle={onClickCardTitle} cityCord={cityCord}/>
+          <NearPlaces neighbourhoodPlaces={neighbourhoodPlaces} onClickCardTitle={onClickCardTitle}/>
         </div>
       </section>
 
@@ -113,7 +113,6 @@ CardDetail.propTypes = {
   reviews: PropTypes.array.isRequired,
   neighbourhoodPlaces: PropTypes.array.isRequired,
   onClickCardTitle: PropTypes.func.isRequired,
-  cityCord: PropTypes.array.isRequired,
 };
 
 export default CardDetail;
