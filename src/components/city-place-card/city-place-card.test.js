@@ -17,7 +17,11 @@ describe(`CityPlaceCard render`, () => {
   it(`Render CityPlaceCard`, () => {
     const onClickCardTitle = jest.fn();
     const tree = renderer
-      .create(<CityPlaceCard info={info} onCityPlaceCardMouseEnter={()=>{}} onClickCardTitle={onClickCardTitle}/>).toJSON();
+      .create(<CityPlaceCard
+        info={info}
+        cardClass="cities__place-"
+        onCityPlaceCardMouseEnter={()=>{}}
+        onClickCardTitle={onClickCardTitle}/>).toJSON();
 
     expect(tree).toMatchSnapshot();
   });

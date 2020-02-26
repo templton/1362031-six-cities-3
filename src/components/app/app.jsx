@@ -8,6 +8,9 @@ import Login from "../login/login";
 import FavoritesCards from "../favorites-cards/favorites-cards";
 import {CardDeatail} from "../../mocks/carddetail";
 import PageContainer from "../page-container/page-container";
+import {reviews} from "../../mocks/review-list";
+import {neighbourhoodPlaces} from "../../mocks/offers";
+import cityCord from "../../mocks/defaultCity";
 
 class App extends PureComponent {
   constructor(props) {
@@ -34,7 +37,14 @@ class App extends PureComponent {
       return (
         <div className="page page--gray page--main">
           <Header/>
-          <CardDetail images={CardDeatail.images} info={CardDeatail.info} owner={CardDeatail.owner}/>
+          <CardDetail
+            cityCord={cityCord}
+            images={CardDeatail.images}
+            info={CardDeatail.info}
+            owner={CardDeatail.owner}
+            reviews={reviews}
+            neighbourhoodPlaces={neighbourhoodPlaces}
+            onClickCardTitle={this.handleClickCardTitle}/>
         </div>
       );
     }
@@ -45,11 +55,6 @@ class App extends PureComponent {
           <Route exact path="/">
             <PageContainer pageClass="page--gray page--main">
               <Main offers={offers} onClickCardTitle={this.handleClickCardTitle}/>
-            </PageContainer>
-          </Route>
-          <Route exact path="/offer">
-            <PageContainer pageClass="page--gray page--main">
-              <CardDetail images={CardDeatail.images} info={CardDeatail.info} owner={CardDeatail.owner}/>
             </PageContainer>
           </Route>
           <Route exact path="/login">

@@ -7,6 +7,10 @@ import cityCord from "../../mocks/defaultCity";
 const Main = (props) => {
   const {onClickCardTitle, offers} = props;
 
+  const getTypeContent = () => {
+    return `cities`;
+  };
+
   return (
     <main className="page__main page__main--index">
       <h1 className="visually-hidden">Cities</h1>
@@ -50,7 +54,7 @@ const Main = (props) => {
         <div className="cities__places-container container">
           <CityPlaces offers={offers} onClickCardTitle={onClickCardTitle}/>
           <div className="cities__right-section">
-            <Map placeCords={offers.map((item)=>item.cord)} cityCord={cityCord}/>
+            <Map placeCords={offers.map((item)=>item.cord)} cityCord={cityCord} getTypeName={getTypeContent}/>
           </div>
         </div>
       </div>

@@ -6,7 +6,7 @@ exports[`CityPlaceCard render Render CityPlaceCard 1`] = `
   onMouseEnter={[Function]}
 >
   <div
-    className="cities__image-wrapper place-card__image-wrapper"
+    className="place-card__image-wrapper"
   >
     <a
       href="#"
@@ -42,7 +42,7 @@ exports[`CityPlaceCard render Render CityPlaceCard 1`] = `
         </span>
       </div>
       <button
-        className="place-card__bookmark-button place-card__bookmark-button--active button"
+        className="place-card__bookmark-button place-card__bookmark-button button"
         type="button"
       >
         <svg
@@ -51,7 +51,7 @@ exports[`CityPlaceCard render Render CityPlaceCard 1`] = `
           width="18"
         >
           <use
-            xlinkHref="#icon-bookmark-active"
+            xlinkHref="#icon-bookmark"
           />
         </svg>
         <span
