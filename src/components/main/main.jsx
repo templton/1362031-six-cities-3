@@ -8,10 +8,6 @@ import CitiesList from "../cities-list/cities-list";
 const Main = (props) => {
   const {onClickCardTitle, offers, cityCord} = props;
 
-  const getTypeContent = () => {
-    return `cities`;
-  };
-
   return (
     <main className="page__main page__main--index">
       <h1 className="visually-hidden">Cities</h1>
@@ -22,7 +18,7 @@ const Main = (props) => {
         <div className="cities__places-container container">
           <CityPlaces offers={offers} onClickCardTitle={onClickCardTitle}/>
           <div className="cities__right-section">
-            <Map placeCords={offers.map((item)=>item.cord)} cityCord={cityCord} getTypeName={getTypeContent}/>
+            <Map placeCords={offers.map((item)=>item.cord)} cityCord={cityCord} mapClassName="cities__map"/>
           </div>
         </div>
       </div>

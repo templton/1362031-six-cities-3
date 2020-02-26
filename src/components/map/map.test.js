@@ -9,7 +9,7 @@ describe(`Map renderer`, () => {
 
   it(`simple renderer`, () => {
     const tree = renderer
-      .create(<Map cityCord={cityCord} placeCords={placeCords} getTypeName={()=>(`cities`)} />, {
+      .create(<Map cityCord={cityCord} placeCords={placeCords} mapClassName="cities__map" />, {
         createNodeMock: () => {
           return document.createElement(`div`);
         }

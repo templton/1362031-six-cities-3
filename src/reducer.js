@@ -1,43 +1,29 @@
-import {city, placesList} from "./mocks/defaultCity";
+import {cities, places} from "./mocks/defaultCity";
+
+function getPlacesForCity(cityId) {
+  return places.filter((item)=>(item.cityId === cityId));
+}
 
 const initialState = {
-  citiesList: [
-    {
-      id: 15,
-      name: `Барнаул`,
-      cord: []
-    },
-    {
-      id: 16,
-      name: `Новосибирск`,
-      cord: []
-    },
-    {
-      id: 17,
-      name: `Амстердам`,
-      cord: [52.38333, 4.9]
-    },
-  ],
-  city,
-  placesList
+  citiesList: cities,
+  city: cities[0],
+  placesInCity: getPlacesForCity(cities[0].id)
 };
 
 const ActionType = {
-  SET_CITY: `SET_CITY`,
-  SET_PLACE_LIST: `SET_PLACE_LIST`
+  SET_CITY: `SET_CITY`
 };
 
 const ActionCreator = {
-  setCity: (currentCity) => ({type: ActionType.SET_CITY, payload: currentCity}),
-  setPlaceList: (currentPlacesList) => ({type: ActionType.SET_PLACE_LIST, payload: currentPlacesList})
+  setCity: (currentCity) => ({type: ActionType.SET_CITY, payload: currentCity})
 };
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case ActionType.SET_CITY:
-      return Object.assign({}, state, {city: action.payload});
-    case ActionType.SET_PLACE_LIST:
-      return Object.assign({}, state, {placesList: action.payload});
+      const city = action.payload;
+      const placesInCity = getPlacesForCity(city.id);
+      return Object.assign({}, state, {city, placesInCity});
   }
   return state;
 };

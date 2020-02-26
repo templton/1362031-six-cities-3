@@ -1,11 +1,25 @@
-const city = {
-  id: 17,
-  cord: [52.38333, 4.9]
-};
+const cities = [
+  {
+    id: 17,
+    name: `Амстердам`,
+    cord: [52.38333, 4.9]
+  },
+  {
+    id: 15,
+    name: `Барнаул`,
+    cord: []
+  },
+  {
+    id: 16,
+    name: `Новосибирск`,
+    cord: []
+  }
+];
 
-const placesList = [
+const places = [
   {
     id: 1,
+    cityId: 17,
     title: `Комната №1`,
     isPremium: false,
     image: `https://upload.wikimedia.org/wikipedia/commons/3/34/Nanteos_%28geograph_3153536%29.jpg`,
@@ -16,6 +30,7 @@ const placesList = [
   },
   {
     id: 2,
+    cityId: 17,
     title: `Комната №2`,
     isPremium: false,
     image: `https://upload.wikimedia.org/wikipedia/commons/3/34/Nanteos_%28geograph_3153536%29.jpg`,
@@ -26,6 +41,7 @@ const placesList = [
   },
   {
     id: 3,
+    cityId: 17,
     title: `Комната №3`,
     isPremium: false,
     image: `img/room.jpg`,
@@ -36,6 +52,7 @@ const placesList = [
   },
   {
     id: 4,
+    cityId: 17,
     title: `Комната №4`,
     isPremium: false,
     image: `img/room.jpg`,
@@ -47,4 +64,4 @@ const placesList = [
 ];
 
 
-export {city, placesList};
+export {cities, places};
