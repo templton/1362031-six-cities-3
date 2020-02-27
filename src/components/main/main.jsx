@@ -18,7 +18,7 @@ const Main = (props) => {
         <div className="cities__places-container container">
           <CityPlaces offers={offers} onClickCardTitle={onClickCardTitle}/>
           <div className="cities__right-section">
-            <Map placeCords={offers.map((item)=>item.cord)} cityCord={cityCord.slice(0)} mapClassName="cities__map"/>
+            <Map placeCords={offers.map((item)=>item.cord)} cityCord={cityCord} mapClassName="cities__map"/>
           </div>
         </div>
       </div>
