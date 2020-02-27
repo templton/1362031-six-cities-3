@@ -1,16 +1,17 @@
 import React from "react";
 import PropTypes from "prop-types";
+import {connect} from "react-redux";
 import PlacesList from "../places-list/places-list";
 import withPlacesList from "../../hocs/with-places-list/with-places-list";
 
 const PlacesListWrapped = withPlacesList(PlacesList);
 
 const CityPlaces = (props) => {
-  const {offers, onClickCardTitle} = props;
+  const {offers, onClickCardTitle, city} = props;
   return (
     <section className="cities__places places">
       <h2 className="visually-hidden">Places</h2>
-      <b className="places__found">312 places to stay in Amsterdam</b>
+      <b className="places__found">{offers.length} places to stay in {city.name}</b>
       <form className="places__sorting" action="#" method="get">
         <span className="places__sorting-caption">Sort by</span>
         <span className="places__sorting-type" tabIndex="0">
@@ -35,7 +36,13 @@ const CityPlaces = (props) => {
 
 CityPlaces.propTypes = {
   offers: PropTypes.array.isRequired,
-  onClickCardTitle: PropTypes.func.isRequired
+  onClickCardTitle: PropTypes.func.isRequired,
+  city: PropTypes.object.isRequired
 };
 
-export default CityPlaces;
+const mapStateToProps = ({city}) => ({
+  city
+});
+
+export {CityPlaces};
+export default connect(mapStateToProps)(CityPlaces);

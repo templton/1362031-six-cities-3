@@ -1,7 +1,5 @@
 import React, {PureComponent} from "react";
-import PropTypes from "prop-types";
 import {BrowserRouter, Route, Switch} from "react-router-dom";
-import {connect} from "react-redux";
 import Header from "../header/header";
 import Main from "../main/main";
 import CardDetail from "../card-detail/card-detail";
@@ -31,14 +29,11 @@ class App extends PureComponent {
 
   render() {
 
-    const {offers, cityCord} = this.props;
-
     if (this.state.currentCityPlaceCardId) {
       return (
         <div className="page page--gray page--main">
           <Header/>
           <CardDetail
-            cityCord={cityCord}
             images={CardDeatail.images}
             info={CardDeatail.info}
             owner={CardDeatail.owner}
@@ -54,7 +49,7 @@ class App extends PureComponent {
         <Switch>
           <Route exact path="/">
             <PageContainer pageClass="page--gray page--main">
-              <Main offers={offers} onClickCardTitle={this.handleClickCardTitle}/>
+              <Main onClickCardTitle={this.handleClickCardTitle}/>
             </PageContainer>
           </Route>
           <Route exact path="/login">
@@ -73,14 +68,4 @@ class App extends PureComponent {
   }
 }
 
-App.propTypes = {
-  offers: PropTypes.array.isRequired,
-  cityCord: PropTypes.array.isRequired,
-};
-
-const mapStateToProps = (state) => ({
-  cityCord: state.city.cord
-});
-
-export {App};
-export default connect(mapStateToProps)(App);
+export default App;

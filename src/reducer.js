@@ -1,3 +1,4 @@
+import {ActionType} from "./actions";
 import {cities, places} from "./mocks/defaultCity";
 
 function getPlacesForCity(cityId) {
@@ -10,17 +11,9 @@ const initialState = {
   placesInCity: getPlacesForCity(cities[0].id)
 };
 
-const ActionType = {
-  SET_CITY: `SET_CITY`
-};
-
-const ActionCreator = {
-  setCity: (currentCity) => ({type: ActionType.SET_CITY, payload: currentCity})
-};
-
 const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case ActionType.SET_CITY:
+    case ActionType.SET_CURRENT_CITY:
       const city = action.payload;
       const placesInCity = getPlacesForCity(city.id);
       return Object.assign({}, state, {city, placesInCity});
@@ -28,4 +21,4 @@ const reducer = (state = initialState, action) => {
   return state;
 };
 
-export {reducer, ActionCreator};
+export {reducer};

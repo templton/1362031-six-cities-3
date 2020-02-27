@@ -7,7 +7,7 @@ const cities = [
   {
     id: 15,
     name: `Барнаул`,
-    cord: []
+    cord: [53.346785,83.776856]
   },
   {
     id: 16,
@@ -60,6 +60,17 @@ const places = [
     type: `house`,
     raiting: 2.1,
     cord: [52.3909553943508, 4.92309666406198]
+  },
+  {
+    id: 4,
+    cityId: 15,
+    title: `Квартира`,
+    isPremium: false,
+    image: `img/room.jpg`,
+    costPerNignt: 370,
+    type: `house`,
+    raiting: 2.1,
+    cord: [53.339812, 83.791301]
   }
 ];
 

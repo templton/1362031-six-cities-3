@@ -33,7 +33,8 @@ Main.propTypes = {
 };
 
 const mapStateToProps = (state) => ({
-  cityCord: state.city.cord
+  cityCord: state.city.cord,
+  offers: state.placesInCity
 });
 
 export {Main};

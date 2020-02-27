@@ -1,8 +1,9 @@
-import React, {PureComponent} from "react";
+import React, {PureComponent, Fragment} from "react";
 import PropTypes from "prop-types";
 import leaflet from "leaflet";
+import {connect} from "react-redux";
 
-class Map extends PureComponent {
+class Map extends React.Component {
   constructor(props) {
     super(props);
     this._ref = React.createRef();
@@ -10,6 +11,10 @@ class Map extends PureComponent {
 
   componentDidMount() {
     this.renderCityAndMarkers();
+  }
+
+  componentWillUpdate() {
+    // console.log('map render', this.props.cityCord);
   }
 
   renderCityAndMarkers() {
@@ -46,11 +51,19 @@ class Map extends PureComponent {
   }
 
   render() {
-    const {mapClassName} = this.props;
+    const {mapClassName, cityCord} = this.props;
     return (
-      <section className={`${mapClassName} map`}>
-        <div id="map" ref={this._ref} style={{width: `100%`, height: `100%`}}></div>
-      </section>
+      <React.Fragment>
+
+        {
+          /* Вот тут видно что props.cityCord меняется. Но почему-то карта нифига не обновляется */
+        }
+
+        <h1>data: {cityCord.map((item)=>item)}</h1>
+        <section className={`${mapClassName} map`}>
+          <div id="map" ref={this._ref} style={{width: `100%`, height: `100%`}}></div>
+        </section>
+      </React.Fragment>
     );
   }
 }
@@ -60,11 +73,10 @@ Map.defaultProps = {
 };
 
 Map.propTypes = {
-  // Координаты найденных мест в текущем городе
   placeCords: PropTypes.array,
-  // Координаты текущего выбранного города
   cityCord: PropTypes.array.isRequired,
   mapClassName: PropTypes.string.isRequired,
 };
 
 export default Map;
+
