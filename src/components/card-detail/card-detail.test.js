@@ -141,3 +141,4 @@ describe(`CardDetail render`, () => {
     expect(tree).toMatchSnapshot();
   });
 });
+
