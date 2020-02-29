@@ -17,8 +17,9 @@ const reducer = (state = initialState, action) => {
       const city = action.payload;
       const placesInCity = getPlacesForCity(city.id);
       return Object.assign({}, state, {city, placesInCity});
+    default:
+      return state;
   }
-  return state;
 };
 
 export {reducer};
