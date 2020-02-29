@@ -1,6 +1,10 @@
 import React from "react";
 import renderer from "react-test-renderer";
+import {Provider} from "react-redux";
+import configureStore from "redux-mock-store";
 import CityPlaces from "./city-places";
+
+const mockStore = configureStore([]);
 
 const offers = [
   {
@@ -23,12 +27,45 @@ const offers = [
   },
 ];
 
+const city = {
+  id: 17,
+  name: `Амстердам`,
+  cord: [52.38333, 4.9]
+};
+
+const cities = [
+  {
+    id: 17,
+    name: `Амстердам`,
+    cord: [52.38333, 4.9]
+  },
+  {
+    id: 15,
+    name: `Барнаул`,
+    cord: [53.346785, 83.776856]
+  },
+  {
+    id: 16,
+    name: `Новосибирск`,
+    cord: []
+  }
+];
+
 describe(`CityPlaces render`, () => {
+
+  const store = mockStore({
+    citiesList: cities,
+    placesInCity: offers,
+    city
+  });
 
   it(`<CityList /> should render`, () => {
     const onClickCardTitle = jest.fn();
     const tree = renderer
-      .create(<CityPlaces offers={offers} onClickCardTitle={onClickCardTitle}/>).toJSON();
+      .create(
+          <Provider store={store}>
+            <CityPlaces offers={offers} onClickCardTitle={onClickCardTitle}/>
+          </Provider>).toJSON();
 
     expect(tree).toMatchSnapshot();
   });

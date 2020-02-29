@@ -1,6 +1,10 @@
 import React from "react";
 import renderer from "react-test-renderer";
+import {Provider} from "react-redux";
+import configureStore from "redux-mock-store";
 import Main from "./main";
+
+const mockStore = configureStore([]);
 
 const offers = [
   {
@@ -25,28 +29,64 @@ const offers = [
   },
 ];
 
+const city = {
+  id: 17,
+  name: `Амстердам`,
+  cord: [52.38333, 4.9]
+};
+
+const cities = [
+  {
+    id: 17,
+    name: `Амстердам`,
+    cord: [52.38333, 4.9]
+  },
+  {
+    id: 15,
+    name: `Барнаул`,
+    cord: [53.346785, 83.776856]
+  },
+  {
+    id: 16,
+    name: `Новосибирск`,
+    cord: []
+  }
+];
+
+const store = mockStore({
+  placesInCity: offers,
+  citiesList: cities,
+  city
+});
+
 describe(`Render Main`, () => {
 
   const handleClickCardTitle = jest.fn();
 
   it(`<Main /> should render some items`, () => {
     const tree = renderer
-      .create(<Main offers={offers} onClickCardTitle={handleClickCardTitle}/>, {
-        createNodeMock: () => {
-          return document.createElement(`div`);
-        }
-      }).toJSON();
+      .create(
+          <Provider store={store}>
+            <Main onClickCardTitle={handleClickCardTitle}/>
+          </Provider>, {
+            createNodeMock: () => {
+              return document.createElement(`div`);
+            }
+          }).toJSON();
 
     expect(tree).toMatchSnapshot();
   });
 
   it(`<Main /> should render empty items`, () => {
     const tree = renderer
-      .create(<Main offers={[]} onClickCardTitle={handleClickCardTitle}/>, {
-        createNodeMock: () => {
-          return document.createElement(`div`);
-        }
-      }).toJSON();
+      .create(
+          <Provider store={store}>
+            <Main onClickCardTitle={handleClickCardTitle}/>
+          </Provider>, {
+            createNodeMock: () => {
+              return document.createElement(`div`);
+            }
+          }).toJSON();
 
     expect(tree).toMatchSnapshot();
   });
