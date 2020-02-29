@@ -1,7 +1,6 @@
-import React, {PureComponent, Fragment} from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import leaflet from "leaflet";
-import {connect} from "react-redux";
 
 class Map extends React.Component {
   constructor(props) {
@@ -20,15 +19,19 @@ class Map extends React.Component {
   renderCityAndMarkers() {
     const {cityCord, placeCords} = this.props;
 
-    const icon = leaflet.icon({
-      iconUrl: `img/pin.svg`,
-      iconSize: [30, 30]
-    });
-
     if (this.map) {
       this.map.remove();
       this.map = null;
     }
+
+    if (cityCord.length === 0) {
+      return;
+    }
+
+    const icon = leaflet.icon({
+      iconUrl: `img/pin.svg`,
+      iconSize: [30, 30]
+    });
 
     const zoom = 12;
     this.map = leaflet.map(this._ref.current, {
@@ -37,7 +40,6 @@ class Map extends React.Component {
       zoomControl: false,
       marker: true
     });
-
 
     this.map.setView(cityCord, zoom);
 
