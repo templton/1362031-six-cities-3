@@ -13,7 +13,7 @@ const CityPlaces = (props) => {
       <h2 className="visually-hidden">Places</h2>
       <b className="places__found">{offers.length ? `places to stay in ${city.name}` : `No places to stay available`}</b>
       {
-        !!offers.length &&
+        offers.length &&
         <form className="places__sorting" action="#" method="get">
           <span className="places__sorting-caption">Sort by</span>
           <span className="places__sorting-type" tabIndex="0">
