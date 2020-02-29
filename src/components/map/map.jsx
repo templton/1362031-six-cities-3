@@ -17,7 +17,11 @@ class Map extends React.Component {
   }
 
   renderCityAndMarkers() {
-    const {cityCord, placeCords} = this.props;
+    const {cityCord, placeCords, currentCords} = this.props;
+
+    if (!this.markers) {
+      this.markers = [];
+    }
 
     if (cityCord.length === 0) {
       this.map.remove();
@@ -27,6 +31,11 @@ class Map extends React.Component {
 
     const icon = leaflet.icon({
       iconUrl: `img/pin.svg`,
+      iconSize: [30, 30]
+    });
+
+    const activeIcon = leaflet.icon({
+      iconUrl: `img/pin-active.svg`,
       iconSize: [30, 30]
     });
 
@@ -49,12 +58,17 @@ class Map extends React.Component {
       })
       .addTo(this.map);
 
+    this.markers.forEach((marker)=> this.map.removeLayer(marker));
+
+    this.markers = [];
+
     // Добавить маркеты с координатами мест
     if (placeCords.length) {
       placeCords.map((cord)=>{
-        leaflet
-          .marker(cord, {icon})
+        const marker = leaflet
+          .marker(cord, cord === currentCords ? {activeIcon} : {icon} )
           .addTo(this.map);
+        this.markers.push(marker);
       });
     }
   }
