@@ -19,12 +19,9 @@ class Map extends React.Component {
   renderCityAndMarkers() {
     const {cityCord, placeCords} = this.props;
 
-    if (this.map) {
+    if (cityCord.length === 0) {
       this.map.remove();
       this.map = null;
-    }
-
-    if (cityCord.length === 0) {
       return;
     }
 
@@ -34,12 +31,15 @@ class Map extends React.Component {
     });
 
     const zoom = 12;
-    this.map = leaflet.map(this._ref.current, {
-      center: cityCord,
-      zoom,
-      zoomControl: false,
-      marker: true
-    });
+
+    if (!this.map) {
+      this.map = leaflet.map(this._ref.current, {
+        center: cityCord,
+        zoom,
+        zoomControl: false,
+        marker: true
+      });
+    }
 
     this.map.setView(cityCord, zoom);
 
