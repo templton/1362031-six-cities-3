@@ -7,6 +7,7 @@ import CitiesList from "../cities-list/cities-list";
 
 const Main = (props) => {
   const {onClickCardTitle, offers, cityCord} = props;
+  const placeCords = offers.map((item)=>item.cord);
 
   return (
     <main className="page__main page__main--index">
@@ -18,7 +19,7 @@ const Main = (props) => {
         <div className="cities__places-container container">
           <CityPlaces offers={offers} onClickCardTitle={onClickCardTitle}/>
           <div className="cities__right-section">
-            <Map placeCords={offers.map((item)=>item.cord)} cityCord={cityCord} mapClassName="cities__map"/>
+            <Map placeCords={placeCords} cityCord={cityCord} mapClassName="cities__map"/>
           </div>
         </div>
       </div>

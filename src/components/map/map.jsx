@@ -76,7 +76,7 @@ Map.defaultProps = {
 };
 
 Map.propTypes = {
-  placeCords: PropTypes.array,
+  placeCords: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.number)),
   cityCord: PropTypes.array.isRequired,
   mapClassName: PropTypes.string.isRequired,
 };

@@ -9,10 +9,12 @@ const PlacesListWrapped = withPlacesList(PlacesList);
 
 const NearPlaces = (props) => {
   const {cityCord, neighbourhoodPlaces, onClickCardTitle} = props;
+  const placeCords = neighbourhoodPlaces.map((item)=>item.cord);
+
   return (
     <Fragment>
       <section className="property">
-        <Map cityCord={cityCord} mapClassName="property__map" placeCords={neighbourhoodPlaces.map((item)=>item.cord)}/>
+        <Map cityCord={cityCord} mapClassName="property__map" placeCords={placeCords}/>
       </section>
       <div className="container">
         <section className="near-places places">
