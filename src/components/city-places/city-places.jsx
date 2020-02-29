@@ -2,10 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import {connect} from "react-redux";
 import PlacesList from "../places-list/places-list";
-import withPlacesList from "../../hocs/with-places-list/with-places-list";
 import CityPlacesForm from "../city-places-form/city-places-form";
-
-const PlacesListWrapped = withPlacesList(PlacesList);
 
 const CityPlaces = (props) => {
   const {offers, onClickCardTitle, city} = props;
@@ -15,7 +12,7 @@ const CityPlaces = (props) => {
       <b className="places__found">{offers.length ? `places to stay in ${city.name}` : `No places to stay available`}</b>
       { offers.length > 0 && <CityPlacesForm/> }
       <div className="cities__places-list places__list tabs__content">
-        <PlacesListWrapped places={offers} onClickCardTitle={onClickCardTitle} cardClass="cities__place-" />
+        <PlacesList places={offers} onClickCardTitle={onClickCardTitle} cardClass="cities__place-" />
       </div>
     </section>
   );

@@ -9,7 +9,8 @@ const initialState = {
   citiesList: cities,
   city: cities[0],
   placesInCity: getPlacesForCity(cities[0].id),
-  currentPlaceFilterType: sortCityFilterType.POPULAR
+  currentPlaceFilterType: sortCityFilterType.POPULAR,
+  mouseOverPlaceCard: []
 };
 
 const sortPlacesByCost = (items, filter) => {
@@ -42,6 +43,10 @@ const reducer = (state = initialState, action) => {
     case ActionType.SORT_PLACES_IN_CITY:
       placesInCity = sortPlacesByCost(state.placesInCity.slice(0), action.payload);
       return Object.assign({}, state, {placesInCity, currentPlaceFilterType: action.payload});
+    case ActionType.SET_MOUSE_OVER_PLACE_CARD:
+      return Object.assign({}, state, {mouseOverPlaceCard: action.payload});
+    case ActionType.UNSET_MOUSE_OVER_PLACE_CARD:
+      return Object.assign({}, state, {mouseOverPlaceCard: []});
     default:
       return state;
   }

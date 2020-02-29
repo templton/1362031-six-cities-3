@@ -1,12 +1,17 @@
 import React from "react";
 import PropTypes from "prop-types";
+import {connect} from "react-redux";
 import {PlaceCardTypes} from "../../const";
+import RaitingStars from "../raiting-stars/raiting-stars";
+import {setMouseOverPlaceCard, unsetMouseOverPlaceCard} from "../../actions";
 
-const CityPlaceCard = ({info, onCityPlaceCardMouseEnter, onClickCardTitle, cardClass}) => {
+const CityPlaceCard = (props) => {
+  const {info, onClickCardTitle, cardClass, onArticleMouseEnter, onArticleMouseLeave} = props;
   return (
-    <article className={`${cardClass}card place-card`} onMouseEnter={()=>{
-      onCityPlaceCardMouseEnter(info);
-    }}>
+    <article
+      className={`${cardClass}card place-card`}
+      onMouseEnter={() => onArticleMouseEnter(info.cord)}
+      onMouseLeave={() => onArticleMouseLeave()}>
       <div className="place-card__image-wrapper">
         <a href="#">
           <img className="place-card__image" src={info.image} width="260" height="200" alt="Place image"/>
@@ -26,10 +31,7 @@ const CityPlaceCard = ({info, onCityPlaceCardMouseEnter, onClickCardTitle, cardC
           </button>
         </div>
         <div className="place-card__rating rating">
-          <div className="place-card__stars rating__stars">
-            <span style={{width: 20 * Math.floor(info.raiting) + `%`}}></span>
-            <span className="visually-hidden">Rating</span>
-          </div>
+          <RaitingStars raiting={info.raiting} suffixClass="place-card" showRaitingValue={false}/>
         </div>
         <h2 className="place-card__name" onClick={() => {
           onClickCardTitle(info.id);
@@ -52,9 +54,16 @@ CityPlaceCard.propTypes = {
     type: PropTypes.oneOf(Object.values(PlaceCardTypes)),
     raiting: PropTypes.number.isRequired
   }),
-  onCityPlaceCardMouseEnter: PropTypes.func.isRequired,
   onClickCardTitle: PropTypes.func.isRequired,
+  onArticleMouseEnter: PropTypes.func.isRequired,
+  onArticleMouseLeave: PropTypes.func.isRequired,
   cardClass: PropTypes.string.isRequired,
 };
 
-export default CityPlaceCard;
+const mapDispatchToProps = {
+  onArticleMouseEnter: setMouseOverPlaceCard,
+  onArticleMouseLeave: unsetMouseOverPlaceCard
+};
+
+export {CityPlaceCard};
+export default connect(null, mapDispatchToProps)(CityPlaceCard);
