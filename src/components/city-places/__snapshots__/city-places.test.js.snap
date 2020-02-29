@@ -12,7 +12,7 @@ exports[`CityPlaces render <CityList /> should render 1`] = `
   <b
     className="places__found"
   >
-    312 places to stay in Amsterdam
+    places to stay in Амстердам
   </b>
   <form
     action="#"

@@ -1,5 +1,4 @@
 import React, {PureComponent} from "react";
-import PropTypes from "prop-types";
 import {BrowserRouter, Route, Switch} from "react-router-dom";
 import Header from "../header/header";
 import Main from "../main/main";
@@ -10,7 +9,6 @@ import {CardDeatail} from "../../mocks/carddetail";
 import PageContainer from "../page-container/page-container";
 import {reviews} from "../../mocks/review-list";
 import {neighbourhoodPlaces} from "../../mocks/offers";
-import cityCord from "../../mocks/defaultCity";
 
 class App extends PureComponent {
   constructor(props) {
@@ -31,14 +29,11 @@ class App extends PureComponent {
 
   render() {
 
-    const {offers} = this.props;
-
     if (this.state.currentCityPlaceCardId) {
       return (
         <div className="page page--gray page--main">
           <Header/>
           <CardDetail
-            cityCord={cityCord}
             images={CardDeatail.images}
             info={CardDeatail.info}
             owner={CardDeatail.owner}
@@ -54,7 +49,7 @@ class App extends PureComponent {
         <Switch>
           <Route exact path="/">
             <PageContainer pageClass="page--gray page--main">
-              <Main offers={offers} onClickCardTitle={this.handleClickCardTitle}/>
+              <Main onClickCardTitle={this.handleClickCardTitle}/>
             </PageContainer>
           </Route>
           <Route exact path="/login">
@@ -72,9 +67,5 @@ class App extends PureComponent {
     );
   }
 }
-
-App.propTypes = {
-  offers: PropTypes.array.isRequired
-};
 
 export default App;

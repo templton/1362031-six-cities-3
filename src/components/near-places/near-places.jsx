@@ -3,16 +3,18 @@ import PropTypes from "prop-types";
 import Map from "../map/map";
 import PlacesList from "../places-list/places-list";
 import withPlacesList from "../../hocs/with-places-list/with-places-list";
+import {connect} from "react-redux";
 
 const PlacesListWrapped = withPlacesList(PlacesList);
 
 const NearPlaces = (props) => {
   const {cityCord, neighbourhoodPlaces, onClickCardTitle} = props;
-  const getTypeName = () => (`property`);
+  const placeCords = neighbourhoodPlaces.map((item)=>item.cord);
+
   return (
     <Fragment>
       <section className="property">
-        <Map cityCord={cityCord} getTypeName={getTypeName} placeCords={neighbourhoodPlaces.map((item)=>item.cord)}/>
+        <Map cityCord={cityCord} mapClassName="property__map" placeCords={placeCords}/>
       </section>
       <div className="container">
         <section className="near-places places">
@@ -32,4 +34,9 @@ NearPlaces.propTypes = {
   cityCord: PropTypes.array.isRequired,
 };
 
-export default NearPlaces;
+const mapStateToProps = (state) => ({
+  cityCord: state.city.cord
+});
+
+export {NearPlaces};
+export default connect(mapStateToProps)(NearPlaces);

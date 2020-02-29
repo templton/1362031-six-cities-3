@@ -1,8 +1,8 @@
-import React, {PureComponent} from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import leaflet from "leaflet";
 
-class Map extends PureComponent {
+class Map extends React.Component {
   constructor(props) {
     super(props);
     this._ref = React.createRef();
@@ -12,45 +12,61 @@ class Map extends PureComponent {
     this.renderCityAndMarkers();
   }
 
+  componentDidUpdate() {
+    this.renderCityAndMarkers();
+  }
+
   renderCityAndMarkers() {
     const {cityCord, placeCords} = this.props;
+
+    if (this.map) {
+      this.map.remove();
+      this.map = null;
+    }
+
+    if (cityCord.length === 0) {
+      return;
+    }
 
     const icon = leaflet.icon({
       iconUrl: `img/pin.svg`,
       iconSize: [30, 30]
     });
+
     const zoom = 12;
-    const map = leaflet.map(this._ref.current, {
+    this.map = leaflet.map(this._ref.current, {
       center: cityCord,
       zoom,
       zoomControl: false,
       marker: true
     });
 
-    map.setView(cityCord, zoom);
+    this.map.setView(cityCord, zoom);
 
     leaflet
       .tileLayer(`https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png`, {
         attribution: `&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>`
       })
-      .addTo(map);
+      .addTo(this.map);
 
     // Добавить маркеты с координатами мест
     if (placeCords.length) {
       placeCords.map((cord)=>{
         leaflet
           .marker(cord, {icon})
-          .addTo(map);
+          .addTo(this.map);
       });
     }
   }
 
   render() {
-    const {getTypeName} = this.props;
+    const {mapClassName} = this.props;
     return (
-      <section className={`${getTypeName()}__map map`}>
-        <div id="map" ref={this._ref} style={{width: `100%`, height: `100%`}}></div>
-      </section>
+      <React.Fragment>
+        <section className={`${mapClassName} map`}>
+          <div id="map" ref={this._ref} style={{width: `100%`, height: `100%`}}></div>
+        </section>
+      </React.Fragment>
     );
   }
 }
@@ -60,11 +76,10 @@ Map.defaultProps = {
 };
 
 Map.propTypes = {
-  // Координаты найденных мест в текущем городе
-  placeCords: PropTypes.array,
-  // Координаты текущего выбранного города
+  placeCords: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.number)),
   cityCord: PropTypes.array.isRequired,
-  getTypeName: PropTypes.func.isRequired,
+  mapClassName: PropTypes.string.isRequired,
 };
 
 export default Map;
+

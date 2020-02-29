@@ -1,6 +1,10 @@
 import React from "react";
 import renderer from "react-test-renderer";
+import {Provider} from "react-redux";
+import configureStore from "redux-mock-store";
 import CardDetail from "./card-detail";
+
+const mockStore = configureStore([]);
 
 const CardDeatail = {
   images: [
@@ -83,23 +87,58 @@ const neighbourhoodPlaces = [
   }
 ];
 
+const city = {
+  id: 17,
+  name: `Амстердам`,
+  cord: [52.38333, 4.9]
+};
+
+const cities = [
+  {
+    id: 17,
+    name: `Амстердам`,
+    cord: [52.38333, 4.9]
+  },
+  {
+    id: 15,
+    name: `Барнаул`,
+    cord: [53.346785, 83.776856]
+  },
+  {
+    id: 16,
+    name: `Новосибирск`,
+    cord: []
+  }
+];
+
+
+const store = mockStore({
+  citiesList: cities,
+  city
+});
+
+
 describe(`CardDetail render`, () => {
 
   it(`CardDetail render default`, () => {
     const tree = renderer
-      .create(<CardDetail
-        cityCord={cityCord}
-        reviews={[]}
-        neighbourhoodPlaces={neighbourhoodPlaces}
-        onClickCardTitle={()=>{}}
-        images={CardDeatail.images}
-        info={CardDeatail.info}
-        owner={CardDeatail.owner}/>, {
-        createNodeMock: () => {
-          return document.createElement(`div`);
-        }
-      }).toJSON();
+      .create(
+          <Provider store={store}>
+            <CardDetail
+              cityCord={cityCord}
+              reviews={[]}
+              neighbourhoodPlaces={neighbourhoodPlaces}
+              onClickCardTitle={()=>{}}
+              images={CardDeatail.images}
+              info={CardDeatail.info}
+              owner={CardDeatail.owner}/>
+          </Provider>, {
+            createNodeMock: () => {
+              return document.createElement(`div`);
+            }
+          }).toJSON();
 
     expect(tree).toMatchSnapshot();
   });
 });
+
