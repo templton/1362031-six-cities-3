@@ -1,8 +1,8 @@
 import React from "react";
 import {shallow} from "enzyme";
-import {Provider} from "react-redux";
 import configureStore from "redux-mock-store";
 import CityPlaceCard from "./city-place-card";
+import {CityPlaceCard as CityPlaceCardPure} from "./city-place-card";
 
 const mockStore = configureStore([]);
 
@@ -71,25 +71,32 @@ describe(`CityPlaceCard e2e`, () => {
 
   const onMouseEnter = jest.fn();
   const handleClickCardTitle = jest.fn();
-  const cityPlaceCard = shallow(
-      <Provider store={store}>
+
+  it(`click on title; test with connect`, () => {
+    const cityPlaceCard = shallow(
         <CityPlaceCard
+          store={store}
           info={placeCardInfo}
           cardClass="cities__place-"
           onArticleMouseEnter={onMouseEnter}
           onArticleMouseLeave={()=>{}}
-          onClickCardTitle={handleClickCardTitle} />
-      </Provider>
-  );
-
-  it(`Should mouse over on card and card data should come into callback`, () => {
-    cityPlaceCard.simulate(`mouseEnter`);
-    expect(onMouseEnter).toBeCalledWith(placeCardInfo);
-  });
-
-  it(`click on title`, () => {
+          onClickCardTitle={handleClickCardTitle} />).dive();
     const title = cityPlaceCard.find(`.place-card__name`);
     title.simulate(`click`);
     expect(handleClickCardTitle).toBeCalled();
   });
+
+  it(`test mouse over on pure component`, () => {
+    const cityPlaceCardPure = shallow(
+        <CityPlaceCardPure
+          info={placeCardInfo}
+          cardClass="cities__place-"
+          onArticleMouseEnter={onMouseEnter}
+          onArticleMouseLeave={()=>{}}
+          onClickCardTitle={handleClickCardTitle} />);
+
+    cityPlaceCardPure.simulate(`mouseEnter`);
+    expect(onMouseEnter).toBeCalledWith(placeCardInfo.cord);
+  });
+
 });
