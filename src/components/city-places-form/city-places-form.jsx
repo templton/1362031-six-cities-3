@@ -1,46 +1,28 @@
-import React, {PureComponent} from "react";
+import React from "react";
 import {connect} from "react-redux";
 import PropTypes from "prop-types";
 import CityPlacesFormFilters from "../city-places-form-filters/city-places-form-filters";
 
-class CityPlacesForm extends PureComponent {
+const CityPlacesForm = ({currentPlaceFilterType, isToggleElementActive, handleToggle}) => {
 
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      isFilterVisible: false
-    };
-
-    this.toggleFiltersBlock = this.toggleFiltersBlock.bind(this);
-  }
-
-  toggleFiltersBlock() {
-    this.setState((prev) => ({
-      isFilterVisible: !prev.isFilterVisible
-    }));
-  }
-
-  render() {
-    const {currentPlaceFilterType} = this.props;
-    const {isFilterVisible} = this.state;
-    return (
-      <form className="places__sorting" action="#" method="get">
-        <span className="places__sorting-caption">Sort by</span>
-        <span className="places__sorting-type" tabIndex="0" onClick={this.toggleFiltersBlock}>
-        &nbsp; {currentPlaceFilterType}
-          <svg className="places__sorting-arrow" width="7" height="4">
-            <use xlinkHref="#icon-arrow-select"></use>
-          </svg>
-        </span>
-        <CityPlacesFormFilters isFilterVisible={isFilterVisible} onFilterClick={this.toggleFiltersBlock}/>
-      </form>
-    );
-  }
-}
+  return (
+    <form className="places__sorting" action="#" method="get">
+      <span className="places__sorting-caption">Sort by</span>
+      <span className="places__sorting-type" onClick={handleToggle}>
+      &nbsp; {currentPlaceFilterType}
+        <svg className="places__sorting-arrow" width="7" height="4">
+          <use xlinkHref="#icon-arrow-select"></use>
+        </svg>
+      </span>
+      <CityPlacesFormFilters isFilterVisible={isToggleElementActive} onFilterClick={handleToggle}/>
+    </form>
+  );
+};
 
 CityPlacesForm.propTypes = {
-  currentPlaceFilterType: PropTypes.string.isRequired
+  currentPlaceFilterType: PropTypes.string.isRequired,
+  isToggleElementActive: PropTypes.bool.isRequired,
+  handleToggle: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = ({currentPlaceFilterType}) => ({
