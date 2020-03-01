@@ -51,8 +51,9 @@ CityPlaceCard.propTypes = {
     costPerNignt: PropTypes.number.isRequired,
     image: PropTypes.string.isRequired,
     isPremium: PropTypes.bool.isRequired,
-    type: PropTypes.oneOf(Object.values(PlaceCardTypes)),
-    raiting: PropTypes.number.isRequired
+    type: PropTypes.oneOf(Object.values(PlaceCardTypes)).isRequired,
+    raiting: PropTypes.number.isRequired,
+    cord: PropTypes.arrayOf(PropTypes.number).isRequired
   }),
   onClickCardTitle: PropTypes.func.isRequired,
   onArticleMouseEnter: PropTypes.func.isRequired,

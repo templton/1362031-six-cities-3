@@ -13,7 +13,9 @@ const initialState = {
   mouseOverPlaceCard: []
 };
 
-const sortPlacesByCost = (items, filter) => {
+const sortPlacesByCost = (state, filter) => {
+
+  const items = state.placesInCity.slice(0);
 
   switch (filter) {
     case sortCityFilterType.PRICE_LOW_TO_HIGH:
@@ -41,7 +43,7 @@ const reducer = (state = initialState, action) => {
       placesInCity = getPlacesForCity(city.id);
       return {...state, city, placesInCity};
     case ActionType.SORT_PLACES_IN_CITY:
-      placesInCity = sortPlacesByCost(state.placesInCity.slice(0), action.payload);
+      placesInCity = sortPlacesByCost(state, action.payload);
       return {...state, placesInCity, currentPlaceFilterType: action.payload};
     case ActionType.SET_MOUSE_OVER_PLACE_CARD:
       return {...state, mouseOverPlaceCard: action.payload};
