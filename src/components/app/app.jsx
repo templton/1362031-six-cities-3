@@ -1,5 +1,7 @@
 import React, {PureComponent} from "react";
 import {BrowserRouter, Route, Switch} from "react-router-dom";
+import PropTypes from "prop-types";
+import {connect} from "react-redux";
 import Header from "../header/header";
 import Main from "../main/main";
 import CardDetail from "../card-detail/card-detail";
@@ -9,6 +11,7 @@ import {CardDeatail} from "../../mocks/carddetail";
 import PageContainer from "../page-container/page-container";
 import {reviews} from "../../mocks/review-list";
 import {neighbourhoodPlaces} from "../../mocks/offers";
+import EmptyContent from "../empty-content/empty-content";
 
 class App extends PureComponent {
   constructor(props) {
@@ -28,6 +31,14 @@ class App extends PureComponent {
   }
 
   render() {
+
+    if (this.props.offers.length === 0) {
+      return (
+        <PageContainer pageClass="page--gray page--main">
+          <EmptyContent/>
+        </PageContainer>
+      );
+    }
 
     if (this.state.currentCityPlaceCardId) {
       return (
@@ -68,4 +79,14 @@ class App extends PureComponent {
   }
 }
 
-export default App;
+App.propTypes = {
+  offers: PropTypes.array.isRequired
+};
+
+const mapStateToProps = (state) => ({
+  cityCord: state.city.cord,
+  offers: state.placesInCity
+});
+
+export {App};
+export default connect(mapStateToProps)(App);

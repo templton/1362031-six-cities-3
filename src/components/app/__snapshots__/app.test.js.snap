@@ -133,7 +133,7 @@ exports[`App render App render 1`] = `
           <b
             className="places__found"
           >
-            places to stay in Амстердам
+            2 places to stay in Амстердам
           </b>
           <form
             action="#"

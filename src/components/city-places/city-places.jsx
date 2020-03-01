@@ -12,7 +12,7 @@ const CityPlaces = (props) => {
   return (
     <section className="cities__places places">
       <h2 className="visually-hidden">Places</h2>
-      <b className="places__found">{offers.length ? `places to stay in ${city.name}` : `No places to stay available`}</b>
+      <b className="places__found">{`${offers.length} places to stay in ${city.name}`}</b>
       { offers.length > 0 && <CityPlacesFormWrapped/> }
       <div className="cities__places-list places__list tabs__content">
         <PlacesList places={offers} onClickCardTitle={onClickCardTitle} cardClass="cities__place-card" />
