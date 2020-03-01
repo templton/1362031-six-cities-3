@@ -3,6 +3,7 @@ import renderer from "react-test-renderer";
 import {Provider} from "react-redux";
 import configureStore from "redux-mock-store";
 import CityPlaces from "./city-places";
+import {sortCityFilterType} from "../../actions";
 
 const mockStore = configureStore([]);
 
@@ -14,7 +15,8 @@ const offers = [
     image: `https://upload.wikimedia.org/wikipedia/commons/3/34/Nanteos_%28geograph_3153536%29.jpg`,
     costPerNignt: 80,
     type: `room`,
-    raiting: 4.7
+    raiting: 4.7,
+    cord: [52.38333, 4.9]
   },
   {
     id: 2,
@@ -23,7 +25,8 @@ const offers = [
     image: `https://upload.wikimedia.org/wikipedia/commons/3/34/Nanteos_%28geograph_3153536%29.jpg`,
     costPerNignt: 60,
     type: `apartment`,
-    raiting: 2
+    raiting: 2,
+    cord: [52.38333, 4.9]
   },
 ];
 
@@ -56,7 +59,8 @@ describe(`CityPlaces render`, () => {
   const store = mockStore({
     citiesList: cities,
     placesInCity: offers,
-    city
+    city,
+    currentPlaceFilterType: sortCityFilterType.POPULAR
   });
 
   it(`<CityList /> should render`, () => {

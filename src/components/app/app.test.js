@@ -3,6 +3,7 @@ import renderer from "react-test-renderer";
 import {Provider} from "react-redux";
 import configureStore from "redux-mock-store";
 import App from "./app";
+import {sortCityFilterType} from "../../actions";
 
 const mockStore = configureStore([]);
 
@@ -57,7 +58,8 @@ const cities = [
 const store = mockStore({
   citiesList: cities,
   placesInCity: offers,
-  city
+  city,
+  currentPlaceFilterType: sortCityFilterType.POPULAR
 });
 
 describe(`App render`, () => {
