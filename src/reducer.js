@@ -39,14 +39,14 @@ const reducer = (state = initialState, action) => {
     case ActionType.SET_CURRENT_CITY:
       const city = action.payload;
       placesInCity = getPlacesForCity(city.id);
-      return Object.assign({}, state, {city, placesInCity});
+      return {...state, city, placesInCity};
     case ActionType.SORT_PLACES_IN_CITY:
       placesInCity = sortPlacesByCost(state.placesInCity.slice(0), action.payload);
-      return Object.assign({}, state, {placesInCity, currentPlaceFilterType: action.payload});
+      return {...state, placesInCity, currentPlaceFilterType: action.payload};
     case ActionType.SET_MOUSE_OVER_PLACE_CARD:
-      return Object.assign({}, state, {mouseOverPlaceCard: action.payload});
+      return {...state, mouseOverPlaceCard: action.payload};
     case ActionType.UNSET_MOUSE_OVER_PLACE_CARD:
-      return Object.assign({}, state, {mouseOverPlaceCard: []});
+      return {...state, mouseOverPlaceCard: []};
     default:
       return state;
   }
