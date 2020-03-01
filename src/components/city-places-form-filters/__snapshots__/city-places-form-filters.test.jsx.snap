@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CityPlacesFormFilters render simple render 1`] = `
+<ul
+  className="places__options places__options--custom places__options--opened"
+>
+  <li
+    className="places__option places__option--active"
+    onClick={[Function]}
+  >
+    Popular
+  </li>
+  <li
+    className="places__option "
+    onClick={[Function]}
+  >
+    Top rated first
+  </li>
+  <li
+    className="places__option "
+    onClick={[Function]}
+  >
+    Price: low to high
+  </li>
+  <li
+    className="places__option "
+    onClick={[Function]}
+  >
+    Price: high to low
+  </li>
+</ul>
+`;

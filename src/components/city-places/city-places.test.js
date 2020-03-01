@@ -1,11 +1,8 @@
 import React from "react";
 import renderer from "react-test-renderer";
 import {Provider} from "react-redux";
-import configureStore from "redux-mock-store";
 import CityPlaces from "./city-places";
-import {sortCityFilterType} from "../../actions";
-
-const mockStore = configureStore([]);
+import {store} from "../../mocks/test-store";
 
 const offers = [
   {
@@ -30,39 +27,7 @@ const offers = [
   },
 ];
 
-const city = {
-  id: 17,
-  name: `Амстердам`,
-  cord: [52.38333, 4.9]
-};
-
-const cities = [
-  {
-    id: 17,
-    name: `Амстердам`,
-    cord: [52.38333, 4.9]
-  },
-  {
-    id: 15,
-    name: `Барнаул`,
-    cord: [53.346785, 83.776856]
-  },
-  {
-    id: 16,
-    name: `Новосибирск`,
-    cord: []
-  }
-];
-
 describe(`CityPlaces render`, () => {
-
-  const store = mockStore({
-    citiesList: cities,
-    placesInCity: offers,
-    city,
-    currentPlaceFilterType: sortCityFilterType.POPULAR
-  });
-
   it(`<CityList /> should render`, () => {
     const onClickCardTitle = jest.fn();
     const tree = renderer
