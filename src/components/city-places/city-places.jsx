@@ -12,7 +12,7 @@ const CityPlaces = (props) => {
       <b className="places__found">{offers.length ? `places to stay in ${city.name}` : `No places to stay available`}</b>
       { offers.length > 0 && <CityPlacesForm/> }
       <div className="cities__places-list places__list tabs__content">
-        <PlacesList places={offers} onClickCardTitle={onClickCardTitle} cardClass="cities__place-" />
+        <PlacesList places={offers} onClickCardTitle={onClickCardTitle} cardClass="cities__place-card" />
       </div>
     </section>
   );

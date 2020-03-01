@@ -77,7 +77,7 @@ describe(`CityPlaceCard e2e`, () => {
         <CityPlaceCard
           store={store}
           info={placeCardInfo}
-          cardClass="cities__place-"
+          cardClass="cities__place-card"
           onArticleMouseEnter={onMouseEnter}
           onArticleMouseLeave={()=>{}}
           onClickCardTitle={handleClickCardTitle} />).dive();
@@ -90,7 +90,7 @@ describe(`CityPlaceCard e2e`, () => {
     const cityPlaceCardPure = shallow(
         <CityPlaceCardPure
           info={placeCardInfo}
-          cardClass="cities__place-"
+          cardClass="cities__place-card"
           onArticleMouseEnter={onMouseEnter}
           onArticleMouseLeave={()=>{}}
           onClickCardTitle={handleClickCardTitle} />);

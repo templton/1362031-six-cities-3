@@ -17,7 +17,7 @@ const NearPlaces = (props) => {
         <section className="near-places places">
           <h2 className="near-places__title">Other places in the neighbourhood</h2>
           <div className="near-places__list places__list">
-            <PlacesList places={neighbourhoodPlaces} onClickCardTitle={onClickCardTitle} cardClass="near-places__"/>
+            <PlacesList places={neighbourhoodPlaces} onClickCardTitle={onClickCardTitle} cardClass="near-places__card"/>
           </div>
         </section>
       </div>

@@ -9,7 +9,7 @@ const CityPlaceCard = (props) => {
   const {info, onClickCardTitle, cardClass, onArticleMouseEnter, onArticleMouseLeave} = props;
   return (
     <article
-      className={`${cardClass}card place-card`}
+      className={`${cardClass} place-card`}
       onMouseEnter={() => onArticleMouseEnter(info.cord)}
       onMouseLeave={() => onArticleMouseLeave()}>
       <div className="place-card__image-wrapper">

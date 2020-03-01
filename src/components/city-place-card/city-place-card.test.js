@@ -76,7 +76,7 @@ describe(`CityPlaceCard render`, () => {
           <Provider store={store}>
             <CityPlaceCard
               info={info}
-              cardClass="cities__place-"
+              cardClass="cities__place-card"
               onCityPlaceCardMouseEnter={()=>{}}
               onClickCardTitle={onClickCardTitle}/>
           </Provider>
