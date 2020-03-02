@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RaitingStars render 1`] = `
+<div
+  className="cards__rating rating"
+>
+  <div
+    className="cards__stars rating__stars"
+  >
+    <span
+      style={
+        Object {
+          "width": "400%",
+        }
+      }
+    />
+    <span
+      className="visually-hidden"
+    >
+      Rating
+    </span>
+  </div>
+  <span
+    className="cards__rating-value rating__value"
+  >
+    20
+  </span>
+</div>
+`;

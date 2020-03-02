@@ -1,10 +1,8 @@
 import React from "react";
 import renderer from "react-test-renderer";
 import {Provider} from "react-redux";
-import configureStore from "redux-mock-store";
 import CityPlaces from "./city-places";
-
-const mockStore = configureStore([]);
+import {store} from "../../mocks/test-store";
 
 const offers = [
   {
@@ -14,7 +12,8 @@ const offers = [
     image: `https://upload.wikimedia.org/wikipedia/commons/3/34/Nanteos_%28geograph_3153536%29.jpg`,
     costPerNignt: 80,
     type: `room`,
-    raiting: 4.7
+    raiting: 4.7,
+    cord: [52.38333, 4.9]
   },
   {
     id: 2,
@@ -23,42 +22,12 @@ const offers = [
     image: `https://upload.wikimedia.org/wikipedia/commons/3/34/Nanteos_%28geograph_3153536%29.jpg`,
     costPerNignt: 60,
     type: `apartment`,
-    raiting: 2
-  },
-];
-
-const city = {
-  id: 17,
-  name: `Амстердам`,
-  cord: [52.38333, 4.9]
-};
-
-const cities = [
-  {
-    id: 17,
-    name: `Амстердам`,
+    raiting: 2,
     cord: [52.38333, 4.9]
   },
-  {
-    id: 15,
-    name: `Барнаул`,
-    cord: [53.346785, 83.776856]
-  },
-  {
-    id: 16,
-    name: `Новосибирск`,
-    cord: []
-  }
 ];
 
 describe(`CityPlaces render`, () => {
-
-  const store = mockStore({
-    citiesList: cities,
-    placesInCity: offers,
-    city
-  });
-
   it(`<CityList /> should render`, () => {
     const onClickCardTitle = jest.fn();
     const tree = renderer

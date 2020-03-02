@@ -1,20 +1,20 @@
 import React from "react";
 import renderer from "react-test-renderer";
 import {Provider} from "react-redux";
-import CitiesList from "./cities-list";
+import {sortCityFilterType} from "../../actions";
+import {CityPlacesForm} from "./city-places-form";
 import {store} from "../../mocks/test-store";
 
-describe(`Cities list render test`, () => {
 
+describe(`CiltyPlacesForm render`, () => {
   it(`Simple render`, () => {
     const tree = renderer
       .create(
           <Provider store={store}>
-            <CitiesList />
+            <CityPlacesForm handleToggle={()=>{}} isToggleElementActive={false} currentPlaceFilterType={sortCityFilterType.POPULAR}/>
           </Provider>
       ).toJSON();
 
     expect(tree).toMatchSnapshot();
-
   });
 });

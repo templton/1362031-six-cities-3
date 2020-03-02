@@ -92,9 +92,9 @@ exports[`Render Main <Main /> should render empty items 1`] = `
           <span
             className="places__sorting-type"
             onClick={[Function]}
-            tabIndex="0"
           >
               
+            Popular
             <svg
               className="places__sorting-arrow"
               height="4"
@@ -112,6 +112,7 @@ exports[`Render Main <Main /> should render empty items 1`] = `
           <article
             className="cities__place-card place-card"
             onMouseEnter={[Function]}
+            onMouseLeave={[Function]}
           >
             <div
               className="place-card__image-wrapper"
@@ -173,20 +174,25 @@ exports[`Render Main <Main /> should render empty items 1`] = `
                 className="place-card__rating rating"
               >
                 <div
-                  className="place-card__stars rating__stars"
+                  className="place-card__rating rating"
                 >
-                  <span
-                    style={
-                      Object {
-                        "width": "80%",
-                      }
-                    }
-                  />
-                  <span
-                    className="visually-hidden"
+                  <div
+                    className="place-card__stars rating__stars"
                   >
-                    Rating
-                  </span>
+                    <span
+                      style={
+                        Object {
+                          "width": "80%",
+                        }
+                      }
+                    />
+                    <span
+                      className="visually-hidden"
+                    >
+                      Rating
+                    </span>
+                  </div>
+                  
                 </div>
               </div>
               <h2
@@ -209,6 +215,7 @@ exports[`Render Main <Main /> should render empty items 1`] = `
           <article
             className="cities__place-card place-card"
             onMouseEnter={[Function]}
+            onMouseLeave={[Function]}
           >
             <div
               className="place-card__image-wrapper"
@@ -270,20 +277,25 @@ exports[`Render Main <Main /> should render empty items 1`] = `
                 className="place-card__rating rating"
               >
                 <div
-                  className="place-card__stars rating__stars"
+                  className="place-card__rating rating"
                 >
-                  <span
-                    style={
-                      Object {
-                        "width": "40%",
-                      }
-                    }
-                  />
-                  <span
-                    className="visually-hidden"
+                  <div
+                    className="place-card__stars rating__stars"
                   >
-                    Rating
-                  </span>
+                    <span
+                      style={
+                        Object {
+                          "width": "40%",
+                        }
+                      }
+                    />
+                    <span
+                      className="visually-hidden"
+                    >
+                      Rating
+                    </span>
+                  </div>
+                  
                 </div>
               </div>
               <h2
@@ -419,9 +431,9 @@ exports[`Render Main <Main /> should render some items 1`] = `
           <span
             className="places__sorting-type"
             onClick={[Function]}
-            tabIndex="0"
           >
               
+            Popular
             <svg
               className="places__sorting-arrow"
               height="4"
@@ -439,6 +451,7 @@ exports[`Render Main <Main /> should render some items 1`] = `
           <article
             className="cities__place-card place-card"
             onMouseEnter={[Function]}
+            onMouseLeave={[Function]}
           >
             <div
               className="place-card__image-wrapper"
@@ -500,20 +513,25 @@ exports[`Render Main <Main /> should render some items 1`] = `
                 className="place-card__rating rating"
               >
                 <div
-                  className="place-card__stars rating__stars"
+                  className="place-card__rating rating"
                 >
-                  <span
-                    style={
-                      Object {
-                        "width": "80%",
-                      }
-                    }
-                  />
-                  <span
-                    className="visually-hidden"
+                  <div
+                    className="place-card__stars rating__stars"
                   >
-                    Rating
-                  </span>
+                    <span
+                      style={
+                        Object {
+                          "width": "80%",
+                        }
+                      }
+                    />
+                    <span
+                      className="visually-hidden"
+                    >
+                      Rating
+                    </span>
+                  </div>
+                  
                 </div>
               </div>
               <h2
@@ -536,6 +554,7 @@ exports[`Render Main <Main /> should render some items 1`] = `
           <article
             className="cities__place-card place-card"
             onMouseEnter={[Function]}
+            onMouseLeave={[Function]}
           >
             <div
               className="place-card__image-wrapper"
@@ -597,20 +616,25 @@ exports[`Render Main <Main /> should render some items 1`] = `
                 className="place-card__rating rating"
               >
                 <div
-                  className="place-card__stars rating__stars"
+                  className="place-card__rating rating"
                 >
-                  <span
-                    style={
-                      Object {
-                        "width": "40%",
-                      }
-                    }
-                  />
-                  <span
-                    className="visually-hidden"
+                  <div
+                    className="place-card__stars rating__stars"
                   >
-                    Rating
-                  </span>
+                    <span
+                      style={
+                        Object {
+                          "width": "40%",
+                        }
+                      }
+                    />
+                    <span
+                      className="visually-hidden"
+                    >
+                      Rating
+                    </span>
+                  </div>
+                  
                 </div>
               </div>
               <h2

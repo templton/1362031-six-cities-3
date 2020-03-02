@@ -66,7 +66,7 @@ class Map extends React.Component {
     if (placeCords.length) {
       placeCords.map((cord)=>{
         const marker = leaflet
-          .marker(cord, cord === currentCords ? {activeIcon} : {icon} )
+          .marker(cord, cord === currentCords ? {activeIcon} : {icon})
           .addTo(this.map);
         this.markers.push(marker);
       });

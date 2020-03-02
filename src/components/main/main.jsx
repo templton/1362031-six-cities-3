@@ -19,7 +19,7 @@ const Main = (props) => {
         <div className="cities__places-container container">
           <CityPlaces offers={offers} onClickCardTitle={onClickCardTitle}/>
           <div className="cities__right-section">
-            <Map placeCords={placeCords} cityCord={cityCord} currentCords={mouseOverPlaceCard} mapClassName="cities__map"/>
+            <Map placeCords={placeCords} currentCords={mouseOverPlaceCard} cityCord={cityCord} mapClassName="cities__map"/>
           </div>
         </div>
       </div>
@@ -31,6 +31,7 @@ Main.propTypes = {
   offers: PropTypes.array.isRequired,
   onClickCardTitle: PropTypes.func.isRequired,
   cityCord: PropTypes.array.isRequired,
+  mouseOverPlaceCard: PropTypes.array,
 };
 
 const mapStateToProps = (state) => ({

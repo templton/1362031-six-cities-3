@@ -1,10 +1,8 @@
 import React from "react";
 import renderer from "react-test-renderer";
 import {Provider} from "react-redux";
-import configureStore from "redux-mock-store";
 import CardDetail from "./card-detail";
-
-const mockStore = configureStore([]);
+import {store} from "../../mocks/test-store";
 
 const CardDeatail = {
   images: [
@@ -86,36 +84,6 @@ const neighbourhoodPlaces = [
     cord: [52.3909553943508, 4.92309666406198]
   }
 ];
-
-const city = {
-  id: 17,
-  name: `Амстердам`,
-  cord: [52.38333, 4.9]
-};
-
-const cities = [
-  {
-    id: 17,
-    name: `Амстердам`,
-    cord: [52.38333, 4.9]
-  },
-  {
-    id: 15,
-    name: `Барнаул`,
-    cord: [53.346785, 83.776856]
-  },
-  {
-    id: 16,
-    name: `Новосибирск`,
-    cord: []
-  }
-];
-
-
-const store = mockStore({
-  citiesList: cities,
-  city
-});
 
 
 describe(`CardDetail render`, () => {
