@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import {connect} from "react-redux";
 import {sortCityFilterType, sortPlacesInCity} from "../../actions";
+import CityPlacesFormFiltersItem from "../city-places-form-filters-item/city-places-form-filters-item";
 
 const CityPlacesFormFilters = (props) => {
   const {onFilterClick, currentPlaceFilterType, isFilterVisible, onSortPlacesInCity} = props;
@@ -15,12 +16,13 @@ const CityPlacesFormFilters = (props) => {
       {
         Object.values(sortCityFilterType).map((item) => {
           return (
-            <li
+            <CityPlacesFormFiltersItem
               key={item}
-              onClick={()=>handleFilterClick(item)}
-              className={`places__option ${currentPlaceFilterType === item ? `places__option--active` : ``}`}>
-              {item}
-            </li>);
+              onClick={handleFilterClick}
+              className={`places__option ${currentPlaceFilterType === item ? `places__option--active` : ``}`}
+              item={item}
+            />
+          );
         })
       }
     </ul>
