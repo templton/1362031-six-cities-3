@@ -2,10 +2,7 @@ import React, {Fragment} from "react";
 import PropTypes from "prop-types";
 import Map from "../map/map";
 import PlacesList from "../places-list/places-list";
-import withPlacesList from "../../hocs/with-places-list/with-places-list";
 import {connect} from "react-redux";
-
-const PlacesListWrapped = withPlacesList(PlacesList);
 
 const NearPlaces = (props) => {
   const {cityCord, neighbourhoodPlaces, onClickCardTitle} = props;
@@ -20,7 +17,7 @@ const NearPlaces = (props) => {
         <section className="near-places places">
           <h2 className="near-places__title">Other places in the neighbourhood</h2>
           <div className="near-places__list places__list">
-            <PlacesListWrapped places={neighbourhoodPlaces} onClickCardTitle={onClickCardTitle} cardClass="near-places__"/>
+            <PlacesList places={neighbourhoodPlaces} onClickCardTitle={onClickCardTitle} cardClass="near-places__card"/>
           </div>
         </section>
       </div>

@@ -6,7 +6,7 @@ import Map from "../map/map";
 import CitiesList from "../cities-list/cities-list";
 
 const Main = (props) => {
-  const {onClickCardTitle, offers, cityCord} = props;
+  const {onClickCardTitle, offers, cityCord, mouseOverPlaceCard} = props;
   const placeCords = offers.map((item)=>item.cord);
 
   return (
@@ -19,7 +19,7 @@ const Main = (props) => {
         <div className="cities__places-container container">
           <CityPlaces offers={offers} onClickCardTitle={onClickCardTitle}/>
           <div className="cities__right-section">
-            <Map placeCords={placeCords} cityCord={cityCord} mapClassName="cities__map"/>
+            <Map placeCords={placeCords} cityCord={cityCord} currentCords={mouseOverPlaceCard} mapClassName="cities__map"/>
           </div>
         </div>
       </div>
@@ -35,7 +35,8 @@ Main.propTypes = {
 
 const mapStateToProps = (state) => ({
   cityCord: state.city.cord,
-  offers: state.placesInCity
+  offers: state.placesInCity,
+  mouseOverPlaceCard: state.mouseOverPlaceCard
 });
 
 export {Main};

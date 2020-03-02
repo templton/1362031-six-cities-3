@@ -25,7 +25,7 @@ exports[`Cities list render test Simple render 1`] = `
       onClick={[Function]}
     >
       <a
-        className="locations__item-link tabs__item false"
+        className="locations__item-link tabs__item "
         href="#"
       >
         <span>
@@ -38,7 +38,7 @@ exports[`Cities list render test Simple render 1`] = `
       onClick={[Function]}
     >
       <a
-        className="locations__item-link tabs__item false"
+        className="locations__item-link tabs__item "
         href="#"
       >
         <span>
