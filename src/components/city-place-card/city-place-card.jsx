@@ -7,11 +7,11 @@ import {setMouseOverPlaceCard, unsetMouseOverPlaceCard} from "../../actions";
 
 const CityPlaceCard = (props) => {
   const {info, onClickCardTitle, cardClass, onArticleMouseEnter, onArticleMouseLeave} = props;
-  const memoOnArticleMouseEnter = useCallback(() => onArticleMouseEnter(info.cord), [info.cord]);
+  const handleArticleMouseEnter = useCallback(() => onArticleMouseEnter(info.cord), [info.cord]);
   return (
     <article
       className={`${cardClass} place-card`}
-      onMouseEnter={memoOnArticleMouseEnter}
+      onMouseEnter={handleArticleMouseEnter}
       onMouseLeave={onArticleMouseLeave}>
       <div className="place-card__image-wrapper">
         <a href="#">
