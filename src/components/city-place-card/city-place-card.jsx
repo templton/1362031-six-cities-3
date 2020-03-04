@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useCallback} from "react";
 import PropTypes from "prop-types";
 import {connect} from "react-redux";
 import {PlaceCardTypes} from "../../const";
@@ -7,11 +7,12 @@ import {setMouseOverPlaceCard, unsetMouseOverPlaceCard} from "../../actions";
 
 const CityPlaceCard = (props) => {
   const {info, onClickCardTitle, cardClass, onArticleMouseEnter, onArticleMouseLeave} = props;
+  const memoOnArticleMouseEnter = useCallback(() => onArticleMouseEnter(info.cord), [info.cord]);
   return (
     <article
       className={`${cardClass} place-card`}
-      onMouseEnter={() => onArticleMouseEnter(info.cord)}
-      onMouseLeave={() => onArticleMouseLeave()}>
+      onMouseEnter={memoOnArticleMouseEnter}
+      onMouseLeave={onArticleMouseLeave}>
       <div className="place-card__image-wrapper">
         <a href="#">
           <img className="place-card__image" src={info.image} width="260" height="200" alt="Place image"/>
