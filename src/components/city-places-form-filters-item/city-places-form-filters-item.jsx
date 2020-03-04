@@ -4,9 +4,12 @@ import PropTypes from "prop-types";
 
 const CityPlacesFormFiltersItem = (props) => {
   const {item, className, onClick} = props;
+  const handleFilterClick = () => {
+    onClick(item);
+  };
   return (
     <li
-      onClick={()=>onClick(item)}
+      onClick={handleFilterClick}
       className={className}>
       {item}
     </li>

@@ -77,7 +77,7 @@ exports[`Render Main <Main /> should render empty items 1`] = `
         <b
           className="places__found"
         >
-          places to stay in Амстердам
+          2 places to stay in Амстердам
         </b>
         <form
           action="#"
@@ -416,7 +416,7 @@ exports[`Render Main <Main /> should render some items 1`] = `
         <b
           className="places__found"
         >
-          places to stay in Амстердам
+          2 places to stay in Амстердам
         </b>
         <form
           action="#"
