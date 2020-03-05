@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import {connect} from "react-redux";
 import {sortCityFilterType, sortPlacesInCity} from "../../actions";
 import CityPlacesFormFiltersItem from "../city-places-form-filters-item/city-places-form-filters-item";
+import {selectCurrentPlacesFilter} from "../../reducer/places-filter/selectors";
 
 const CityPlacesFormFilters = (props) => {
   const {onFilterClick, currentPlaceFilterType, isFilterVisible, onSortPlacesInCity} = props;
@@ -36,8 +37,8 @@ CityPlacesFormFilters.propTypes = {
   isFilterVisible: PropTypes.bool.isRequired,
 };
 
-const mapStateToProps = ({currentPlaceFilterType}) => ({
-  currentPlaceFilterType
+const mapStateToProps = (state) => ({
+  currentPlaceFilterType: selectCurrentPlacesFilter(state)
 });
 
 const mapDispatchToProps = (dispatch) => ({

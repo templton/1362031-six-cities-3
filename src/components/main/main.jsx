@@ -4,6 +4,8 @@ import {connect} from "react-redux";
 import CityPlaces from "../city-places/city-places";
 import Map from "../map/map";
 import CitiesList from "../cities-list/cities-list";
+import {selectCurrentCityCord} from "../../reducer/city-selected/selectors";
+import {selectPlacesInCity} from "../../reducer/places-in-city/selectors";
 
 const Main = (props) => {
   const {onClickCardTitle, offers, cityCord, mouseOverPlaceCard} = props;
@@ -35,8 +37,8 @@ Main.propTypes = {
 };
 
 const mapStateToProps = (state) => ({
-  cityCord: state.city.cord,
-  offers: state.placesInCity,
+  cityCord: selectCurrentCityCord(state),
+  offers: selectPlacesInCity(state),
   mouseOverPlaceCard: state.mouseOverPlaceCard
 });
 

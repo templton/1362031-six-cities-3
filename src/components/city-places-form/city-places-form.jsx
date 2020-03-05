@@ -2,6 +2,7 @@ import React from "react";
 import {connect} from "react-redux";
 import PropTypes from "prop-types";
 import CityPlacesFormFilters from "../city-places-form-filters/city-places-form-filters";
+import {selectCurrentPlacesFilter} from "../../reducer/places-filter/selectors";
 
 const CityPlacesForm = ({currentPlaceFilterType, isToggleElementActive, handleToggle}) => {
 
@@ -25,8 +26,8 @@ CityPlacesForm.propTypes = {
   handleToggle: PropTypes.func.isRequired,
 };
 
-const mapStateToProps = ({currentPlaceFilterType}) => ({
-  currentPlaceFilterType
+const mapStateToProps = (state) => ({
+  currentPlaceFilterType: selectCurrentPlacesFilter(state)
 });
 
 export {CityPlacesForm};

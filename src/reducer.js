@@ -1,3 +1,5 @@
+/* Удалить полностью !!! */
+
 import {ActionType, sortCityFilterType} from "./actions";
 import {cities, places} from "./mocks/defaultCity";
 

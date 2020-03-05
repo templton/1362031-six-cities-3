@@ -4,6 +4,7 @@ import {connect} from "react-redux";
 import PlacesList from "../places-list/places-list";
 import CityPlacesForm from "../city-places-form/city-places-form";
 import withToggleElement from "../../hocs/with-toggle-element/with-toggle-element";
+import {selectCurrentCity} from "../../reducer/city-selected/selectors";
 
 const CityPlacesFormWrapped = withToggleElement(CityPlacesForm);
 
@@ -27,8 +28,8 @@ CityPlaces.propTypes = {
   city: PropTypes.object.isRequired
 };
 
-const mapStateToProps = ({city}) => ({
-  city
+const mapStateToProps = (state) => ({
+  city: selectCurrentCity(state)
 });
 
 export {CityPlaces};

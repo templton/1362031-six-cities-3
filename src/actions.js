@@ -1,3 +1,5 @@
+// Удалить полностью
+
 const ActionType = {
   SET_CURRENT_CITY: `SET_CURRENT_CITY`,
   SORT_PLACES_IN_CITY: `SORT_PLACES_IN_CITY`,
