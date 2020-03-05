@@ -1,26 +1,17 @@
+import {ActionType} from "./actions";
+
 const initialState = {
-  items: [
-    {
-      id: 17,
-      name: `Амстердам`,
-      cord: [52.38333, 4.9]
-    },
-    {
-      id: 15,
-      name: `Барнаул`,
-      cord: [53.346785, 83.776856]
-    },
-    {
-      id: 16,
-      name: `Новосибирск`,
-      cord: []
-    }
-  ]
+  items: []
 };
 
+
 const reducer = (state = initialState, action) => {
-  return state;
+  switch (action.type) {
+    case ActionType.LOAD_CITY_LIST:
+      return Object.assign({}, state, {items: action.payload});
+    default:
+      return state;
+  }
 };
 
 export {reducer};
-

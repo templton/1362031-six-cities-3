@@ -4,8 +4,10 @@ import {reducer as cityList} from "./city-list/city-list";
 import {reducer as citySelected} from "./city-selected/city-selected";
 import {reducer as placesInCity} from "./places-in-city/places-in-city";
 import {reducer as placesFilter} from "./places-filter/places-filter";
+import {reducer as data} from "./data/data";
 
 export default combineReducers({
+  [StoreNameSpace.DATA]: data,
   [StoreNameSpace.CITY_LIST]: cityList,
   [StoreNameSpace.CITY_SELECTED]: citySelected,
   [StoreNameSpace.PLACES_IN_CITY]: placesInCity,
