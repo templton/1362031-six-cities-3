@@ -12,7 +12,6 @@ import PageContainer from "../page-container/page-container";
 import {reviews} from "../../mocks/review-list";
 import {neighbourhoodPlaces} from "../../mocks/offers";
 import EmptyContent from "../empty-content/empty-content";
-import {selectPlacesInCity} from "../../reducer/places-in-city/selectors";
 
 class App extends PureComponent {
   constructor(props) {
@@ -85,7 +84,7 @@ App.propTypes = {
 };
 
 const mapStateToProps = (state) => ({
-  offers: selectPlacesInCity(state)
+  offers: []
 });
 
 export {App};

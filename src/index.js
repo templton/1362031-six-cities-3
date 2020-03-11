@@ -3,10 +3,10 @@ import ReactDom from "react-dom";
 import App from "./components/app/app.jsx";
 import {Provider} from "react-redux";
 import {createStore, applyMiddleware, compose} from "redux";
-import rootReducer from "./reducer/rootReducer";
+import rootReducer from "./store/rootReducer";
 import thunk from "redux-thunk";
 import {createApi} from "./api";
-import {Operation as DataOperation} from "./reducer/data/data";
+import {Operation as AllHotelsOperation} from "./store/all-hotels/reducers";
 
 const api = createApi();
 
@@ -18,7 +18,7 @@ const store = createStore(
     )
 );
 
-store.dispatch(DataOperation.loadData());
+store.dispatch(AllHotelsOperation.loadAllHotels());
 
 ReactDom.render(
     <Provider store={store}>

@@ -2,8 +2,6 @@ import React from "react";
 import {connect} from "react-redux";
 import PropTypes from "prop-types";
 import {setCurrentCity} from "../../actions";
-import {selectCurrentCityId} from "../../reducer/city-selected/selectors";
-import {selectCityList} from "../../reducer/city-list/selectors";
 
 const CitiesList = ({cities, onCityClick, currentCityId}) => {
   return (
@@ -28,8 +26,8 @@ CitiesList.propTypes = {
 };
 
 const mapStateToProps = (state) => ({
-  cities: selectCityList(state),
-  currentCityId: selectCurrentCityId(state),
+  cities: [],
+  currentCityId: 1,
 });
 
 const mapDispatchToProps = {
