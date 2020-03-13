@@ -3,8 +3,8 @@ const ActionType = {
 };
 
 const ActionCreator = {
-  setPlacesInCity(payload) {
-    return {type: ActionType.SET_PLACES_IN_CITIES, payload};
+  setPlacesInCity(places) {
+    return {type: ActionType.SET_PLACES_IN_CITIES, payload: places};
   }
 };
 
