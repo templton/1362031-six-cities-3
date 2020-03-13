@@ -1,7 +1,7 @@
 import StoreNameSpace from "../store-name-space";
 
-const selectPlacesInCity = (state) => {
+const selectPlacesInCurrentCity = (state) => {
   return state[StoreNameSpace.PLACES_IN_CITY].places;
 };
 
-export {selectPlacesInCity};
+export {selectPlacesInCurrentCity};

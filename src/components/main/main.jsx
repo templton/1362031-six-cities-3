@@ -4,7 +4,7 @@ import {connect} from "react-redux";
 import CityPlaces from "../city-places/city-places";
 import Map from "../map/map";
 import CitiesList from "../cities-list/cities-list";
-import {selectPlacesInCity} from "../../store/places-in-city/selectors";
+import {selectPlacesInCurrentCity} from "../../store/places-in-city/selectors";
 import {selectCurrentCityCord} from "../../store/filters/selectors";
 
 const Main = (props) => {
@@ -38,7 +38,7 @@ Main.propTypes = {
 
 const mapStateToProps = (state) => ({
   cityCord: selectCurrentCityCord(state),
-  offers: selectPlacesInCity(state),
+  offers: selectPlacesInCurrentCity(state),
   mouseOverPlaceCard: state.mouseOverPlaceCard
 });
 

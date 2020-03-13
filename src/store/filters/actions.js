@@ -1,12 +1,17 @@
 const ActionType = {
-  SET_CURRENT_CITY: `SET_CURRENT_CITY`
+  SET_CURRENT_CITY: `SET_CURRENT_CITY`,
+  SET_CURRENT_FILTER_TYPE: `SET_CURRENT_FILTER_TYPE`
 };
 
 const ActionCreator = {
   setCurrentCityName: (currentCity) => {
     return {type: ActionType.SET_CURRENT_CITY, payload: currentCity};
+  },
+  setCurrentFilterType: (filterName) => {
+    return {type: ActionType.SET_CURRENT_FILTER_TYPE, payload: filterName};
   }
 };
+
 
 const sortCityFilterType = {
   POPULAR: `Popular`,
