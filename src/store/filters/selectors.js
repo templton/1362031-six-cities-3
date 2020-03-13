@@ -19,4 +19,8 @@ const selectCurrentPlaceFilterType = (state) => {
   return state[StoreNameSpace.FILTERS].currentPlaceFilterType;
 };
 
-export {selectCurrentCityName, selectCurrentPlaceFilterType, selectCurrentCityCord};
+const selectMouseOverPlaceCard = (state) => {
+  return state[StoreNameSpace.FILTERS].mouseOverPlaceCard;
+};
+
+export {selectCurrentCityName, selectCurrentPlaceFilterType, selectCurrentCityCord, selectMouseOverPlaceCard};

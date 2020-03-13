@@ -1,6 +1,8 @@
 const ActionType = {
   SET_CURRENT_CITY: `SET_CURRENT_CITY`,
-  SET_CURRENT_FILTER_TYPE: `SET_CURRENT_FILTER_TYPE`
+  SET_CURRENT_FILTER_TYPE: `SET_CURRENT_FILTER_TYPE`,
+  SET_MOUSE_OVER_PLACE_CARD: `SET_MOUSE_OVER_PLACE_CARD`,
+  UNSET_MOUSE_OVER_PLACE_CARD: `UNSET_MOUSE_OVER_PLACE_CARD`,
 };
 
 const ActionCreator = {
@@ -9,7 +11,9 @@ const ActionCreator = {
   },
   setCurrentFilterType: (filterName) => {
     return {type: ActionType.SET_CURRENT_FILTER_TYPE, payload: filterName};
-  }
+  },
+  setMouseOverPlaceCard: (card) => ({type: ActionType.SET_MOUSE_OVER_PLACE_CARD, payload: card}),
+  unsetMouseOverPlaceCard: () => ({type: ActionType.UNSET_MOUSE_OVER_PLACE_CARD})
 };
 
 
