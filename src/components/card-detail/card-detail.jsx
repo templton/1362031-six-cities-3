@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import {PlaceCardTypes} from "../../const";
 import ReviewList from "../reviews-list/reviews-list";
-import RaitingStars from "../raiting-stars/raiting-stars";
+import RatingStars from "../rating-stars/rating-stars";
 import NearPlaces from "../near-places/near-places";
 
 const CardDetail = (props) => {
@@ -35,7 +35,7 @@ const CardDetail = (props) => {
                 <span className="visually-hidden">To bookmarks</span>
               </button>
             </div>
-            <RaitingStars raiting={info.raiting} suffixClass="property"/>
+            <RatingStars rating={info.rating} suffixClass="property"/>
             <ul className="property__features">
               <li className="property__feature property__feature--entire">
                 {info.type}
@@ -97,7 +97,7 @@ CardDetail.propTypes = {
   info: PropTypes.shape({
     title: PropTypes.string.isRequired,
     isPremium: PropTypes.bool.isRequired,
-    raiting: PropTypes.number.isRequired,
+    rating: PropTypes.number.isRequired,
     features: PropTypes.arrayOf(PropTypes.string).isRequired,
     costPerNignt: PropTypes.number.isRequired,
     type: PropTypes.oneOf(Object.values(PlaceCardTypes)),

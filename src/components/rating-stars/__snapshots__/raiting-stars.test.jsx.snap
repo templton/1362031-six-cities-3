@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`RaitingStars render 1`] = `
+exports[`RatingStars render 1`] = `
 <div
   className="cards__rating rating"
 >

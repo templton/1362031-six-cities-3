@@ -30,7 +30,7 @@ const sortPlacesByCost = (state, filter) => {
       items.sort((a, b) => (a.id - b.id));
       break;
     case sortCityFilterType.TOP_RATED_FIRST:
-      items.sort((a, b) => (b.raiting - a.raiting));
+      items.sort((a, b) => (b.rating - a.rating));
       break;
   }
 

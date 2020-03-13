@@ -2,7 +2,7 @@ import React, {useCallback} from "react";
 import PropTypes from "prop-types";
 import {connect} from "react-redux";
 import {PlaceCardTypes} from "../../const";
-import RaitingStars from "../raiting-stars/raiting-stars";
+import RatingStars from "../rating-stars/rating-stars";
 import {setMouseOverPlaceCard, unsetMouseOverPlaceCard} from "../../actions";
 
 const CityPlaceCard = (props) => {
@@ -32,7 +32,7 @@ const CityPlaceCard = (props) => {
           </button>
         </div>
         <div className="place-card__rating rating">
-          <RaitingStars raiting={info.raiting} suffixClass="place-card" showRaitingValue={false}/>
+          <RatingStars rating={info.rating} suffixClass="place-card" showRatingValue={false}/>
         </div>
         <h2 className="place-card__name" onClick={() => {
           onClickCardTitle(info.id);
@@ -53,7 +53,7 @@ CityPlaceCard.propTypes = {
     image: PropTypes.string.isRequired,
     isPremium: PropTypes.bool.isRequired,
     type: PropTypes.oneOf(Object.values(PlaceCardTypes)).isRequired,
-    raiting: PropTypes.number.isRequired,
+    rating: PropTypes.number.isRequired,
     cord: PropTypes.arrayOf(PropTypes.number).isRequired
   }),
   onClickCardTitle: PropTypes.func.isRequired,
