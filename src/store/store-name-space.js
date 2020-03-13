@@ -1,7 +1,7 @@
 const StoreNameSpace = {
   ALL_HOTELS: `ALL_HOTELS`,
-  CITIES: `CITIES`,
-  PLACES_IN_CITY: `PLACES_IN_CITY`
+  PLACES_IN_CITY: `PLACES_IN_CITY`,
+  FILTERS: `FILTERS`
 };
 
 export default StoreNameSpace;

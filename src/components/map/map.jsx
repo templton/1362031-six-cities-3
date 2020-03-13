@@ -24,7 +24,11 @@ class Map extends React.Component {
     }
 
     if (cityCord.length === 0) {
-      this.map.remove();
+
+      if (this.map) {
+        this.map.remove();
+      }
+
       this.map = null;
       return;
     }

@@ -1,4 +1,5 @@
 import {ActionCreator, ActionType} from "./actions";
+import {AllHotels} from "../../models/all-hotels";
 
 const initialState = {
   hotels: []
@@ -8,7 +9,8 @@ const Operation = {
   loadAllHotels: () => (dispatch, getState, api) => {
     return api.get(`/hotels`)
       .then((response) => {
-        dispatch(ActionCreator.loadAllHotels(response.response.data))
+        const hotels = AllHotels.toFrontendModel(response.response.data);
+        dispatch(ActionCreator.loadAllHotels(hotels));
       });
   }
 };

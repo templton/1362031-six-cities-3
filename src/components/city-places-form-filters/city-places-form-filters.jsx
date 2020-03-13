@@ -1,8 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
 import {connect} from "react-redux";
-import {sortCityFilterType, sortPlacesInCity} from "../../actions";
+import {sortPlacesInCity} from "../../actions";
+import {sortCityFilterType} from "../../store/filters/actions";
 import CityPlacesFormFiltersItem from "../city-places-form-filters-item/city-places-form-filters-item";
+import {selectCurrentPlaceFilterType} from "../../store/filters/selectors";
 
 const CityPlacesFormFilters = (props) => {
   const {onFilterClick, currentPlaceFilterType, isFilterVisible, onSortPlacesInCity} = props;
@@ -37,7 +39,7 @@ CityPlacesFormFilters.propTypes = {
 };
 
 const mapStateToProps = (state) => ({
-  currentPlaceFilterType: null
+  currentPlaceFilterType: selectCurrentPlaceFilterType(state)
 });
 
 const mapDispatchToProps = (dispatch) => ({

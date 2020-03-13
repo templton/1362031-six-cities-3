@@ -1,8 +1,8 @@
-import {ActionType} from "./actions";
+import {ActionType, ActionCreator} from "./actions";
 
 
 const initialState = {
-  items: []
+  places: []
 };
 
 const items = [
@@ -63,13 +63,19 @@ const items = [
   }
 ];
 
+const Operation = {
+  loadPlacesInCity: (currentCityName) => (dispatch, getState, api) => {
+    dispatch(ActionCreator.setPlacesInCity(items));
+  }
+};
+
 const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case ActionType.LOAD_PLACES_IN_CITIES:
-      return Object.assign({}, state, {items: action.payload});
+    case ActionType.SET_PLACES_IN_CITIES:
+      return Object.assign({}, state, {places: action.payload});
     default:
       return state;
   }
 };
 
-export {reducer};
+export {reducer, Operation};
