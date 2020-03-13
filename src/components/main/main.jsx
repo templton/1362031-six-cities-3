@@ -8,7 +8,7 @@ import {selectPlacesInCurrentCity} from "../../store/places-in-city/selectors";
 import {selectCurrentCityCord} from "../../store/filters/selectors";
 
 const Main = (props) => {
-  const {onClickCardTitle, offers, cityCord, mouseOverPlaceCard} = props;
+  const {onClickCardTitle, offers, cityCord} = props;
   const placeCords = offers.map((item)=>item.cord);
 
   return (
@@ -21,7 +21,7 @@ const Main = (props) => {
         <div className="cities__places-container container">
           <CityPlaces offers={offers} onClickCardTitle={onClickCardTitle}/>
           <div className="cities__right-section">
-            <Map placeCords={placeCords} cityCord={cityCord} mapClassName="cities__map"/>
+            <Map placeCords={placeCords} mapClassName="cities__map"/>
           </div>
         </div>
       </div>
@@ -32,11 +32,9 @@ const Main = (props) => {
 Main.propTypes = {
   offers: PropTypes.array.isRequired,
   onClickCardTitle: PropTypes.func.isRequired,
-  cityCord: PropTypes.array.isRequired,
 };
 
 const mapStateToProps = (state) => ({
-  cityCord: selectCurrentCityCord(state),
   offers: selectPlacesInCurrentCity(state),
 });
 

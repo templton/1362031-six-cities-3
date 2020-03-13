@@ -2,7 +2,8 @@ import React from "react";
 import PropTypes from "prop-types";
 import leaflet from "leaflet";
 import {connect} from "react-redux";
-import {selectMouseOverPlaceCard} from "../../store/filters/selectors";
+import {selectMouseOverPlaceCard} from "../../store/current-map-item/selectors";
+import {selectCurrentCityCord} from "../../store/filters/selectors";
 
 class Map extends React.Component {
   constructor(props) {
@@ -103,7 +104,8 @@ Map.propTypes = {
 };
 
 const mapStateToProps = (state) => ({
-  currentCords: selectMouseOverPlaceCard(state)
+  currentCords: selectMouseOverPlaceCard(state),
+  cityCord: selectCurrentCityCord(state),
 });
 
 export {Map};

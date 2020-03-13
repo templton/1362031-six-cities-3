@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import {connect} from "react-redux";
 import {PlaceCardTypes} from "../../const";
 import RatingStars from "../rating-stars/rating-stars";
-import {ActionCreator as FiltersActionCreator} from "../../store/filters/actions";
+import {ActionCreator as CurrentMapItemActionCreator} from "../../store/current-map-item/action";
 
 const CityPlaceCard = (props) => {
   const {info, onClickCardTitle, cardClass, onArticleMouseEnter, onArticleMouseLeave} = props;
@@ -63,8 +63,8 @@ CityPlaceCard.propTypes = {
 };
 
 const mapDispatchToProps = {
-  onArticleMouseEnter: FiltersActionCreator.setMouseOverPlaceCard,
-  onArticleMouseLeave: FiltersActionCreator.unsetMouseOverPlaceCard
+  onArticleMouseEnter: CurrentMapItemActionCreator.setMouseOverPlaceCard,
+  onArticleMouseLeave: CurrentMapItemActionCreator.unsetMouseOverPlaceCard
 };
 
 export {CityPlaceCard};

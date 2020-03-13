@@ -6,6 +6,10 @@ const selectCurrentCityName = (state) => {
   return state[StoreNameSpace.FILTERS].currentCityName;
 };
 
+const selectCurrentPlaceFilterType = (state) => {
+  return state[StoreNameSpace.FILTERS].currentPlaceFilterType;
+};
+
 const selectCurrentCityCord = createSelector(
     selectCurrentCityName,
     selectCities,
@@ -15,12 +19,4 @@ const selectCurrentCityCord = createSelector(
     }
 );
 
-const selectCurrentPlaceFilterType = (state) => {
-  return state[StoreNameSpace.FILTERS].currentPlaceFilterType;
-};
-
-const selectMouseOverPlaceCard = (state) => {
-  return state[StoreNameSpace.FILTERS].mouseOverPlaceCard;
-};
-
-export {selectCurrentCityName, selectCurrentPlaceFilterType, selectCurrentCityCord, selectMouseOverPlaceCard};
+export {selectCurrentCityName, selectCurrentCityCord, selectCurrentPlaceFilterType};
