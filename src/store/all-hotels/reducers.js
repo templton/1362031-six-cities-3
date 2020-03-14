@@ -1,5 +1,7 @@
 import {ActionCreator, ActionType} from "./actions";
 import {AllHotels} from "../../models/all-hotels";
+import {Operation as PlacesInCityOperation} from "../places-in-city/reducers";
+import {ActionCreator as FiltersActionCreator} from "../filters/actions";
 
 const initialState = {
   hotels: []
@@ -11,6 +13,10 @@ const Operation = {
       .then((response) => {
         const hotels = AllHotels.toFrontendModel(response.response.data);
         dispatch(ActionCreator.loadAllHotels(hotels));
+
+        const cityName = hotels[0].city.name;
+        dispatch(FiltersActionCreator.setCurrentCityName(cityName));
+        dispatch(PlacesInCityOperation.loadPlacesInCity(cityName));
       });
   }
 };

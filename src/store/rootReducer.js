@@ -6,8 +6,8 @@ import {reducer as filtersReducer} from "./filters/reducers";
 import {reducer as selectedCardReducer} from "./selected-card/reducers";
 
 export default combineReducers({
-  [StoreNameSpace.ALL_HOTELS]: allHotels,
   [StoreNameSpace.PLACES_IN_CITY]: placesInCity,
   [StoreNameSpace.FILTERS]: filtersReducer,
   [StoreNameSpace.SELECTED_CARD]: selectedCardReducer,
+  [StoreNameSpace.ALL_HOTELS]: allHotels,
 });

@@ -3,7 +3,6 @@ import {selectPlacesInCurrentCity} from "./selectors";
 import {sortCityFilterType} from "../filters/actions";
 import {selectAllPlaces} from "../all-hotels/selectors";
 
-
 const initialState = {
   places: []
 };
