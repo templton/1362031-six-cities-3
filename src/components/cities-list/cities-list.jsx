@@ -2,14 +2,13 @@ import React from "react";
 import {connect} from "react-redux";
 import PropTypes from "prop-types";
 import {selectCities} from "../../store/all-hotels/selectors";
-import {selectCurrentCityName} from "../../store/filters/selectors";
-import {ActionCreator as FiltersActionCreator} from "../../store/filters/actions";
+import {selectCurrentCityName} from "../../store/places-in-city/selectors";
+import {ActionCreator as PlacesInCityActionCreator} from "../../store/places-in-city/actions";
 import {Operation as PlacesInCityOperation} from "../../store/places-in-city/reducers";
 
 const CitiesList = ({cities, onCityClick, currentCityName, onLoadPlacesInCity}) => {
 
   const handleCityClick = (cityName) => {
-    onCityClick(cityName);
     onLoadPlacesInCity(cityName);
   };
 
@@ -31,7 +30,6 @@ const CitiesList = ({cities, onCityClick, currentCityName, onLoadPlacesInCity}) 
 CitiesList.propTypes = {
   cities: PropTypes.array.isRequired,
   currentCityName: PropTypes.string,
-  onCityClick: PropTypes.func.isRequired,
   onLoadPlacesInCity: PropTypes.func.isRequired,
 };
 
@@ -41,7 +39,6 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = {
-  onCityClick: FiltersActionCreator.setCurrentCityName,
   onLoadPlacesInCity: PlacesInCityOperation.loadPlacesInCity
 };
 

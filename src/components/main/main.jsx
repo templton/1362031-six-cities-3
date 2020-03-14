@@ -5,7 +5,7 @@ import CityPlaces from "../city-places/city-places";
 import Map from "../map/map";
 import CitiesList from "../cities-list/cities-list";
 import {selectPlacesInCurrentCity} from "../../store/places-in-city/selectors";
-import {selectCurrentCityCord} from "../../store/filters/selectors";
+import {selectCurrentCityCord} from "../../store/places-in-city/selectors";
 
 const Main = (props) => {
   const {offers, cityCord} = props;

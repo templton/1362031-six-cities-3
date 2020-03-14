@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import Map from "../map/map";
 import PlacesList from "../places-list/places-list";
 import {connect} from "react-redux";
-import {selectCurrentCityCord} from "../../store/filters/selectors";
+import {selectCurrentCityCord} from "../../store/places-in-city/selectors";
 
 const NearPlaces = (props) => {
   const {cityCord, neighbourhoodPlaces, onClickCardTitle} = props;
