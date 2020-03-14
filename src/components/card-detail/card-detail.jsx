@@ -4,6 +4,8 @@ import {PlaceCardTypes} from "../../const";
 import ReviewList from "../reviews-list/reviews-list";
 import RatingStars from "../rating-stars/rating-stars";
 import NearPlaces from "../near-places/near-places";
+import {Operation as SelectedCardOperation} from "../../store/selected-card/reducers";
+import {connect} from "react-redux";
 
 const CardDetail = (props) => {
   const {images, info, owner, reviews, neighbourhoodPlaces, onClickCardTitle} = props;
@@ -115,4 +117,9 @@ CardDetail.propTypes = {
   onClickCardTitle: PropTypes.func.isRequired,
 };
 
-export default CardDetail;
+const mapDispatchToProps = ({
+  onClickCardTitle: SelectedCardOperation.setSelectedCard
+});
+
+export {CardDetail};
+export default connect(()=>({}), mapDispatchToProps)(CardDetail);

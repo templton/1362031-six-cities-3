@@ -1,7 +1,7 @@
 import {ActionType, ActionCreator} from "./actions";
-import StoreNameSpace from "../store-name-space";
 import {selectPlacesInCurrentCity} from "./selectors";
 import {sortCityFilterType} from "../filters/actions";
+import {selectAllPlaces} from "../all-hotels/selectors";
 
 
 const initialState = {
@@ -28,25 +28,12 @@ const sortPlacesByCost = (items, filter) => {
 
 
 const Operation = {
-  loadPlacesInCity: (currentCityName) => (dispatch, getState, api) => {
+  loadPlacesInCity: (currentCityName) => (dispatch, getState) => {
     const state = getState();
-    const places = state[StoreNameSpace.ALL_HOTELS].hotels
-      .filter((item) => (item.city.name === currentCityName))
-      .map((item) => ({
-        id: item.id,
-        cityId: item.city.name,
-        title: item.title,
-        isPremium: item.is_premium,
-        image: item.preview_image,
-        images: item.images,
-        costPerNignt: item.price,
-        type: item.type,
-        rating: item.rating,
-        cord: [item.location.latitude, item.location.longitude]
-      }));
+    const places = selectAllPlaces(state).filter((item) => (item.city.name === currentCityName));
     dispatch(ActionCreator.setPlacesInCity(places));
   },
-  sortPlaces: (filterType) => (dispatch, getState, api) => {
+  sortPlaces: (filterType) => (dispatch, getState) => {
     let places = selectPlacesInCurrentCity(getState());
     places = sortPlacesByCost(places.slice(0), filterType);
     dispatch(ActionCreator.setPlacesInCity(places));

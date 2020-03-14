@@ -13,35 +13,16 @@ import {reviews} from "../../mocks/review-list";
 import {neighbourhoodPlaces} from "../../mocks/offers";
 import EmptyContent from "../empty-content/empty-content";
 import {selectPlacesInCurrentCity} from "../../store/places-in-city/selectors";
+import {selectCurrentCardId} from "../../store/selected-card/selectors";
 
 class App extends PureComponent {
   constructor(props) {
     super(props);
-
-    this.state = {
-      currentCityPlaceCardId: null
-    };
-
-    this.handleClickCardTitle = this.handleClickCardTitle.bind(this);
-  }
-
-  handleClickCardTitle(cityPlaceCardId) {
-    this.setState({
-      currentCityPlaceCardId: cityPlaceCardId
-    });
   }
 
   render() {
 
-    if (this.props.offers.length === 0) {
-      return (
-        <PageContainer pageClass="page--gray page--main">
-          <EmptyContent/>
-        </PageContainer>
-      );
-    }
-
-    if (this.state.currentCityPlaceCardId) {
+    if (this.props.currentCityPlaceCardId) {
       return (
         <div className="page page--gray page--main">
           <Header/>
@@ -51,8 +32,16 @@ class App extends PureComponent {
             owner={CardDeatail.owner}
             reviews={reviews}
             neighbourhoodPlaces={neighbourhoodPlaces}
-            onClickCardTitle={this.handleClickCardTitle}/>
+          />
         </div>
+      );
+    }
+
+    if (this.props.offers.length === 0) {
+      return (
+        <PageContainer pageClass="page--gray page--main">
+          <EmptyContent/>
+        </PageContainer>
       );
     }
 
@@ -61,7 +50,7 @@ class App extends PureComponent {
         <Switch>
           <Route exact path="/">
             <PageContainer pageClass="page--gray page--main">
-              <Main onClickCardTitle={this.handleClickCardTitle}/>
+              <Main/>
             </PageContainer>
           </Route>
           <Route exact path="/login">
@@ -85,7 +74,8 @@ App.propTypes = {
 };
 
 const mapStateToProps = (state) => ({
-  offers: selectPlacesInCurrentCity(state)
+  offers: selectPlacesInCurrentCity(state),
+  currentCityPlaceCardId: selectCurrentCardId(state)
 });
 
 export {App};

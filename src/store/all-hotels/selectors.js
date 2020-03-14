@@ -15,4 +15,14 @@ const selectCities = (state) => {
   return cities;
 };
 
-export {selectCities};
+const selectHotelById = (state, id) => {
+  return state[StoreNameSpace.ALL_HOTELS].hotels.find((item)=>{
+    return item.id === id;
+  });
+};
+
+const selectAllPlaces = (state) => {
+  return state[StoreNameSpace.ALL_HOTELS].hotels;
+};
+
+export {selectCities, selectHotelById, selectAllPlaces};
