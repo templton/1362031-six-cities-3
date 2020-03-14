@@ -4,9 +4,11 @@ import {connect} from "react-redux";
 import CityPlaces from "../city-places/city-places";
 import Map from "../map/map";
 import CitiesList from "../cities-list/cities-list";
+import {selectPlacesInCurrentCity} from "../../store/places-in-city/selectors";
+import {selectCurrentCityCord} from "../../store/filters/selectors";
 
 const Main = (props) => {
-  const {onClickCardTitle, offers, cityCord, mouseOverPlaceCard} = props;
+  const {offers, cityCord} = props;
   const placeCords = offers.map((item)=>item.cord);
 
   return (
@@ -17,9 +19,9 @@ const Main = (props) => {
       </div>
       <div className="cities">
         <div className="cities__places-container container">
-          <CityPlaces offers={offers} onClickCardTitle={onClickCardTitle}/>
+          <CityPlaces offers={offers}/>
           <div className="cities__right-section">
-            <Map placeCords={placeCords} currentCords={mouseOverPlaceCard} cityCord={cityCord} mapClassName="cities__map"/>
+            <Map placeCords={placeCords} cityCord={cityCord} mapClassName="cities__map"/>
           </div>
         </div>
       </div>
@@ -29,15 +31,12 @@ const Main = (props) => {
 
 Main.propTypes = {
   offers: PropTypes.array.isRequired,
-  onClickCardTitle: PropTypes.func.isRequired,
   cityCord: PropTypes.array.isRequired,
-  mouseOverPlaceCard: PropTypes.array,
 };
 
 const mapStateToProps = (state) => ({
-  cityCord: state.city.cord,
-  offers: state.placesInCity,
-  mouseOverPlaceCard: state.mouseOverPlaceCard
+  cityCord: selectCurrentCityCord(state),
+  offers: selectPlacesInCurrentCity(state),
 });
 
 export {Main};

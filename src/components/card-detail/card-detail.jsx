@@ -2,17 +2,19 @@ import React from "react";
 import PropTypes from "prop-types";
 import {PlaceCardTypes} from "../../const";
 import ReviewList from "../reviews-list/reviews-list";
-import RaitingStars from "../raiting-stars/raiting-stars";
+import RatingStars from "../rating-stars/rating-stars";
 import NearPlaces from "../near-places/near-places";
+import {Operation as SelectedCardOperation} from "../../store/selected-card/reducers";
+import {connect} from "react-redux";
 
 const CardDetail = (props) => {
-  const {images, info, owner, reviews, neighbourhoodPlaces, onClickCardTitle} = props;
+  const {info, reviews, neighbourhoodPlaces, onClickCardTitle} = props;
   return (
     <main className="page__main page__main--property">
       <section className="property">
         <div className="property__gallery-container container">
           <div className="property__gallery">
-            {images.map((img)=>{
+            {info.images.map((img)=>{
               return (
                 <div className="property__image-wrapper" key={img.id}>
                   <img className="property__image" src={img.src} alt="Photo studio"/>
@@ -35,7 +37,7 @@ const CardDetail = (props) => {
                 <span className="visually-hidden">To bookmarks</span>
               </button>
             </div>
-            <RaitingStars raiting={info.raiting} suffixClass="property"/>
+            <RatingStars rating={info.rating} suffixClass="property"/>
             <ul className="property__features">
               <li className="property__feature property__feature--entire">
                 {info.type}
@@ -67,10 +69,10 @@ const CardDetail = (props) => {
               <h2 className="property__host-title">{info.intoTitle}</h2>
               <div className="property__host-user user">
                 <div className="property__avatar-wrapper property__avatar-wrapper--pro user__avatar-wrapper">
-                  <img className="property__avatar user__avatar" src={owner.avatar} width="74" height="74" alt="Host avatar"/>
+                  <img className="property__avatar user__avatar" src={info.owner.avatar} width="74" height="74" alt="Host avatar"/>
                 </div>
                 <span className="property__user-name">
-                  {owner.name}
+                  {info.owner.name}
                 </span>
               </div>
               <div className="property__description">
@@ -90,29 +92,34 @@ const CardDetail = (props) => {
 };
 
 CardDetail.propTypes = {
-  images: PropTypes.arrayOf(PropTypes.shape({
-    id: PropTypes.number.isRequired,
-    src: PropTypes.string.isRequired
-  })),
   info: PropTypes.shape({
     title: PropTypes.string.isRequired,
     isPremium: PropTypes.bool.isRequired,
-    raiting: PropTypes.number.isRequired,
+    rating: PropTypes.number.isRequired,
     features: PropTypes.arrayOf(PropTypes.string).isRequired,
     costPerNignt: PropTypes.number.isRequired,
     type: PropTypes.oneOf(Object.values(PlaceCardTypes)),
     countBedrooms: PropTypes.number.isRequired,
-    countGuest: PropTypes.string.isRequired,
+    countGuest: PropTypes.number.isRequired,
     description: PropTypes.string.isRequired,
-    intoTitle: PropTypes.string.isRequired
-  }),
-  owner: PropTypes.shape({
-    name: PropTypes.string.isRequired,
-    avatar: PropTypes.string.isRequired
+    intoTitle: PropTypes.string.isRequired,
+    images: PropTypes.arrayOf(PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      src: PropTypes.string.isRequired
+    })),
+    owner: PropTypes.shape({
+      name: PropTypes.string.isRequired,
+      avatar: PropTypes.string.isRequired
+    })
   }),
   reviews: PropTypes.array.isRequired,
   neighbourhoodPlaces: PropTypes.array.isRequired,
   onClickCardTitle: PropTypes.func.isRequired,
 };
 
-export default CardDetail;
+const mapDispatchToProps = ({
+  onClickCardTitle: SelectedCardOperation.setSelectedCard
+});
+
+export {CardDetail};
+export default connect(()=>({}), mapDispatchToProps)(CardDetail);

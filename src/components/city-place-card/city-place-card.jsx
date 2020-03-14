@@ -2,8 +2,8 @@ import React, {useCallback} from "react";
 import PropTypes from "prop-types";
 import {connect} from "react-redux";
 import {PlaceCardTypes} from "../../const";
-import RaitingStars from "../raiting-stars/raiting-stars";
-import {setMouseOverPlaceCard, unsetMouseOverPlaceCard} from "../../actions";
+import RatingStars from "../rating-stars/rating-stars";
+import {ActionCreator as FiltersActionCreator} from "../../store/filters/actions";
 
 const CityPlaceCard = (props) => {
   const {info, onClickCardTitle, cardClass, onArticleMouseEnter, onArticleMouseLeave} = props;
@@ -32,7 +32,7 @@ const CityPlaceCard = (props) => {
           </button>
         </div>
         <div className="place-card__rating rating">
-          <RaitingStars raiting={info.raiting} suffixClass="place-card" showRaitingValue={false}/>
+          <RatingStars rating={info.rating} suffixClass="place-card" showRatingValue={false}/>
         </div>
         <h2 className="place-card__name" onClick={() => {
           onClickCardTitle(info.id);
@@ -53,7 +53,7 @@ CityPlaceCard.propTypes = {
     image: PropTypes.string.isRequired,
     isPremium: PropTypes.bool.isRequired,
     type: PropTypes.oneOf(Object.values(PlaceCardTypes)).isRequired,
-    raiting: PropTypes.number.isRequired,
+    rating: PropTypes.number.isRequired,
     cord: PropTypes.arrayOf(PropTypes.number).isRequired
   }),
   onClickCardTitle: PropTypes.func.isRequired,
@@ -63,8 +63,8 @@ CityPlaceCard.propTypes = {
 };
 
 const mapDispatchToProps = {
-  onArticleMouseEnter: setMouseOverPlaceCard,
-  onArticleMouseLeave: unsetMouseOverPlaceCard
+  onArticleMouseEnter: FiltersActionCreator.setMouseOverPlaceCard,
+  onArticleMouseLeave: FiltersActionCreator.unsetMouseOverPlaceCard
 };
 
 export {CityPlaceCard};

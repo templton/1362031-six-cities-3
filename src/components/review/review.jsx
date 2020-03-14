@@ -1,6 +1,6 @@
 import React, {Fragment} from "react";
 import Proptypes from "prop-types";
-import RaitingStars from "../raiting-stars/raiting-stars";
+import RatingStars from "../rating-stars/rating-stars";
 
 const Review = ({reviewDetail}) => {
   return (
@@ -14,7 +14,7 @@ const Review = ({reviewDetail}) => {
       </div>
       <div className="reviews__info">
 
-        <RaitingStars suffixClass="reviews" raiting={reviewDetail.raiting} showRaitingValue={false}/>
+        <RatingStars suffixClass="reviews" rating={reviewDetail.rating} showRaitingValue={false}/>
 
         <p className="reviews__text">
           A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam. The building is
@@ -32,7 +32,7 @@ Review.propTypes = {
   reviewDetail: Proptypes.shape({
     userName: Proptypes.string.isRequired,
     timestamp: Proptypes.string.isRequired,
-    raiting: Proptypes.number.isRequired,
+    rating: Proptypes.number.isRequired,
   }).isRequired
 };
 

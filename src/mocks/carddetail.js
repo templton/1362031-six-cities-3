@@ -28,7 +28,7 @@ const CardDeatail = {
   info: {
     title: `Beautiful & luxurious studio at great location approve`,
     isPremium: true,
-    raiting: 4.8,
+    rating: 4.8,
     features: [`Wi-Fi`, `Heating`, `Kitchen`, `Fridge`, `Washing machine`, `Coffee machine`, `Dishwasher`, `Towels`,
       `Baby seat`, `Cabel TV`, `Большой балкон`, `Шифоньер`],
     costPerNignt: 25,
