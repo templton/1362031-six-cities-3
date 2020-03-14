@@ -3,8 +3,8 @@ import {selectPlacesInCurrentCity} from "./selectors";
 import {sortCityFilterType} from "../filters/actions";
 import {selectAllPlaces} from "../all-hotels/selectors";
 
-
 const initialState = {
+  currentCityName: ``,
   places: []
 };
 
@@ -31,7 +31,7 @@ const Operation = {
   loadPlacesInCity: (currentCityName) => (dispatch, getState) => {
     const state = getState();
     const places = selectAllPlaces(state).filter((item) => (item.city.name === currentCityName));
-    dispatch(ActionCreator.setPlacesInCity(places));
+    dispatch(ActionCreator.setPlacesInCity({places, currentCityName}));
   },
   sortPlaces: (filterType) => (dispatch, getState) => {
     let places = selectPlacesInCurrentCity(getState());
@@ -42,8 +42,10 @@ const Operation = {
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
+    // case ActionType.SET_CURRENT_CITY:
+    //   return Object.assign({}, state, {currentCityName: action.payload});
     case ActionType.SET_PLACES_IN_CITIES:
-      return Object.assign({}, state, {places: action.payload});
+      return Object.assign({}, state, {...action.payload});
     default:
       return state;
   }

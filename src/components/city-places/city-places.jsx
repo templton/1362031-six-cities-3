@@ -4,7 +4,7 @@ import {connect} from "react-redux";
 import PlacesList from "../places-list/places-list";
 import CityPlacesForm from "../city-places-form/city-places-form";
 import withToggleElement from "../../hocs/with-toggle-element/with-toggle-element";
-import {selectCurrentCityName} from "../../store/filters/selectors";
+import {selectCurrentCityName} from "../../store/places-in-city/selectors";
 import {Operation as SelectedCardOperation} from "../../store/selected-card/reducers";
 
 const CityPlacesFormWrapped = withToggleElement(CityPlacesForm);

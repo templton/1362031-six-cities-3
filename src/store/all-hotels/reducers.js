@@ -1,5 +1,6 @@
 import {ActionCreator, ActionType} from "./actions";
 import {AllHotels} from "../../models/all-hotels";
+import {Operation as PlacesInCityOperation} from "../places-in-city/reducers";
 
 const initialState = {
   hotels: []
@@ -11,6 +12,7 @@ const Operation = {
       .then((response) => {
         const hotels = AllHotels.toFrontendModel(response.response.data);
         dispatch(ActionCreator.loadAllHotels(hotels));
+        dispatch(PlacesInCityOperation.loadPlacesInCity(hotels[0].city.name));
       });
   }
 };

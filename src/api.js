@@ -11,10 +11,9 @@ export const createApi = (handleApiError) => {
 
   const onFail = (err) => {
     const {response} = err;
-
     handleApiError();
 
-    console.log(`Error response details`, response);
+    throw err;
   };
 
   api.interceptors.response.use(onSuccess, onFail);
