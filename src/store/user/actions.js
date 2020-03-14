@@ -4,8 +4,8 @@ const ActionType = {
 };
 
 const ActionCreator = {
-  setAuth: () => {
-    return {type: ActionType.SET_STATUS_AUTH};
+  setAuth: (userData) => {
+    return {type: ActionType.SET_STATUS_AUTH, payload: userData};
   },
   setNoAuth: () => {
     return {type: ActionType.SET_STATUS_NO_AUTH};

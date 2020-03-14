@@ -1,4 +1,5 @@
 import {ActionType, ActionCreator} from "./actions";
+import {User} from "../../models/user";
 
 const AuthStatusType = {
   AUTH: `AUTH`,
@@ -10,16 +11,22 @@ const HttpReponseCode = {
 };
 
 const initialState = {
-  authStatus: AuthStatusType.NO_AUTH
+  authStatus: AuthStatusType.NO_AUTH,
+  email: null,
+  name: null,
+  avatarUrl: null,
+  isPro: null
 };
 
 const Operation = {
   login: (email, password) => async (dispatch, getState, api) => {
-    const response = await api.post(`/login`, {email, password});
+    const {response} = await api.post(`/login`, {email, password});
+    const userData = User.toFrontendModel(response.data);
 
-    if (response.response.status === HttpReponseCode.OK) {
-      dispatch(ActionCreator.setAuth());
+    if (response.status === HttpReponseCode.OK) {
+      dispatch(ActionCreator.setAuth(userData));
     }
+
   },
   checkLogin: () => async (dispatch, getState, api) => {
     const {response} = await api.get(`/login`);
@@ -32,9 +39,15 @@ const Operation = {
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case ActionType.SET_STATUS_AUTH :
-      return Object.assign({}, state, {authStatus: AuthStatusType.AUTH});
+      return Object.assign({}, state, {authStatus: AuthStatusType.AUTH}, {...action.payload});
     case ActionType.SET_STATUS_NO_AUTH :
-      return Object.assign({}, state, {authStatus: AuthStatusType.NO_AUTH});
+      return Object.assign({}, state, {
+        authStatus: AuthStatusType.NO_AUTH,
+        email: null,
+        name: null,
+        avatarUrl: null,
+        isPro: null
+      });
     default:
       return state;
   }
