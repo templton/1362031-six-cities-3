@@ -9,7 +9,7 @@ class AllHotels {
         id: item.id,
         city: {...item.city, id: item.city.name},
         image: item.preview_image,
-        images: item.images,
+        images: item.images.map((it, id) => ({id, src: it})),
         title: item.title,
         isPremium: item.is_premium,
         rating: item.rating,

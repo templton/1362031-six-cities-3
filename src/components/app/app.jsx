@@ -7,13 +7,12 @@ import Main from "../main/main";
 import CardDetail from "../card-detail/card-detail";
 import Login from "../login/login";
 import FavoritesCards from "../favorites-cards/favorites-cards";
-import {CardDeatail} from "../../mocks/carddetail";
 import PageContainer from "../page-container/page-container";
 import {reviews} from "../../mocks/review-list";
 import {neighbourhoodPlaces} from "../../mocks/offers";
 import EmptyContent from "../empty-content/empty-content";
 import {selectPlacesInCurrentCity} from "../../store/places-in-city/selectors";
-import {selectCurrentCardId} from "../../store/selected-card/selectors";
+import {selectCurrentCardInfo} from "../../store/selected-card/selectors";
 
 class App extends PureComponent {
   constructor(props) {
@@ -22,14 +21,14 @@ class App extends PureComponent {
 
   render() {
 
-    if (this.props.currentCityPlaceCardId) {
+    const {cardDetail} = this.props;
+
+    if (cardDetail) {
       return (
         <div className="page page--gray page--main">
           <Header/>
           <CardDetail
-            images={CardDeatail.images}
-            info={CardDeatail.info}
-            owner={CardDeatail.owner}
+            info={cardDetail}
             reviews={reviews}
             neighbourhoodPlaces={neighbourhoodPlaces}
           />
@@ -70,12 +69,13 @@ class App extends PureComponent {
 }
 
 App.propTypes = {
-  offers: PropTypes.array.isRequired
+  offers: PropTypes.array.isRequired,
+  cardDetail: PropTypes.object
 };
 
 const mapStateToProps = (state) => ({
   offers: selectPlacesInCurrentCity(state),
-  currentCityPlaceCardId: selectCurrentCardId(state)
+  cardDetail: selectCurrentCardInfo(state)
 });
 
 export {App};
