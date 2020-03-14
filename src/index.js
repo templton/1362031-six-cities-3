@@ -8,7 +8,12 @@ import thunk from "redux-thunk";
 import {createApi} from "./api";
 import {Operation as AllHotelsOperation} from "./store/all-hotels/reducers";
 
-const api = createApi();
+
+const handleApiError = () => {
+  alert(`Ошибка АПИ. Кидаем екшен, ставим в стор ключик и по этому ключику переключаем состояние приложения`);
+};
+
+const api = createApi(handleApiError);
 
 const store = createStore(
     rootReducer,

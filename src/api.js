@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export const createApi = () => {
+export const createApi = (handleApiError) => {
   const api = axios.create({
     baseURL: `https://htmlacademy-react-3.appspot.com/six-cities`,
     timeout: 1000 * 5,
@@ -11,6 +11,8 @@ export const createApi = () => {
 
   const onFail = (err) => {
     const {response} = err;
+
+    handleApiError();
 
     console.log(`Error response details`, response);
   };
