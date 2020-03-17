@@ -13,6 +13,7 @@ import {neighbourhoodPlaces} from "../../mocks/offers";
 import {selectPlacesInCurrentCity} from "../../store/places-in-city/selectors";
 import {selectLoading} from "../../store/all-hotels/selectors";
 import EmptyContent from "../empty-content/empty-content";
+import {Operation as AllHotelsOperation} from "../../store/all-hotels/reducers";
 
 class App extends PureComponent {
   constructor(props) {
@@ -21,7 +22,7 @@ class App extends PureComponent {
 
   render() {
 
-    const {offers, loading} = this.props;
+    const {offers, loading, loadNearbyHotels} = this.props;
 
     if (loading) {
       return (
@@ -38,6 +39,7 @@ class App extends PureComponent {
             </PageContainer>
           </Route>
           <Route exact path="/hotel/:hotelId" render={ ({match})=>{
+            loadNearbyHotels(+match.params.hotelId);
             return (<div className="page page--gray page--main">
               <Header/>
               <CardDetail
@@ -66,6 +68,7 @@ class App extends PureComponent {
 App.propTypes = {
   offers: PropTypes.array.isRequired,
   loading: PropTypes.bool.isRequired,
+  loadNearbyHotels: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({
@@ -73,5 +76,9 @@ const mapStateToProps = (state) => ({
   loading: selectLoading(state)
 });
 
+const mapDispatchToProps = ({
+  loadNearbyHotels: AllHotelsOperation.loadNearbyHotels
+});
+
 export {App};
-export default connect(mapStateToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(App);

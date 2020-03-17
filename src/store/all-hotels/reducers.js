@@ -4,7 +4,8 @@ import {Operation as PlacesInCityOperation} from "../places-in-city/reducers";
 
 const initialState = {
   hotels: [],
-  loading: false
+  loading: false,
+  nearHotels: []
 };
 
 const Operation = {
@@ -17,6 +18,12 @@ const Operation = {
         dispatch(PlacesInCityOperation.loadPlacesInCity(hotels[0].city.name));
         dispatch(ActionCreator.setLoading(false));
       });
+  },
+  loadNearbyHotels: (hotelId) => async (dispatch, getState, api) => {
+    const {response} = await api.get(`/hotels/${hotelId}/nearby`);
+    const nearbyHotels = AllHotels.toFrontendModel(response.data);
+    dispatch(ActionCreator.setNearbyHotels(nearbyHotels));
+    console.log('nearbyHotels', nearbyHotels);
   }
 };
 
@@ -26,6 +33,8 @@ const reducer = (state = initialState, action) => {
       return Object.assign({}, state, {hotels: action.payload});
     case ActionType.SET_LOADING:
       return Object.assign({}, state, {loading: action.payload});
+    case ActionType.SET_NEARBY_HOTELS:
+      return Object.assign({}, state, {nearHotels: action.payload});
     default:
       return state;
   }
