@@ -25,4 +25,8 @@ const selectAllPlaces = (state) => {
   return state[StoreNameSpace.ALL_HOTELS].hotels;
 };
 
-export {selectCities, selectHotelById, selectAllPlaces};
+const selectLoading = (state) => {
+  return state[StoreNameSpace.ALL_HOTELS].loading;
+};
+
+export {selectCities, selectHotelById, selectAllPlaces, selectLoading};

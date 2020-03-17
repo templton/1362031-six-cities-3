@@ -11,6 +11,8 @@ import PageContainer from "../page-container/page-container";
 import {reviews} from "../../mocks/review-list";
 import {neighbourhoodPlaces} from "../../mocks/offers";
 import {selectPlacesInCurrentCity} from "../../store/places-in-city/selectors";
+import {selectLoading} from "../../store/all-hotels/selectors";
+import EmptyContent from "../empty-content/empty-content";
 
 class App extends PureComponent {
   constructor(props) {
@@ -19,7 +21,13 @@ class App extends PureComponent {
 
   render() {
 
-    const {offers} = this.props;
+    const {offers, loading} = this.props;
+
+    if (loading) {
+      return (
+        <EmptyContent/>
+      );
+    }
 
     return (
       <BrowserRouter>
@@ -56,11 +64,13 @@ class App extends PureComponent {
 }
 
 App.propTypes = {
-  offers: PropTypes.array.isRequired
+  offers: PropTypes.array.isRequired,
+  loading: PropTypes.bool.isRequired,
 };
 
 const mapStateToProps = (state) => ({
-  offers: selectPlacesInCurrentCity(state)
+  offers: selectPlacesInCurrentCity(state),
+  loading: selectLoading(state)
 });
 
 export {App};
