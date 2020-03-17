@@ -21,7 +21,7 @@ class App extends PureComponent {
 
   render() {
 
-    const {cardDetail} = this.props;
+    const {cardDetail, offers} = this.props;
 
     if (cardDetail) {
       return (
@@ -36,19 +36,11 @@ class App extends PureComponent {
       );
     }
 
-    if (this.props.offers.length === 0) {
-      return (
-        <PageContainer pageClass="page--gray page--main">
-          <EmptyContent/>
-        </PageContainer>
-      );
-    }
-
     return (
       <BrowserRouter>
         <Switch>
           <Route exact path="/">
-            <PageContainer pageClass="page--gray page--main">
+            <PageContainer pageClass={offers.length > 0 ? `page--gray page--main` : `page--gray page--main`}>
               <Main/>
             </PageContainer>
           </Route>
