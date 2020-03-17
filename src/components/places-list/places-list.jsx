@@ -3,14 +3,13 @@ import PropTypes from "prop-types";
 import CityPlaceCard from "../city-place-card/city-place-card";
 
 const PlacesList = (props) => {
-  const {places, onClickCardTitle, cardClass} = props;
+  const {places, cardClass} = props;
   return (
     <Fragment>
       {
         places.map((it) => <CityPlaceCard
           key={it.id} info={it}
-          cardClass={cardClass}
-          onClickCardTitle={onClickCardTitle}/>)
+          cardClass={cardClass}/>)
       }
     </Fragment>
   );
@@ -18,7 +17,6 @@ const PlacesList = (props) => {
 
 PlacesList.propTypes = {
   places: PropTypes.array.isRequired,
-  onClickCardTitle: PropTypes.func.isRequired,
   cardClass: PropTypes.string.isRequired,
 };
 

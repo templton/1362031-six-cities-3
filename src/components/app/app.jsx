@@ -10,9 +10,7 @@ import FavoritesCards from "../favorites-cards/favorites-cards";
 import PageContainer from "../page-container/page-container";
 import {reviews} from "../../mocks/review-list";
 import {neighbourhoodPlaces} from "../../mocks/offers";
-import EmptyContent from "../empty-content/empty-content";
 import {selectPlacesInCurrentCity} from "../../store/places-in-city/selectors";
-import {selectCurrentCardInfo} from "../../store/selected-card/selectors";
 
 class App extends PureComponent {
   constructor(props) {
@@ -21,20 +19,7 @@ class App extends PureComponent {
 
   render() {
 
-    const {cardDetail, offers} = this.props;
-
-    if (cardDetail) {
-      return (
-        <div className="page page--gray page--main">
-          <Header/>
-          <CardDetail
-            info={cardDetail}
-            reviews={reviews}
-            neighbourhoodPlaces={neighbourhoodPlaces}
-          />
-        </div>
-      );
-    }
+    const {offers} = this.props;
 
     return (
       <BrowserRouter>
@@ -44,6 +29,16 @@ class App extends PureComponent {
               <Main/>
             </PageContainer>
           </Route>
+          <Route exact path="/hotel/:hotelId" render={ ({match})=>{
+            return (<div className="page page--gray page--main">
+              <Header/>
+              <CardDetail
+                hotelId={+match.params.hotelId}
+                reviews={reviews}
+                neighbourhoodPlaces={neighbourhoodPlaces}
+              />
+            </div>);
+          } }/>
           <Route exact path="/login">
             <PageContainer pageClass="page--gray page--login">
               <Login/>
@@ -61,13 +56,11 @@ class App extends PureComponent {
 }
 
 App.propTypes = {
-  offers: PropTypes.array.isRequired,
-  cardDetail: PropTypes.object
+  offers: PropTypes.array.isRequired
 };
 
 const mapStateToProps = (state) => ({
-  offers: selectPlacesInCurrentCity(state),
-  cardDetail: selectCurrentCardInfo(state)
+  offers: selectPlacesInCurrentCity(state)
 });
 
 export {App};

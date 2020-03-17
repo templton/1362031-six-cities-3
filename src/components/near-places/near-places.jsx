@@ -6,7 +6,7 @@ import {connect} from "react-redux";
 import {selectCurrentCityCord} from "../../store/places-in-city/selectors";
 
 const NearPlaces = (props) => {
-  const {cityCord, neighbourhoodPlaces, onClickCardTitle} = props;
+  const {cityCord, neighbourhoodPlaces} = props;
   const placeCords = neighbourhoodPlaces.map((item)=>item.cord);
 
   return (
@@ -18,7 +18,7 @@ const NearPlaces = (props) => {
         <section className="near-places places">
           <h2 className="near-places__title">Other places in the neighbourhood</h2>
           <div className="near-places__list places__list">
-            <PlacesList places={neighbourhoodPlaces} onClickCardTitle={onClickCardTitle} cardClass="near-places__card"/>
+            <PlacesList places={neighbourhoodPlaces} cardClass="near-places__card"/>
           </div>
         </section>
       </div>
@@ -28,7 +28,6 @@ const NearPlaces = (props) => {
 
 NearPlaces.propTypes = {
   neighbourhoodPlaces: PropTypes.array.isRequired,
-  onClickCardTitle: PropTypes.func.isRequired,
   cityCord: PropTypes.array.isRequired,
 };
 

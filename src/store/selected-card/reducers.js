@@ -1,12 +1,11 @@
-import {ActionType, ActionCreator} from "./actions";
+import {ActionType} from "./actions";
 import {selectHotelById} from "../all-hotels/selectors";
 
 const initialState = null;
 
 const Operation = {
-  setSelectedCard: (cardId) => (dispatch, getState, api) => {
-    const cardInfo = selectHotelById(getState(), cardId);
-    return dispatch(ActionCreator.setSelectedCard(cardInfo));
+  selectCardInfo: (cardId) => (dispatch, getState) => {
+    return selectHotelById(getState(), cardId);
   }
 };
 

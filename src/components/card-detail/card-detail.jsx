@@ -8,7 +8,9 @@ import {Operation as SelectedCardOperation} from "../../store/selected-card/redu
 import {connect} from "react-redux";
 
 const CardDetail = (props) => {
-  const {info, reviews, neighbourhoodPlaces, onClickCardTitle} = props;
+  const {reviews, neighbourhoodPlaces, loadCardInfo, hotelId} = props;
+  const info = loadCardInfo(hotelId);
+
   return (
     <main className="page__main page__main--property">
       <section className="property">
@@ -69,7 +71,7 @@ const CardDetail = (props) => {
               <h2 className="property__host-title">{info.intoTitle}</h2>
               <div className="property__host-user user">
                 <div className="property__avatar-wrapper property__avatar-wrapper--pro user__avatar-wrapper">
-                  <img className="property__avatar user__avatar" src={info.owner.avatar} width="74" height="74" alt="Host avatar"/>
+                  <img className="property__avatar user__avatar" src={`/${info.owner.avatar}`} width="74" height="74" alt="Host avatar"/>
                 </div>
                 <span className="property__user-name">
                   {info.owner.name}
@@ -83,7 +85,7 @@ const CardDetail = (props) => {
             </div>
             <ReviewList reviews={reviews}/>
           </div>
-          <NearPlaces neighbourhoodPlaces={neighbourhoodPlaces} onClickCardTitle={onClickCardTitle}/>
+          <NearPlaces neighbourhoodPlaces={neighbourhoodPlaces}/>
         </div>
       </section>
 
@@ -114,12 +116,13 @@ CardDetail.propTypes = {
   }),
   reviews: PropTypes.array.isRequired,
   neighbourhoodPlaces: PropTypes.array.isRequired,
-  onClickCardTitle: PropTypes.func.isRequired,
+  loadCardInfo: PropTypes.func.isRequired,
+  hotelId: PropTypes.number.isRequired,
 };
 
 const mapDispatchToProps = ({
-  onClickCardTitle: SelectedCardOperation.setSelectedCard
+  loadCardInfo: SelectedCardOperation.selectCardInfo
 });
 
 export {CardDetail};
-export default connect(()=>({}), mapDispatchToProps)(CardDetail);
+export default connect(null, mapDispatchToProps)(CardDetail);
