@@ -1,6 +1,7 @@
 import {ActionCreator, ActionType} from "./actions";
 import {AllHotels} from "../../models/all-hotels";
 import {Operation as PlacesInCityOperation} from "../places-in-city/reducers";
+import {selectAllPlaces} from "./selectors";
 
 const initialState = {
   hotels: [],
@@ -24,6 +25,14 @@ const Operation = {
     const nearbyHotels = AllHotels.toFrontendModel(response.data);
     dispatch(ActionCreator.setNearbyHotels(nearbyHotels));
     console.log('nearbyHotels', nearbyHotels);
+  },
+  setHotelFavouriteStatus: (hotelId, status) => async (dispatch, getState, api) => {
+    const {response} = await api.post(`/favorite/${hotelId}/${status}`);
+    const favouriteHotel = AllHotels.toFrontendModel([response.data]);
+    const allHotels = selectAllPlaces(getState()).map((item) => {
+      return item.id === favouriteHotel[0].id ? favouriteHotel[0] : item;
+    });
+    dispatch(ActionCreator.loadAllHotels(allHotels));
   }
 };
 

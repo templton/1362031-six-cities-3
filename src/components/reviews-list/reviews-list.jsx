@@ -28,10 +28,7 @@ class ReviewList extends PureComponent {
             );
           })}
         </ul>
-        {
-          // authStatus && <ReviewForm currentHotelId={hotelId}/>
-        }
-        <ReviewForm currentHotelId={hotelId}/>
+        {authStatus && <ReviewForm currentHotelId={hotelId}/>}
       </section>
     );
   }
