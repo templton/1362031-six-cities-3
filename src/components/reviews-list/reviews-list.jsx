@@ -1,9 +1,11 @@
 import React from "react";
 import PropTypes from "prop-types";
+import {connect} from "react-redux";
 import Review from "../review/review";
 import ReviewForm from "../review-form/review-form";
+import {selectAuthStatus} from "../../store/user/selectors";
 
-const ReviewList = ({reviews}) => {
+const ReviewList = ({reviews, authStatus}) => {
   return (
     <section className="property__reviews reviews">
       <h2 className="reviews__title">Reviews &middot; <span className="reviews__amount">{reviews.length}</span></h2>
@@ -16,13 +18,22 @@ const ReviewList = ({reviews}) => {
           );
         })}
       </ul>
+      {
+        // authStatus && <ReviewForm/>
+       }
       <ReviewForm/>
     </section>
   );
 };
 
 ReviewList.propTypes = {
-  reviews: PropTypes.array.isRequired
+  reviews: PropTypes.array.isRequired,
+  authStatus: PropTypes.bool.isRequired
 };
 
-export default ReviewList;
+const mapStateToProps = (state) => ({
+  authStatus: selectAuthStatus(state)
+});
+
+export {ReviewList};
+export default connect(mapStateToProps)(ReviewList);

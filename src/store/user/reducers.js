@@ -2,8 +2,8 @@ import {ActionType, ActionCreator} from "./actions";
 import {User} from "../../models/user";
 
 const AuthStatusType = {
-  AUTH: `AUTH`,
-  NO_AUTH: `NO_AUTH`,
+  AUTH: true,
+  NO_AUTH: false,
 };
 
 const HttpReponseCode = {

@@ -1,7 +1,10 @@
 import React, {PureComponent} from "react";
+import {Redirect} from "react-router-dom";
 import PropTypes from "prop-types";
 import {connect} from "react-redux";
 import {Operation as UserOperation} from "../../store/user/reducers";
+import {selectAuthStatus} from "../../store/user/selectors";
+import {path} from "../../const";
 
 class Login extends PureComponent {
 
@@ -13,6 +16,13 @@ class Login extends PureComponent {
   }
 
   render() {
+    const {authStatus} = this.props;
+
+    if (authStatus) {
+      return <Redirect to={path.MAIN}/>;
+    }
+
+
     const handleSubmit = (event) => {
       const {onSubmit} = this.props;
       event.preventDefault();
@@ -49,15 +59,20 @@ class Login extends PureComponent {
       </main>
     );
   }
-};
+}
 
 Login.propTypes = {
-  onSubmit: PropTypes.func.isRequired
+  onSubmit: PropTypes.func.isRequired,
+  authStatus: PropTypes.bool.isRequired,
 }
+
+const mapStateToProps = (state) => ({
+  authStatus: selectAuthStatus(state)
+});
 
 const mapDispatchToProps = ({
   onSubmit: UserOperation.login
 });
 
 export {Login};
-export default connect(()=>({}), mapDispatchToProps)(Login);
+export default connect(mapStateToProps, mapDispatchToProps)(Login);
