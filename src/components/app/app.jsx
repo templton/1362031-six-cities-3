@@ -1,5 +1,5 @@
 import React, {PureComponent} from "react";
-import {BrowserRouter, Route, Switch} from "react-router-dom";
+import {Router, Route, Switch} from "react-router-dom";
 import PropTypes from "prop-types";
 import {connect} from "react-redux";
 import Header from "../header/header";
@@ -13,6 +13,7 @@ import {selectPlacesInCurrentCity} from "../../store/places-in-city/selectors";
 import {selectLoading} from "../../store/all-hotels/selectors";
 import EmptyContent from "../empty-content/empty-content";
 import {Operation as AllHotelsOperation} from "../../store/all-hotels/reducers";
+import history from "../../history";
 
 class App extends PureComponent {
   constructor(props) {
@@ -30,7 +31,7 @@ class App extends PureComponent {
     }
 
     return (
-      <BrowserRouter>
+      <Router history={history}>
         <Switch>
           <Route exact path="/">
             <PageContainer pageClass={offers.length > 0 ? `page--gray page--main` : `page--gray page--main`}>
@@ -58,7 +59,7 @@ class App extends PureComponent {
             </PageContainer>
           </Route>
         </Switch>
-      </BrowserRouter>
+      </Router>
     );
   }
 }
