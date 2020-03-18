@@ -8,7 +8,8 @@ const PlacesList = (props) => {
     <Fragment>
       {
         places.map((it) => <CityPlaceCard
-          key={it.id} info={it}
+          key={it.id}
+          info={it}
           cardClass={cardClass}/>)
       }
     </Fragment>

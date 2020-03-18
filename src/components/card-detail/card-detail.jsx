@@ -6,16 +6,17 @@ import RatingStars from "../rating-stars/rating-stars";
 import NearPlaces from "../near-places/near-places";
 import {Operation as SelectedCardOperation} from "../../store/selected-card/reducers";
 import {connect} from "react-redux";
+import {Operation as AllHotelsReducer} from "../../store/all-hotels/reducers";
 
 const CardDetail = (props) => {
-  const {loadCardInfo, hotelId} = props;
+  const {loadCardInfo, hotelId, onFavouriteButtonClick} = props;
   const info = loadCardInfo(hotelId);
 
   return (
     <main className="page__main page__main--property">
       <section className="property">
         <div className="property__gallery-container container">
-          <div className="property__gallery">
+          <div className={`property__gallery`}>
             {info.images.map((img)=>{
               return (
                 <div className="property__image-wrapper" key={img.id}>
@@ -32,8 +33,10 @@ const CardDetail = (props) => {
               <h1 className="property__name">
                 {info.title}
               </h1>
-              <button className="property__bookmark-button button" type="button">
-                <svg className="property__bookmark-icon" width="31" height="33">
+              <button className={`property__bookmark-button button`} type="button" onClick={ () => {
+                onFavouriteButtonClick(hotelId, info.isFavorite ? 0 : 1);
+              } }>
+                <svg className={`property__bookmark-icon${info.isFavorite ? `--active` : ``} `}width="31" height="33">
                   <use xlinkHref="#icon-bookmark"></use>
                 </svg>
                 <span className="visually-hidden">To bookmarks</span>
@@ -97,6 +100,7 @@ CardDetail.propTypes = {
   info: PropTypes.shape({
     title: PropTypes.string.isRequired,
     isPremium: PropTypes.bool.isRequired,
+    isFavorite: PropTypes.bool.isRequired,
     rating: PropTypes.number.isRequired,
     features: PropTypes.arrayOf(PropTypes.string).isRequired,
     costPerNignt: PropTypes.number.isRequired,
@@ -115,11 +119,13 @@ CardDetail.propTypes = {
     })
   }),
   loadCardInfo: PropTypes.func.isRequired,
+  onFavouriteButtonClick: PropTypes.func.isRequired,
   hotelId: PropTypes.number.isRequired,
 };
 
 const mapDispatchToProps = ({
   loadCardInfo: SelectedCardOperation.selectCardInfo,
+  onFavouriteButtonClick: AllHotelsReducer.setHotelFavouriteStatus
 });
 
 export {CardDetail};

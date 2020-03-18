@@ -1,10 +1,6 @@
 class AllHotels {
   static toFrontendModel(hotels) {
     return hotels.map((item)=>{
-
-      // const city = {...item.city, id: item.city.name};
-      // return {...item, city};
-
       return {
         id: item.id,
         city: {...item.city, id: item.city.name},
@@ -12,6 +8,7 @@ class AllHotels {
         images: item.images.map((it, id) => ({id, src: it})),
         title: item.title,
         isPremium: item.is_premium,
+        isFavorite: item.is_favorite,
         rating: item.rating,
         features: item.goods,
         costPerNignt: item.price,

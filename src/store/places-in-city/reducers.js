@@ -36,14 +36,12 @@ const Operation = {
   sortPlaces: (filterType) => (dispatch, getState) => {
     let places = selectPlacesInCurrentCity(getState());
     places = sortPlacesByCost(places.slice(0), filterType);
-    dispatch(ActionCreator.setPlacesInCity(places));
+    dispatch(ActionCreator.setPlacesInCity({places}));
   }
 };
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
-    // case ActionType.SET_CURRENT_CITY:
-    //   return Object.assign({}, state, {currentCityName: action.payload});
     case ActionType.SET_PLACES_IN_CITIES:
       return Object.assign({}, state, {...action.payload});
     default:

@@ -9,10 +9,13 @@ import thunk from "redux-thunk";
 import {createApi} from "./api";
 import {Operation as AllHotelsOperation} from "./store/all-hotels/reducers";
 import {ActionCreator as UserActionCreator} from "./store/user/actions";
+import {path} from "./const";
+import history from "./history";
 
 
 const unauthorize = () => {
   store.dispatch(UserActionCreator.setNoAuth());
+  history.push(path.LOGIN);
 };
 
 const api = createApi(unauthorize);

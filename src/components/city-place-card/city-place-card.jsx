@@ -5,9 +5,10 @@ import {connect} from "react-redux";
 import {PlaceCardTypes} from "../../const";
 import RatingStars from "../rating-stars/rating-stars";
 import {ActionCreator as FiltersActionCreator} from "../../store/filters/actions";
+import {Operation as AllHotelsReducer} from "../../store/all-hotels/reducers";
 
 const CityPlaceCard = (props) => {
-  const {info, cardClass, onArticleMouseEnter, onArticleMouseLeave} = props;
+  const {info, cardClass, onArticleMouseEnter, onArticleMouseLeave, onFavouriteButtonClick} = props;
   const handleArticleMouseEnter = useCallback(() => onArticleMouseEnter(info.cord), [info.cord]);
   return (
     <article
@@ -25,8 +26,10 @@ const CityPlaceCard = (props) => {
             <b className="place-card__price-value">€{info.costPerNignt}</b>
             <span className="place-card__price-text">/&nbsp;night</span>
           </div>
-          <button className="place-card__bookmark-button place-card__bookmark-button button" type="button">
-            <svg className="place-card__bookmark-icon" width="18" height="19">
+          <button className="place-card__bookmark-button place-card__bookmark-button button" type="button" onClick={ () => {
+            onFavouriteButtonClick(info.id, info.isFavorite ? 0 : 1);
+          } }>
+            <svg className={`place-card__bookmark-icon${info.isFavorite ? `--active` : ``}`} width="18" height="19">
               <use xlinkHref="#icon-bookmark"></use>
             </svg>
             <span className="visually-hidden">In bookmarks</span>
@@ -51,18 +54,21 @@ CityPlaceCard.propTypes = {
     costPerNignt: PropTypes.number.isRequired,
     image: PropTypes.string.isRequired,
     isPremium: PropTypes.bool.isRequired,
+    isFavorite: PropTypes.bool.isRequired,
     type: PropTypes.oneOf(Object.values(PlaceCardTypes)).isRequired,
     rating: PropTypes.number.isRequired,
     cord: PropTypes.arrayOf(PropTypes.number).isRequired
   }),
   onArticleMouseEnter: PropTypes.func.isRequired,
   onArticleMouseLeave: PropTypes.func.isRequired,
+  onFavouriteButtonClick: PropTypes.func.isRequired,
   cardClass: PropTypes.string.isRequired,
 };
 
 const mapDispatchToProps = {
   onArticleMouseEnter: FiltersActionCreator.setMouseOverPlaceCard,
-  onArticleMouseLeave: FiltersActionCreator.unsetMouseOverPlaceCard
+  onArticleMouseLeave: FiltersActionCreator.unsetMouseOverPlaceCard,
+  onFavouriteButtonClick: AllHotelsReducer.setHotelFavouriteStatus
 };
 
 export {CityPlaceCard};
