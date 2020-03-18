@@ -7,7 +7,7 @@ const Review = ({reviewDetail}) => {
     <Fragment>
       <div className="reviews__user user">
         <div className="reviews__avatar-wrapper user__avatar-wrapper">
-          <img className="reviews__avatar user__avatar" src="/img/avatar-max.jpg" width="54" height="54"
+          <img className="reviews__avatar user__avatar" src={reviewDetail.avatar} width="54" height="54"
             alt="Reviews avatar" />
         </div>
         <span className="reviews__user-name">{reviewDetail.userName}</span>
@@ -16,10 +16,7 @@ const Review = ({reviewDetail}) => {
 
         <RatingStars suffixClass="reviews" rating={reviewDetail.rating} showRaitingValue={false}/>
 
-        <p className="reviews__text">
-          A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam. The building is
-          green and from 18th century.
-        </p>
+        <p className="reviews__text">{reviewDetail.comment}</p>
         <time className="reviews__time" dateTime={reviewDetail.timestamp}>{
           new Date(reviewDetail.timestamp).toLocaleString(`ru`, {month: `long`, year: `numeric`})
         }</time>
@@ -31,8 +28,10 @@ const Review = ({reviewDetail}) => {
 Review.propTypes = {
   reviewDetail: Proptypes.shape({
     userName: Proptypes.string.isRequired,
+    avatar: Proptypes.string.isRequired,
     timestamp: Proptypes.string.isRequired,
     rating: Proptypes.number.isRequired,
+    comment: Proptypes.string.isRequired,
   }).isRequired
 };
 

@@ -4,4 +4,8 @@ const selectReviewPostFetching = (state) => {
   return state[StoreNameSpace.REVIEWS].reviewPostFetching
 };
 
-export {selectReviewPostFetching};
+const selectReviews = (state) => {
+  return state[StoreNameSpace.REVIEWS].reviews;
+};
+
+export {selectReviewPostFetching, selectReviews};

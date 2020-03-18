@@ -8,7 +8,7 @@ import {Operation as SelectedCardOperation} from "../../store/selected-card/redu
 import {connect} from "react-redux";
 
 const CardDetail = (props) => {
-  const {reviews, loadCardInfo, hotelId} = props;
+  const {loadCardInfo, hotelId} = props;
   const info = loadCardInfo(hotelId);
 
   return (
@@ -83,7 +83,7 @@ const CardDetail = (props) => {
                 })}
               </div>
             </div>
-            <ReviewList reviews={reviews} hotelId={hotelId}/>
+            <ReviewList hotelId={hotelId}/>
           </div>
           <NearPlaces/>
         </div>
@@ -114,7 +114,6 @@ CardDetail.propTypes = {
       avatar: PropTypes.string.isRequired
     })
   }),
-  reviews: PropTypes.array.isRequired,
   loadCardInfo: PropTypes.func.isRequired,
   hotelId: PropTypes.number.isRequired,
 };

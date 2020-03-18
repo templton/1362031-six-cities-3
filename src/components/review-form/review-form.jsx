@@ -5,7 +5,7 @@ import {selectReviewPostFetching} from "../../store/reviews/selectors";
 import {Operation} from "../../store/reviews/reducers";
 // import {selectCurrentHotelId} from "../../store/selected-card/selectors";
 
-const COMMENT_MIN_LENGTH = 5;
+const COMMENT_MIN_LENGTH = 50;
 const COMMENT_MAX_LENGTH = 300;
 
 class ReviewForm extends PureComponent {
