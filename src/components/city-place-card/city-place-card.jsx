@@ -1,12 +1,13 @@
 import React, {useCallback} from "react";
 import PropTypes from "prop-types";
+import {Link} from "react-router-dom";
 import {connect} from "react-redux";
 import {PlaceCardTypes} from "../../const";
 import RatingStars from "../rating-stars/rating-stars";
 import {ActionCreator as FiltersActionCreator} from "../../store/filters/actions";
 
 const CityPlaceCard = (props) => {
-  const {info, onClickCardTitle, cardClass, onArticleMouseEnter, onArticleMouseLeave} = props;
+  const {info, cardClass, onArticleMouseEnter, onArticleMouseLeave} = props;
   const handleArticleMouseEnter = useCallback(() => onArticleMouseEnter(info.cord), [info.cord]);
   return (
     <article
@@ -34,10 +35,8 @@ const CityPlaceCard = (props) => {
         <div className="place-card__rating rating">
           <RatingStars rating={info.rating} suffixClass="place-card" showRatingValue={false}/>
         </div>
-        <h2 className="place-card__name" onClick={() => {
-          onClickCardTitle(info.id);
-        }}>
-          <a href="#">{info.title}</a>
+        <h2 className="place-card__name">
+          <Link to={`/hotel/${info.id}`}>{info.title}</Link>
         </h2>
         <p className="place-card__type">{info.type}</p>
       </div>
@@ -56,7 +55,6 @@ CityPlaceCard.propTypes = {
     rating: PropTypes.number.isRequired,
     cord: PropTypes.arrayOf(PropTypes.number).isRequired
   }),
-  onClickCardTitle: PropTypes.func.isRequired,
   onArticleMouseEnter: PropTypes.func.isRequired,
   onArticleMouseLeave: PropTypes.func.isRequired,
   cardClass: PropTypes.string.isRequired,

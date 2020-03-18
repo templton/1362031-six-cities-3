@@ -8,11 +8,11 @@ import CardDetail from "../card-detail/card-detail";
 import Login from "../login/login";
 import FavoritesCards from "../favorites-cards/favorites-cards";
 import PageContainer from "../page-container/page-container";
-import {reviews} from "../../mocks/review-list";
 import {neighbourhoodPlaces} from "../../mocks/offers";
-import EmptyContent from "../empty-content/empty-content";
 import {selectPlacesInCurrentCity} from "../../store/places-in-city/selectors";
-import {selectCurrentCardInfo} from "../../store/selected-card/selectors";
+import {selectLoading} from "../../store/all-hotels/selectors";
+import EmptyContent from "../empty-content/empty-content";
+import {Operation as AllHotelsOperation} from "../../store/all-hotels/reducers";
 
 class App extends PureComponent {
   constructor(props) {
@@ -21,26 +21,11 @@ class App extends PureComponent {
 
   render() {
 
-    const {cardDetail} = this.props;
+    const {offers, loading, loadNearbyHotels} = this.props;
 
-    if (cardDetail) {
+    if (loading) {
       return (
-        <div className="page page--gray page--main">
-          <Header/>
-          <CardDetail
-            info={cardDetail}
-            reviews={reviews}
-            neighbourhoodPlaces={neighbourhoodPlaces}
-          />
-        </div>
-      );
-    }
-
-    if (this.props.offers.length === 0) {
-      return (
-        <PageContainer pageClass="page--gray page--main">
-          <EmptyContent/>
-        </PageContainer>
+        <EmptyContent/>
       );
     }
 
@@ -48,10 +33,20 @@ class App extends PureComponent {
       <BrowserRouter>
         <Switch>
           <Route exact path="/">
-            <PageContainer pageClass="page--gray page--main">
+            <PageContainer pageClass={offers.length > 0 ? `page--gray page--main` : `page--gray page--main`}>
               <Main/>
             </PageContainer>
           </Route>
+          <Route exact path="/hotel/:hotelId" render={ ({match})=>{
+            loadNearbyHotels(+match.params.hotelId);
+            return (<div className="page page--gray page--main">
+              <Header/>
+              <CardDetail
+                hotelId={+match.params.hotelId}
+                neighbourhoodPlaces={neighbourhoodPlaces}
+              />
+            </div>);
+          } }/>
           <Route exact path="/login">
             <PageContainer pageClass="page--gray page--login">
               <Login/>
@@ -70,13 +65,18 @@ class App extends PureComponent {
 
 App.propTypes = {
   offers: PropTypes.array.isRequired,
-  cardDetail: PropTypes.object
+  loading: PropTypes.bool.isRequired,
+  loadNearbyHotels: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({
   offers: selectPlacesInCurrentCity(state),
-  cardDetail: selectCurrentCardInfo(state)
+  loading: selectLoading(state)
+});
+
+const mapDispatchToProps = ({
+  loadNearbyHotels: AllHotelsOperation.loadNearbyHotels
 });
 
 export {App};
-export default connect(mapStateToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(App);

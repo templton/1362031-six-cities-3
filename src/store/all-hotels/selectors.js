@@ -25,4 +25,12 @@ const selectAllPlaces = (state) => {
   return state[StoreNameSpace.ALL_HOTELS].hotels;
 };
 
-export {selectCities, selectHotelById, selectAllPlaces};
+const selectLoading = (state) => {
+  return state[StoreNameSpace.ALL_HOTELS].loading;
+};
+
+const selectNearbyPlaces = (state) => {
+  return state[StoreNameSpace.ALL_HOTELS].nearHotels;
+};
+
+export {selectCities, selectHotelById, selectAllPlaces, selectLoading, selectNearbyPlaces};

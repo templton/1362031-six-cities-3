@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDom from "react-dom";
+import {Redirect} from "react-router-dom";
 import App from "./components/app/app.jsx";
 import {Provider} from "react-redux";
 import {createStore, applyMiddleware, compose} from "redux";
@@ -7,13 +8,14 @@ import rootReducer from "./store/rootReducer";
 import thunk from "redux-thunk";
 import {createApi} from "./api";
 import {Operation as AllHotelsOperation} from "./store/all-hotels/reducers";
+import {ActionCreator as UserActionCreator} from "./store/user/actions";
 
 
-const handleApiError = () => {
-  alert(`Ошибка АПИ. Кидаем екшен, ставим в стор ключик и по этому ключику переключаем состояние приложения`);
+const unauthorize = () => {
+  store.dispatch(UserActionCreator.setNoAuth());
 };
 
-const api = createApi(handleApiError);
+const api = createApi(unauthorize);
 
 const store = createStore(
     rootReducer,

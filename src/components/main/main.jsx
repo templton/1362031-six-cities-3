@@ -6,10 +6,15 @@ import Map from "../map/map";
 import CitiesList from "../cities-list/cities-list";
 import {selectPlacesInCurrentCity} from "../../store/places-in-city/selectors";
 import {selectCurrentCityCord} from "../../store/places-in-city/selectors";
+import EmptyContent from "../empty-content/empty-content";
 
 const Main = (props) => {
   const {offers, cityCord} = props;
   const placeCords = offers.map((item)=>item.cord);
+
+  if (offers.length === 0) {
+    return <EmptyContent/>;
+  }
 
   return (
     <main className="page__main page__main--index">
