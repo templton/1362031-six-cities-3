@@ -39,7 +39,14 @@ class ReviewForm extends PureComponent {
     event.preventDefault();
     const {postReview, currentHotelId} = this.props;
     const {reviewText, raiting} = this.state;
-    postReview(currentHotelId, reviewText, raiting);
+    const statusPromise = postReview(currentHotelId, reviewText, raiting);
+    statusPromise.then((status)=>{
+      if (status) {
+        this.setState({
+          reviewText: ``
+        });
+      }
+    });
   }
 
   render() {
@@ -85,7 +92,7 @@ class ReviewForm extends PureComponent {
               </svg>
             </label>
           </div>
-          <textarea className="reviews__textarea form__textarea" id="review" name="review" onChange={this.handleTextAreaChange}
+          <textarea value={this.state.reviewText} className="reviews__textarea form__textarea" id="review" name="review" onChange={this.handleTextAreaChange}
             placeholder="Tell how was your stay, what you like and what can be improved"></textarea>
           <div className="reviews__button-wrapper">
             <p className="reviews__help">

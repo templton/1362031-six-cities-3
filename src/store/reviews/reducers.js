@@ -6,6 +6,8 @@ const initialState = {
   reviews: []
 };
 
+const HTTP_CODE_OK = 200;
+
 const Operation = {
   postReview: (hotelId, comment, rating) => async (dispatch, getState, api) => {
     ActionCreator.setReviewsPostFetching(true);
@@ -13,6 +15,7 @@ const Operation = {
     const reviews = Reviews.toFrontendModel(response.data);
     dispatch(ActionCreator.loadReviews(reviews));
     ActionCreator.setReviewsPostFetching(false);
+    return response.status === HTTP_CODE_OK;
   },
   getReviews: (hotelId) => async (dispatch, getState, api) => {
     const {response} = await api.get(`/comments/${hotelId}`);
