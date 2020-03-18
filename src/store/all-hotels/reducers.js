@@ -24,12 +24,12 @@ const Operation = {
     const {response} = await api.get(`/hotels/${hotelId}/nearby`);
     const nearbyHotels = AllHotels.toFrontendModel(response.data);
     dispatch(ActionCreator.setNearbyHotels(nearbyHotels));
-    console.log('nearbyHotels', nearbyHotels);
   },
   setHotelFavouriteStatus: (hotelId, status) => async (dispatch, getState, api) => {
     const {response} = await api.post(`/favorite/${hotelId}/${status}`);
     const favouriteHotel = AllHotels.toFrontendModel([response.data]);
-    const allHotels = selectAllPlaces(getState()).map((item) => {
+    let allHotels = selectAllPlaces(getState()).slice(0);
+    allHotels = allHotels.map((item) => {
       return item.id === favouriteHotel[0].id ? favouriteHotel[0] : item;
     });
     dispatch(ActionCreator.loadAllHotels(allHotels));
