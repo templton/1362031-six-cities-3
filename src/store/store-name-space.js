@@ -3,7 +3,8 @@ const StoreNameSpace = {
   PLACES_IN_CITY: `PLACES_IN_CITY`,
   FILTERS: `FILTERS`,
   SELECTED_CARD: `SELECTED_CARD`,
-  USER: `USER`
+  USER: `USER`,
+  REVIEWS: `REVIEWS`
 };
 
 export default StoreNameSpace;

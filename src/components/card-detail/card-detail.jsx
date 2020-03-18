@@ -83,7 +83,7 @@ const CardDetail = (props) => {
                 })}
               </div>
             </div>
-            <ReviewList reviews={reviews}/>
+            <ReviewList reviews={reviews} hotelId={hotelId}/>
           </div>
           <NearPlaces/>
         </div>

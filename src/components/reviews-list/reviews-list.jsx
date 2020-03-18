@@ -5,7 +5,7 @@ import Review from "../review/review";
 import ReviewForm from "../review-form/review-form";
 import {selectAuthStatus} from "../../store/user/selectors";
 
-const ReviewList = ({reviews, authStatus}) => {
+const ReviewList = ({reviews, authStatus, hotelId}) => {
   return (
     <section className="property__reviews reviews">
       <h2 className="reviews__title">Reviews &middot; <span className="reviews__amount">{reviews.length}</span></h2>
@@ -21,14 +21,15 @@ const ReviewList = ({reviews, authStatus}) => {
       {
         // authStatus && <ReviewForm/>
        }
-      <ReviewForm/>
+      <ReviewForm currentHotelId={hotelId}/>
     </section>
   );
 };
 
 ReviewList.propTypes = {
   reviews: PropTypes.array.isRequired,
-  authStatus: PropTypes.bool.isRequired
+  authStatus: PropTypes.bool.isRequired,
+  hotelId: PropTypes.number.isRequired,
 };
 
 const mapStateToProps = (state) => ({

@@ -1,6 +1,10 @@
 import axios from "axios";
 
-export const createApi = (handleApiError) => {
+const ErrorCode = {
+  NOT_AUTH: 401
+};
+
+export const createApi = (unauthorize) => {
   const api = axios.create({
     baseURL: `https://htmlacademy-react-3.appspot.com/six-cities`,
     timeout: 1000 * 5,
@@ -11,7 +15,10 @@ export const createApi = (handleApiError) => {
 
   const onFail = (err) => {
     const {response} = err;
-    handleApiError();
+
+    if (response.status === ErrorCode.NOT_AUTH) {
+      unauthorize();
+    }
 
     throw err;
   };
