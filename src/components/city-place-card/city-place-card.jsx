@@ -8,8 +8,8 @@ import {ActionCreator as FiltersActionCreator} from "../../store/filters/actions
 import {Operation as AllHotelsReducer} from "../../store/all-hotels/reducers";
 
 const imgSizeDefault = {
-  height: 260,
-  width: 200
+  height: 200,
+  width: 260
 };
 
 const CityPlaceCard = (props) => {
