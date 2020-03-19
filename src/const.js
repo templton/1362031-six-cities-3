@@ -14,5 +14,6 @@ export const sortCityFilterType = {
 
 export const path = {
   MAIN: `/`,
-  LOGIN: `/login`
+  LOGIN: `/login`,
+  FAVOURITES: `/favorites`
 };
