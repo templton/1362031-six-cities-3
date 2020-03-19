@@ -7,17 +7,23 @@ import RatingStars from "../rating-stars/rating-stars";
 import {ActionCreator as FiltersActionCreator} from "../../store/filters/actions";
 import {Operation as AllHotelsReducer} from "../../store/all-hotels/reducers";
 
+const imgSizeDefault = {
+  height: 260,
+  width: 200
+};
+
 const CityPlaceCard = (props) => {
-  const {info, cardClass, onArticleMouseEnter, onArticleMouseLeave, onFavouriteButtonClick} = props;
+  const {info, cardClass, onArticleMouseEnter, onArticleMouseLeave,
+    onFavouriteButtonClick, imageWrapperClass, imgHeight = imgSizeDefault.height, imgWidth = imgSizeDefault.width} = props;
   const handleArticleMouseEnter = useCallback(() => onArticleMouseEnter(info.cord), [info.cord]);
   return (
     <article
       className={`${cardClass} place-card`}
       onMouseEnter={handleArticleMouseEnter}
       onMouseLeave={onArticleMouseLeave}>
-      <div className="place-card__image-wrapper">
+      <div className={`${imageWrapperClass} place-card__image-wrapper`}>
         <a href="#">
-          <img className="place-card__image" src={info.image} width="260" height="200" alt="Place image"/>
+          <img className="place-card__image" src={info.image} width={imgWidth} height={imgHeight} alt="Place image"/>
         </a>
       </div>
       <div className="place-card__info">
@@ -63,6 +69,9 @@ CityPlaceCard.propTypes = {
   onArticleMouseLeave: PropTypes.func.isRequired,
   onFavouriteButtonClick: PropTypes.func.isRequired,
   cardClass: PropTypes.string.isRequired,
+  imageWrapperClass: PropTypes.string,
+  imgHeight: PropTypes.number,
+  imgWidth: PropTypes.number,
 };
 
 const mapDispatchToProps = {

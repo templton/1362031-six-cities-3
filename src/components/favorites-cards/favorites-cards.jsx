@@ -5,6 +5,7 @@ import {selectFavourites} from "../../store/favourites/selectors";
 import {Operation as FavouritesOperation} from "../../store/favourites/reducers";
 import PlacesList from "../places-list/places-list";
 
+
 class FavoritesCards extends PureComponent {
 
   componentDidMount() {
@@ -29,7 +30,12 @@ class FavoritesCards extends PureComponent {
                   </div>
                 </div>
                 <div className="favorites__places">
-                  <PlacesList places={hotels} cardClass={`favorites__card`} imageWrapperClass="favorites__image-wrapper"/>
+                  <PlacesList
+                    imgHeight={110}
+                    imgWidth={150}
+                    places={hotels}
+                    cardClass={`favorites__card`}
+                    imageWrapperClass="favorites__image-wrapper"/>
 
                   <h1>salamatov</h1>
                   <br/>
