@@ -15,6 +15,7 @@ import EmptyContent from "../empty-content/empty-content";
 import {Operation as AllHotelsOperation} from "../../store/all-hotels/reducers";
 import history from "../../history";
 import {routerPath} from "../../const";
+import PrivateRoute from "../private-route/private-route";
 
 class App extends PureComponent {
   constructor(props) {
@@ -54,11 +55,13 @@ class App extends PureComponent {
               <Login/>
             </PageContainer>
           </Route>
-          <Route exact path={routerPath.FAVOURITES}>
-            <PageContainer>
-              <FavoritesCards/>
-            </PageContainer>
-          </Route>
+          <PrivateRoute exact path={routerPath.FAVOURITES} render={() => {
+            return (
+              <PageContainer>
+                <FavoritesCards/>
+              </PageContainer>
+            );
+          }} />
         </Switch>
       </Router>
     );

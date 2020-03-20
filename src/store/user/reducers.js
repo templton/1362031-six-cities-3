@@ -53,4 +53,4 @@ const reducer = (state = initialState, action) => {
   }
 };
 
-export {reducer, Operation};
+export {reducer, Operation, AuthStatusType};

@@ -15,6 +15,6 @@ export const sortCityFilterType = {
 export const routerPath = {
   MAIN: `/`,
   LOGIN: `/login`,
-  FAVOURITES: `/favorites`,
+  FAVOURITES: `/favourites`,
   HOTEL_DETAIL: `/hotel/:hotelId`
 };
