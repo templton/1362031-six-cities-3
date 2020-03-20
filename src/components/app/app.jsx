@@ -8,7 +8,6 @@ import CardDetail from "../card-detail/card-detail";
 import Login from "../login/login";
 import FavoritesCards from "../favorites-cards/favorites-cards";
 import PageContainer from "../page-container/page-container";
-import {neighbourhoodPlaces} from "../../mocks/offers";
 import {selectPlacesInCurrentCity} from "../../store/places-in-city/selectors";
 import {selectLoading} from "../../store/all-hotels/selectors";
 import EmptyContent from "../empty-content/empty-content";
@@ -46,7 +45,6 @@ class App extends PureComponent {
               <Header/>
               <CardDetail
                 hotelId={+match.params.hotelId}
-                neighbourhoodPlaces={neighbourhoodPlaces}
               />
             </div>);
           } }/>
