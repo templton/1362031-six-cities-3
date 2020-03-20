@@ -12,8 +12,9 @@ export const sortCityFilterType = {
   PRICE_HIGH_TO_LOW: `Price: high to low`,
 };
 
-export const path = {
+export const routerPath = {
   MAIN: `/`,
   LOGIN: `/login`,
-  FAVOURITES: `/favorites`
+  FAVOURITES: `/favorites`,
+  HOTEL_DETAIL: `/hotel/:hotelId`
 };

@@ -14,6 +14,7 @@ import {selectLoading} from "../../store/all-hotels/selectors";
 import EmptyContent from "../empty-content/empty-content";
 import {Operation as AllHotelsOperation} from "../../store/all-hotels/reducers";
 import history from "../../history";
+import {routerPath} from "../../const";
 
 class App extends PureComponent {
   constructor(props) {
@@ -33,12 +34,12 @@ class App extends PureComponent {
     return (
       <Router history={history}>
         <Switch>
-          <Route exact path="/">
+          <Route exact path={routerPath.MAIN}>
             <PageContainer pageClass={offers.length > 0 ? `page--gray page--main` : `page--gray page--main`}>
               <Main/>
             </PageContainer>
           </Route>
-          <Route exact path="/hotel/:hotelId" render={ ({match})=>{
+          <Route exact path={routerPath.HOTEL_DETAIL} render={ ({match})=>{
             loadNearbyHotels(+match.params.hotelId);
             return (<div className="page page--gray page--main">
               <Header/>
@@ -48,12 +49,12 @@ class App extends PureComponent {
               />
             </div>);
           } }/>
-          <Route exact path="/login">
+          <Route exact path={routerPath.LOGIN}>
             <PageContainer pageClass="page--gray page--login">
               <Login/>
             </PageContainer>
           </Route>
-          <Route exact path="/favorites">
+          <Route exact path={routerPath.FAVOURITES}>
             <PageContainer>
               <FavoritesCards/>
             </PageContainer>

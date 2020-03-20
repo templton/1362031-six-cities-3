@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import {connect} from "react-redux";
 import {Operation as UserOperation} from "../../store/user/reducers";
 import {selectAuthStatus} from "../../store/user/selectors";
-import {path} from "../../const";
+import {routerPath} from "../../const";
 
 class Login extends PureComponent {
 
@@ -19,7 +19,7 @@ class Login extends PureComponent {
     const {authStatus} = this.props;
 
     if (authStatus) {
-      return <Redirect to={path.MAIN}/>;
+      return <Redirect to={routerPath.MAIN}/>;
     }
 
 
