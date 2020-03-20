@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`FavoritesCards render FavoritesCards render default 1`] = `
+exports[`FavoritesCards render FavoritesCards render empty page 1`] = `
 Array [
   <main
     className="page__main page__main--favorites page__main--favorites-empty"
