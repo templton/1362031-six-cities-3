@@ -7,7 +7,7 @@ exports[`CityPlaceCard render Render CityPlaceCard 1`] = `
   onMouseLeave={[Function]}
 >
   <div
-    className="place-card__image-wrapper"
+    className="undefined place-card__image-wrapper"
   >
     <a
       href="#"
@@ -15,9 +15,9 @@ exports[`CityPlaceCard render Render CityPlaceCard 1`] = `
       <img
         alt="Place image"
         className="place-card__image"
-        height="200"
+        height={200}
         src="https://upload.wikimedia.org/wikipedia/commons/3/34/Nanteos_%28geograph_3153536%29.jpg"
-        width="260"
+        width={260}
       />
     </a>
   </div>
@@ -44,6 +44,7 @@ exports[`CityPlaceCard render Render CityPlaceCard 1`] = `
       </div>
       <button
         className="place-card__bookmark-button place-card__bookmark-button button"
+        onClick={[Function]}
         type="button"
       >
         <svg
@@ -89,10 +90,10 @@ exports[`CityPlaceCard render Render CityPlaceCard 1`] = `
     </div>
     <h2
       className="place-card__name"
-      onClick={[Function]}
     >
       <a
-        href="#"
+        href="/hotel/1"
+        onClick={[Function]}
       >
         Комната №1
       </a>

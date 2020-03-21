@@ -21,13 +21,13 @@ const store = mockStore({
   }
 });
 
-describe(`Cities list render test`, () => {
+describe(`Render <CitiesList/>`, () => {
 
-  it(`Simple render`, () => {
+  it(`Empty render`, () => {
     const tree = renderer
       .create(
           <Provider store={store}>
-            <CitiesList />
+            <CitiesList cities={[]} onLoadPlacesInCity={()=>{}}/>
           </Provider>
       ).toJSON();
 
