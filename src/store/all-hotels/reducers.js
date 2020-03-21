@@ -16,7 +16,6 @@ const Operation = {
       .then((response) => {
         const hotels = AllHotels.toFrontendModel(response.response.data);
         dispatch(ActionCreator.loadAllHotels(hotels));
-        console.log(JSON.stringify(hotels[0]));
         dispatch(PlacesInCityOperation.loadPlacesInCity(hotels[0].city.name));
         dispatch(ActionCreator.setLoading(false));
       });
