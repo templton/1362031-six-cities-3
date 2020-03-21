@@ -91,11 +91,12 @@ exports[`CardDetail render CardDetail render default 1`] = `
             Beautiful & luxurious studio at great location approve
           </h1>
           <button
-            className="property__bookmark-button button"
+            className="property__bookmark-button property__bookmark-button--active button"
+            onClick={[Function]}
             type="button"
           >
             <svg
-              className="property__bookmark-icon"
+              className="property__bookmark-icon--active"
               height="33"
               width="31"
             >
@@ -153,7 +154,7 @@ exports[`CardDetail render CardDetail render default 1`] = `
             className="property__feature property__feature--adults"
           >
             Max 
-            15 adults
+            15
           </li>
         </ul>
         <div
@@ -262,7 +263,7 @@ exports[`CardDetail render CardDetail render default 1`] = `
                 alt="Host avatar"
                 className="property__avatar user__avatar"
                 height="74"
-                src="img/avatar-max.jpg"
+                src="/img/avatar-max.jpg"
                 width="74"
               />
             </div>
@@ -307,161 +308,176 @@ exports[`CardDetail render CardDetail render default 1`] = `
             action="#"
             className="reviews__form form"
             method="post"
+            onSubmit={[Function]}
           >
-            <label
-              className="reviews__label form__label"
-              htmlFor="review"
+            <fieldset
+              style={
+                Object {
+                  "border": "none",
+                }
+              }
             >
-              Your review
-            </label>
-            <div
-              className="reviews__rating-form form__rating"
-            >
-              <input
-                className="form__rating-input visually-hidden"
-                id="5-stars"
-                name="rating"
-                type="radio"
-                value="5"
-              />
               <label
-                className="reviews__rating-label form__rating-label"
-                htmlFor="5-stars"
-                title="perfect"
+                className="reviews__label form__label"
+                htmlFor="review"
               >
-                <svg
-                  className="form__star-image"
-                  height="33"
-                  width="37"
-                >
-                  <use
-                    xlinkHref="#icon-star"
-                  />
-                </svg>
+                Your review
               </label>
-              <input
-                className="form__rating-input visually-hidden"
-                id="4-stars"
-                name="rating"
-                type="radio"
-                value="4"
+              <div
+                className="reviews__rating-form form__rating"
+              >
+                <input
+                  className="form__rating-input visually-hidden"
+                  id="5-stars"
+                  name="rating"
+                  type="radio"
+                  value="5"
+                />
+                <label
+                  className="reviews__rating-label form__rating-label"
+                  htmlFor="5-stars"
+                  title="perfect"
+                >
+                  <svg
+                    className="form__star-image"
+                    height="33"
+                    width="37"
+                  >
+                    <use
+                      xlinkHref="#icon-star"
+                    />
+                  </svg>
+                </label>
+                <input
+                  className="form__rating-input visually-hidden"
+                  id="4-stars"
+                  name="rating"
+                  onClick={[Function]}
+                  type="radio"
+                  value="4"
+                />
+                <label
+                  className="reviews__rating-label form__rating-label"
+                  htmlFor="4-stars"
+                  title="good"
+                >
+                  <svg
+                    className="form__star-image"
+                    height="33"
+                    width="37"
+                  >
+                    <use
+                      xlinkHref="#icon-star"
+                    />
+                  </svg>
+                </label>
+                <input
+                  className="form__rating-input visually-hidden"
+                  id="3-stars"
+                  name="rating"
+                  onClick={[Function]}
+                  type="radio"
+                  value="3"
+                />
+                <label
+                  className="reviews__rating-label form__rating-label"
+                  htmlFor="3-stars"
+                  title="not bad"
+                >
+                  <svg
+                    className="form__star-image"
+                    height="33"
+                    width="37"
+                  >
+                    <use
+                      xlinkHref="#icon-star"
+                    />
+                  </svg>
+                </label>
+                <input
+                  className="form__rating-input visually-hidden"
+                  id="2-stars"
+                  name="rating"
+                  onClick={[Function]}
+                  type="radio"
+                  value="2"
+                />
+                <label
+                  className="reviews__rating-label form__rating-label"
+                  htmlFor="2-stars"
+                  title="badly"
+                >
+                  <svg
+                    className="form__star-image"
+                    height="33"
+                    width="37"
+                  >
+                    <use
+                      xlinkHref="#icon-star"
+                    />
+                  </svg>
+                </label>
+                <input
+                  className="form__rating-input visually-hidden"
+                  id="1-star"
+                  name="rating"
+                  onClick={[Function]}
+                  type="radio"
+                  value="1"
+                />
+                <label
+                  className="reviews__rating-label form__rating-label"
+                  htmlFor="1-star"
+                  title="terribly"
+                >
+                  <svg
+                    className="form__star-image"
+                    height="33"
+                    width="37"
+                  >
+                    <use
+                      xlinkHref="#icon-star"
+                    />
+                  </svg>
+                </label>
+              </div>
+              <textarea
+                className="reviews__textarea form__textarea"
+                id="review"
+                name="review"
+                onChange={[Function]}
+                placeholder="Tell how was your stay, what you like and what can be improved"
+                value=""
               />
-              <label
-                className="reviews__rating-label form__rating-label"
-                htmlFor="4-stars"
-                title="good"
+              <div
+                className="reviews__button-wrapper"
               >
-                <svg
-                  className="form__star-image"
-                  height="33"
-                  width="37"
+                <p
+                  className="reviews__help"
                 >
-                  <use
-                    xlinkHref="#icon-star"
-                  />
-                </svg>
-              </label>
-              <input
-                className="form__rating-input visually-hidden"
-                id="3-stars"
-                name="rating"
-                type="radio"
-                value="3"
-              />
-              <label
-                className="reviews__rating-label form__rating-label"
-                htmlFor="3-stars"
-                title="not bad"
-              >
-                <svg
-                  className="form__star-image"
-                  height="33"
-                  width="37"
+                  To submit review please make sure to set 
+                  <span
+                    className="reviews__star"
+                  >
+                    rating
+                  </span>
+                   and describe your stay with at least 
+                  <b
+                    className="reviews__text-amount"
+                  >
+                    50 characters
+                  </b>
+                  .
+                </p>
+                <button
+                  className="reviews__submit form__submit button"
+                  disabled={true}
+                  type="submit"
                 >
-                  <use
-                    xlinkHref="#icon-star"
-                  />
-                </svg>
-              </label>
-              <input
-                className="form__rating-input visually-hidden"
-                id="2-stars"
-                name="rating"
-                type="radio"
-                value="2"
-              />
-              <label
-                className="reviews__rating-label form__rating-label"
-                htmlFor="2-stars"
-                title="badly"
-              >
-                <svg
-                  className="form__star-image"
-                  height="33"
-                  width="37"
-                >
-                  <use
-                    xlinkHref="#icon-star"
-                  />
-                </svg>
-              </label>
-              <input
-                className="form__rating-input visually-hidden"
-                id="1-star"
-                name="rating"
-                type="radio"
-                value="1"
-              />
-              <label
-                className="reviews__rating-label form__rating-label"
-                htmlFor="1-star"
-                title="terribly"
-              >
-                <svg
-                  className="form__star-image"
-                  height="33"
-                  width="37"
-                >
-                  <use
-                    xlinkHref="#icon-star"
-                  />
-                </svg>
-              </label>
-            </div>
-            <textarea
-              className="reviews__textarea form__textarea"
-              id="review"
-              name="review"
-              placeholder="Tell how was your stay, what you like and what can be improved"
-            />
-            <div
-              className="reviews__button-wrapper"
-            >
-              <p
-                className="reviews__help"
-              >
-                To submit review please make sure to set 
-                <span
-                  className="reviews__star"
-                >
-                  rating
-                </span>
-                 and describe your stay with at least 
-                <b
-                  className="reviews__text-amount"
-                >
-                  50 characters
-                </b>
-                .
-              </p>
-              <button
-                className="reviews__submit form__submit button"
-                disabled=""
-                type="submit"
-              >
-                Submit
-              </button>
-            </div>
+                  Submit
+                </button>
+              </div>
+            </fieldset>
           </form>
         </section>
       </div>
@@ -495,317 +511,7 @@ exports[`CardDetail render CardDetail render default 1`] = `
           </h2>
           <div
             className="near-places__list places__list"
-          >
-            <article
-              className="near-places__card place-card"
-              onMouseEnter={[Function]}
-              onMouseLeave={[Function]}
-            >
-              <div
-                className="place-card__image-wrapper"
-              >
-                <a
-                  href="#"
-                >
-                  <img
-                    alt="Place image"
-                    className="place-card__image"
-                    height="200"
-                    src="https://upload.wikimedia.org/wikipedia/commons/3/34/Nanteos_%28geograph_3153536%29.jpg"
-                    width="260"
-                  />
-                </a>
-              </div>
-              <div
-                className="place-card__info"
-              >
-                <div
-                  className="place-card__price-wrapper"
-                >
-                  <div
-                    className="place-card__price"
-                  >
-                    <b
-                      className="place-card__price-value"
-                    >
-                      €
-                      150
-                    </b>
-                    <span
-                      className="place-card__price-text"
-                    >
-                      / night
-                    </span>
-                  </div>
-                  <button
-                    className="place-card__bookmark-button place-card__bookmark-button button"
-                    type="button"
-                  >
-                    <svg
-                      className="place-card__bookmark-icon"
-                      height="19"
-                      width="18"
-                    >
-                      <use
-                        xlinkHref="#icon-bookmark"
-                      />
-                    </svg>
-                    <span
-                      className="visually-hidden"
-                    >
-                      In bookmarks
-                    </span>
-                  </button>
-                </div>
-                <div
-                  className="place-card__rating rating"
-                >
-                  <div
-                    className="place-card__rating rating"
-                  >
-                    <div
-                      className="place-card__stars rating__stars"
-                    >
-                      <span
-                        style={
-                          Object {
-                            "width": "60%",
-                          }
-                        }
-                      />
-                      <span
-                        className="visually-hidden"
-                      >
-                        Rating
-                      </span>
-                    </div>
-                    
-                  </div>
-                </div>
-                <h2
-                  className="place-card__name"
-                  onClick={[Function]}
-                >
-                  <a
-                    href="#"
-                  >
-                    Комната №12
-                  </a>
-                </h2>
-                <p
-                  className="place-card__type"
-                >
-                  room
-                </p>
-              </div>
-            </article>
-            <article
-              className="near-places__card place-card"
-              onMouseEnter={[Function]}
-              onMouseLeave={[Function]}
-            >
-              <div
-                className="place-card__image-wrapper"
-              >
-                <a
-                  href="#"
-                >
-                  <img
-                    alt="Place image"
-                    className="place-card__image"
-                    height="200"
-                    src="img/room.jpg"
-                    width="260"
-                  />
-                </a>
-              </div>
-              <div
-                className="place-card__info"
-              >
-                <div
-                  className="place-card__price-wrapper"
-                >
-                  <div
-                    className="place-card__price"
-                  >
-                    <b
-                      className="place-card__price-value"
-                    >
-                      €
-                      240
-                    </b>
-                    <span
-                      className="place-card__price-text"
-                    >
-                      / night
-                    </span>
-                  </div>
-                  <button
-                    className="place-card__bookmark-button place-card__bookmark-button button"
-                    type="button"
-                  >
-                    <svg
-                      className="place-card__bookmark-icon"
-                      height="19"
-                      width="18"
-                    >
-                      <use
-                        xlinkHref="#icon-bookmark"
-                      />
-                    </svg>
-                    <span
-                      className="visually-hidden"
-                    >
-                      In bookmarks
-                    </span>
-                  </button>
-                </div>
-                <div
-                  className="place-card__rating rating"
-                >
-                  <div
-                    className="place-card__rating rating"
-                  >
-                    <div
-                      className="place-card__stars rating__stars"
-                    >
-                      <span
-                        style={
-                          Object {
-                            "width": "60%",
-                          }
-                        }
-                      />
-                      <span
-                        className="visually-hidden"
-                      >
-                        Rating
-                      </span>
-                    </div>
-                    
-                  </div>
-                </div>
-                <h2
-                  className="place-card__name"
-                  onClick={[Function]}
-                >
-                  <a
-                    href="#"
-                  >
-                    Комната №13
-                  </a>
-                </h2>
-                <p
-                  className="place-card__type"
-                >
-                  apartment
-                </p>
-              </div>
-            </article>
-            <article
-              className="near-places__card place-card"
-              onMouseEnter={[Function]}
-              onMouseLeave={[Function]}
-            >
-              <div
-                className="place-card__image-wrapper"
-              >
-                <a
-                  href="#"
-                >
-                  <img
-                    alt="Place image"
-                    className="place-card__image"
-                    height="200"
-                    src="img/room.jpg"
-                    width="260"
-                  />
-                </a>
-              </div>
-              <div
-                className="place-card__info"
-              >
-                <div
-                  className="place-card__price-wrapper"
-                >
-                  <div
-                    className="place-card__price"
-                  >
-                    <b
-                      className="place-card__price-value"
-                    >
-                      €
-                      370
-                    </b>
-                    <span
-                      className="place-card__price-text"
-                    >
-                      / night
-                    </span>
-                  </div>
-                  <button
-                    className="place-card__bookmark-button place-card__bookmark-button button"
-                    type="button"
-                  >
-                    <svg
-                      className="place-card__bookmark-icon"
-                      height="19"
-                      width="18"
-                    >
-                      <use
-                        xlinkHref="#icon-bookmark"
-                      />
-                    </svg>
-                    <span
-                      className="visually-hidden"
-                    >
-                      In bookmarks
-                    </span>
-                  </button>
-                </div>
-                <div
-                  className="place-card__rating rating"
-                >
-                  <div
-                    className="place-card__rating rating"
-                  >
-                    <div
-                      className="place-card__stars rating__stars"
-                    >
-                      <span
-                        style={
-                          Object {
-                            "width": "40%",
-                          }
-                        }
-                      />
-                      <span
-                        className="visually-hidden"
-                      >
-                        Rating
-                      </span>
-                    </div>
-                    
-                  </div>
-                </div>
-                <h2
-                  className="place-card__name"
-                  onClick={[Function]}
-                >
-                  <a
-                    href="#"
-                  >
-                    Комната №14
-                  </a>
-                </h2>
-                <p
-                  className="place-card__type"
-                >
-                  house
-                </p>
-              </div>
-            </article>
-          </div>
+          />
         </section>
       </div>
     </div>

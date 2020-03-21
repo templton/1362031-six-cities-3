@@ -1,13 +1,13 @@
 import React from "react";
 import renderer from "react-test-renderer";
 import {Provider} from "react-redux";
-import CardDetail from "./card-detail";
+import {CardDetail} from "./card-detail";
+import thunk from "redux-thunk";
 import configureStore from "redux-mock-store";
 import StoreNameSpace from "../../store/store-name-space";
 import {sortCityFilterType} from "../../const";
 
-
-const mockStore = configureStore([]);
+const mockStore = configureStore([thunk]);
 
 const store = mockStore({
   [StoreNameSpace.FILTERS]: {
@@ -15,7 +15,15 @@ const store = mockStore({
     currentPlaceFilterType: sortCityFilterType.POPULAR
   },
   [StoreNameSpace.ALL_HOTELS]: {
-    hotels: []
+    hotels: [],
+    nearHotels: []
+  },
+  [StoreNameSpace.USER]: {
+    authStatus: true
+  },
+  [StoreNameSpace.REVIEWS]: {
+    reviews: [],
+    reviewPostFetching: true
   },
   [StoreNameSpace.PLACES_IN_CITY]: {
     currentCityName: `Hamburg`
@@ -78,7 +86,9 @@ describe(`CardDetail render`, () => {
           <Provider store={store}>
             <CardDetail
               hotelId={1}
-              loadCardInfo={{}}
+              loadCardInfo={() => {
+                return CardData.info;
+              }}
               onFavouriteButtonClick={()=>{}}
             />
           </Provider>, {
