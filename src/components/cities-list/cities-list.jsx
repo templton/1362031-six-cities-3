@@ -3,7 +3,6 @@ import {connect} from "react-redux";
 import PropTypes from "prop-types";
 import {selectCities} from "../../store/all-hotels/selectors";
 import {selectCurrentCityName} from "../../store/places-in-city/selectors";
-import {ActionCreator as PlacesInCityActionCreator} from "../../store/places-in-city/actions";
 import {Operation as PlacesInCityOperation} from "../../store/places-in-city/reducers";
 
 const CitiesList = ({cities, currentCityName, onLoadPlacesInCity}) => {

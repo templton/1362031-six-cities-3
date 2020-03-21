@@ -1,6 +1,5 @@
 import React from "react";
 import ReactDom from "react-dom";
-import {Redirect} from "react-router-dom";
 import App from "./components/app/app.jsx";
 import {Provider} from "react-redux";
 import {createStore, applyMiddleware, compose} from "redux";

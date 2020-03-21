@@ -64,7 +64,7 @@ class Login extends PureComponent {
 Login.propTypes = {
   onSubmit: PropTypes.func.isRequired,
   authStatus: PropTypes.bool.isRequired,
-}
+};
 
 const mapStateToProps = (state) => ({
   authStatus: selectAuthStatus(state)

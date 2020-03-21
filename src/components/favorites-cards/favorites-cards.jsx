@@ -20,7 +20,7 @@ class FavoritesCards extends PureComponent {
       return item.city.name;
     })));
 
-    if (sities.length === 0){
+    if (sities.length === 0) {
       return (
         <Fragment>
           <main className="page__main page__main--favorites page__main--favorites-empty">

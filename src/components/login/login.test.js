@@ -8,5 +8,5 @@ describe(`Render <Login/>`, () => {
       .create(<Login onSubmit={()=>{}} authStatus={false}/>).toJSON();
 
     expect(tree).toMatchSnapshot();
-  })
+  });
 });
