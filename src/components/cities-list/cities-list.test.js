@@ -1,16 +1,33 @@
 import React from "react";
 import renderer from "react-test-renderer";
 import {Provider} from "react-redux";
-import CitiesList from "./cities-list";
-import {store} from "../../mocks/test-store";
+import {CitiesList} from "./cities-list";
+import configureStore from "redux-mock-store";
+import StoreNameSpace from "../../store/store-name-space";
+import {sortCityFilterType} from "../../const";
 
-describe(`Cities list render test`, () => {
+const mockStore = configureStore([]);
 
-  it(`Simple render`, () => {
+const store = mockStore({
+  [StoreNameSpace.FILTERS]: {
+    mouseOverPlaceCard: [53.346785, 83.776856],
+    currentPlaceFilterType: sortCityFilterType.POPULAR
+  },
+  [StoreNameSpace.ALL_HOTELS]: {
+    hotels: []
+  },
+  [StoreNameSpace.PLACES_IN_CITY]: {
+    currentCityName: `Hamburg`
+  }
+});
+
+describe(`Render <CitiesList/>`, () => {
+
+  it(`Empty render`, () => {
     const tree = renderer
       .create(
           <Provider store={store}>
-            <CitiesList />
+            <CitiesList cities={[]} onLoadPlacesInCity={()=>{}}/>
           </Provider>
       ).toJSON();
 

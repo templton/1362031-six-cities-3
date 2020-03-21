@@ -1,17 +1,17 @@
 import React from "react";
 import renderer from "react-test-renderer";
-import {Provider} from "react-redux";
-import CityPlacesFormFilters from "./city-places-form-filters";
-import {store} from "../../mocks/test-store";
+import {CityPlacesFormFilters} from "./city-places-form-filters";
+import {sortCityFilterType} from "../../const";
 
 describe(`CityPlacesFormFilters render`, () => {
   it(`simple render`, ()=>{
     const tree = renderer
-      .create(
-          <Provider store={store}>
-            <CityPlacesFormFilters isFilterVisible={true} onFilterClick={()=>{}}/>
-          </Provider>
-      ).toJSON();
+      .create(<CityPlacesFormFilters
+        onFilterClick={()=>{}}
+        onSortPlacesInCity={()=>{}}
+        onFilterChange={()=>{}}
+        currentPlaceFilterType={sortCityFilterType.POPULAR}
+        isFilterVisible={true}/>).toJSON();
 
     expect(tree).toMatchSnapshot();
   });

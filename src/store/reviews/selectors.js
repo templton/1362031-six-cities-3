@@ -1,7 +1,7 @@
 import StoreNameSpace from "../store-name-space";
 
 const selectReviewPostFetching = (state) => {
-  return state[StoreNameSpace.REVIEWS].reviewPostFetching
+  return state[StoreNameSpace.REVIEWS].reviewPostFetching;
 };
 
 const selectReviews = (state) => {

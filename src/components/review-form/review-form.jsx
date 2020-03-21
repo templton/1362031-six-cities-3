@@ -51,7 +51,7 @@ class ReviewForm extends PureComponent {
 
   render() {
     const {raiting, reviewText, formFetching} = this.state;
-    const submitButtonActive = reviewText.length > COMMENT_MIN_LENGTH && reviewText.length < COMMENT_MAX_LENGTH && raiting>0;
+    const submitButtonActive = reviewText.length > COMMENT_MIN_LENGTH && reviewText.length < COMMENT_MAX_LENGTH && raiting > 0;
     return (
       <form className="reviews__form form" action="#" method="post" onSubmit={this.handleSubmit}>
         <fieldset disabled={formFetching} style={{border: `none`}}>
@@ -115,7 +115,6 @@ ReviewForm.propTypes = {
 
 const mapStateToProps = (state) => ({
   formFetching: selectReviewPostFetching(state),
-  // currentHotelId: selectCurrentHotelId(state)
 });
 
 const mapDispatchToProps = ({

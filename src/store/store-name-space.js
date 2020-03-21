@@ -4,7 +4,8 @@ const StoreNameSpace = {
   FILTERS: `FILTERS`,
   SELECTED_CARD: `SELECTED_CARD`,
   USER: `USER`,
-  REVIEWS: `REVIEWS`
+  REVIEWS: `REVIEWS`,
+  FAVOURITES: `FAVOURITES`
 };
 
 export default StoreNameSpace;

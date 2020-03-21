@@ -6,6 +6,6 @@ const selectUser = (state) => {
 
 const selectAuthStatus = (state) => {
   return state[StoreNameSpace.USER].authStatus;
-}
+};
 
 export {selectUser, selectAuthStatus};
