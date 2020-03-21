@@ -1,7 +1,7 @@
 import React from "react";
 import renderer from "react-test-renderer";
 import {Provider} from "react-redux";
-import {CitiesList} from "./cities-list";
+import EmptyContent from "./empty-content";
 import configureStore from "redux-mock-store";
 import StoreNameSpace from "../../store/store-name-space";
 import {sortCityFilterType} from "../../const";
@@ -21,17 +21,15 @@ const store = mockStore({
   }
 });
 
-describe(`Cities list render test`, () => {
-
-  it(`Simple render`, () => {
+describe(`Render <EmptyContent/>`, () => {
+  it(`render page`, () => {
     const tree = renderer
       .create(
           <Provider store={store}>
-            <CitiesList />
+            <EmptyContent/>
           </Provider>
       ).toJSON();
 
     expect(tree).toMatchSnapshot();
-
   });
 });

@@ -12,7 +12,7 @@ exports[`CityPlaces render <CityList /> should render 1`] = `
   <b
     className="places__found"
   >
-    2 places to stay in Амстердам
+    2 places to stay in Humburg
   </b>
   <form
     action="#"
@@ -50,7 +50,7 @@ exports[`CityPlaces render <CityList /> should render 1`] = `
       onMouseLeave={[Function]}
     >
       <div
-        className="place-card__image-wrapper"
+        className="undefined place-card__image-wrapper"
       >
         <a
           href="#"
@@ -58,9 +58,9 @@ exports[`CityPlaces render <CityList /> should render 1`] = `
           <img
             alt="Place image"
             className="place-card__image"
-            height="200"
+            height={200}
             src="https://upload.wikimedia.org/wikipedia/commons/3/34/Nanteos_%28geograph_3153536%29.jpg"
-            width="260"
+            width={260}
           />
         </a>
       </div>
@@ -87,6 +87,7 @@ exports[`CityPlaces render <CityList /> should render 1`] = `
           </div>
           <button
             className="place-card__bookmark-button place-card__bookmark-button button"
+            onClick={[Function]}
             type="button"
           >
             <svg
@@ -132,10 +133,10 @@ exports[`CityPlaces render <CityList /> should render 1`] = `
         </div>
         <h2
           className="place-card__name"
-          onClick={[Function]}
         >
           <a
-            href="#"
+            href="/hotel/1"
+            onClick={[Function]}
           >
             Комната №1
           </a>
@@ -153,7 +154,7 @@ exports[`CityPlaces render <CityList /> should render 1`] = `
       onMouseLeave={[Function]}
     >
       <div
-        className="place-card__image-wrapper"
+        className="undefined place-card__image-wrapper"
       >
         <a
           href="#"
@@ -161,9 +162,9 @@ exports[`CityPlaces render <CityList /> should render 1`] = `
           <img
             alt="Place image"
             className="place-card__image"
-            height="200"
+            height={200}
             src="https://upload.wikimedia.org/wikipedia/commons/3/34/Nanteos_%28geograph_3153536%29.jpg"
-            width="260"
+            width={260}
           />
         </a>
       </div>
@@ -190,6 +191,7 @@ exports[`CityPlaces render <CityList /> should render 1`] = `
           </div>
           <button
             className="place-card__bookmark-button place-card__bookmark-button button"
+            onClick={[Function]}
             type="button"
           >
             <svg
@@ -235,10 +237,10 @@ exports[`CityPlaces render <CityList /> should render 1`] = `
         </div>
         <h2
           className="place-card__name"
-          onClick={[Function]}
         >
           <a
-            href="#"
+            href="/hotel/2"
+            onClick={[Function]}
           >
             Комната №115
           </a>
