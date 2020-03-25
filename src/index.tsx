@@ -1,8 +1,9 @@
-import React from "react";
-import ReactDom from "react-dom";
+import * as React from "react";
+import * as ReactDom from "react-dom";
 import App from "./components/app/app.jsx";
 import {Provider} from "react-redux";
 import {createStore, applyMiddleware, compose} from "redux";
+import {composeWithDevTools} from "redux-devtools-extension";
 import rootReducer from "./store/rootReducer";
 import thunk from "redux-thunk";
 import {createApi} from "./api";
@@ -21,9 +22,8 @@ const api = createApi(unauthorize);
 
 const store = createStore(
     rootReducer,
-    compose(
-        applyMiddleware(thunk.withExtraArgument(api)),
-        window.__REDUX_DEVTOOLS_EXTENSION__ ? window.__REDUX_DEVTOOLS_EXTENSION__() : (f) => f
+  composeWithDevTools(
+        applyMiddleware(thunk.withExtraArgument(api))
     )
 );
 
